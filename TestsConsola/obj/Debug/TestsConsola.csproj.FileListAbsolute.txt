@@ -1,0 +1,11 @@
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\bin\Debug\TestsConsola.exe.config
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\bin\Debug\TestsConsola.exe
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\bin\Debug\TestsConsola.pdb
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\bin\Debug\csDronLink.dll
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\bin\Debug\csDronLink.pdb
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\bin\Debug\csDronLink.dll.config
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\obj\Debug\TestsConsola.csproj.AssemblyReference.cache
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\obj\Debug\TestsConsola.csproj.CoreCompileInputs.cache
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\obj\Debug\TestsConsola.csproj.CopyComplete
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\obj\Debug\TestsConsola.exe
+E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\obj\Debug\TestsConsola.pdb
