@@ -116,5 +116,14 @@ ejemplo, la posición del dron en el mapa.
    
  Este vídeo muestra cómo crear una aplicación super sencilla desde cero, usando la librería. [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-csDronLink_demoDesdeCero-pink.svg)](https://www.youtube.com/playlist?list=PLyAtSQhMsD4o6s7OSD32KVOksonKDSRJ-)       
 
- 
+ ## 4. Trabajo futuro   
+ Lo que hay aquí es una versión operativa pero muy preliminar de la librería. Hay mucho trabajo por delante, no solo para ampliar sus funcionalidades, sino también para mejorar las que tiene ya. Algunas mejoras pendientes son estas:
+ * Incorporar a la misión elementos tales como la altura de cada waypoint, o hacer que el dron pare un tiempo o cambie de heading en cada waypoint.
+ * Hacer que en la operación de volar aquí se pueda indicar la altura del waypoint de destino.
+
+También se pueden introducir mejoras en la aplicación de ejemplo:
+* Hacerla más robusta. Por ejemplo, peta si no se elije el modo (simulación o producción)
+* Cambiar los colores de los botores según lo que haga el usuario (por ejemplo, al acabar de ejecutar la misión hacer que los botones de cargar y ejecutar vuelvan al color naranja)
+* Añadir la velocidad y el nivel de batería a los datos de telemetría
+* Diseñar el escenario, igual que se diseña el plan de vuelo.
 
