@@ -10,3 +10,102 @@ Este repositorio contiene 3 carpetas:
 El repositorio también contiene el fichero *csDronLink.dll*. Este es el fichero que hay que descargar para usar la librería. Basta agregar esta dll como referencia a nuestro proyecto en Visual C# para poder usarla.      
     
 Estos son algunos vídeos que pueden ayudar a empezar con csDronLink.
+
+## 2. Modelo de programación de csDronLink
+csDronLink esta implementada en forma de clase **(la clase Dron)** con sus atributos y una
+variedad de métodos para operar con el dron. La clase con los atributos y algunos métodos está definida en el
+fichero _Dron.cs_ y el resto de métodos están en los diferentes ficheros con nombres _Dron_xxx_.cs_
+(Dron_telemetria.cs, Dron_mision.cs, etc.).
+
+Muchos de los métodos pueden activarse **de forma bloqueante o de forma no bloqueante**. En
+el primer caso, **el control no se devuelve al programa que hace la llamada hasta que la
+operación ordenada haya acabado**. Si la llamada es no bloqueante entonces **el control se
+devuelve inmediatamente** para que el programa pueda hacer otras cosas mientras se realiza la
+operación.
+
+Un buen ejemplo de método con estas dos opciones es _Despegar_, que tiene la siguiente cabecera:
+
+```
+public void Despegar(int altitud, Boolean bloquear = true, Action<object> f = null, object param = null)
+```
+
+Al llamar a este método hay que pasarle como parámetro la **altura de despegue**. Por defecto la
+operación es **bloqueante**. Por tanto, el programa que hace la llamada no se reanuda hasta que 
+el dron esté a la altura indicada. En el caso de usar la opción no bloqueante se puede indicar el
+nombre de la función que queremos que se ejecute cuando la operación haya acabado (función a la que
+llamamos habitualmente **callback**). En el caso de _Despegar_, cuando el dron  esté a la altura indicada
+se activará la funcion callback que se le pasa como parámetro _f_. Incluso podemos indicar un parámetro que queremos que
+se le pasen a ese callback  en el momento en que se active. 
+
+Los siguientes ejemplos aclararán estas cuestiones.
+
+_Ejemplo 1_
+
+```
+dron = Dron();
+dron.Conectar ("simulacion"); // me conecto al simulador
+Console.WriteLine ("Conectado");
+dron.Despegar (8);
+Console.WriteLine ("En el aire a 8 metros de altura")
+```
+
+En este ejemplo todas las llamadas son bloqueantes.
+
+
+_Ejemplo 2_
+
+```
+dron = Dron();
+dron.Conectar ("simulacion"); // me conecto al simulador
+Console.WriteLine ("Conectado");
+dron.Despegar (8, bloquear : false); // llamada no bloqueante, sin callback
+Console.WriteLine ("Hago otras cosas mientras se realiza el despegue");
+```
+En este caso la llamada no es bloqueante. El programa continua su ejecución 
+mientras el dron  realiza el despegue. 
+
+_Ejemplo 3_
+
+```
+dron = Dron();
+dron.Conectar ("simulacion"); // me conecto al simulador
+Console.WriteLine ("Conectado");
+dron.Despegar (8, bloquear : false, f: EnAire); // llamada no bloqueante, con callback
+Console.WriteLine ("Hago otras cosas mientras se realiza el despegue");
+```
+De nuevo una llamada no bloqueante. Pero en este caso le estamos indicando que cuando 
+el dron esté a la altura indicada ejecute la función EnAire. Esta función debe estar declarada,
+por ejemplo asi:
+```
+private void EnAire (object param=null)
+{
+    Console.WriteLine ("El dron está en el aire");
+}
+```
+
+       
+_Ejemplo 4_
+
+```
+dron = Dron();
+dron.Conectar ("simulacion"); // me conecto al simulador
+Console.WriteLine ("Conectado");
+dron.Despegar (8, bloquear : false, f:EnAire, param: "En el aire"); // llamada no bloqueante, con callback y parámetro
+Console.WriteLine ("Hago otras cosas mientras se realiza el despegue");
+```
+De nuevo una llamada no bloqueante. Pero en este caso le estamos indicando un callback que tiene un parámetro. La función
+de callback puede ser esta
+```
+private void EnAire (object texto)
+{
+    Console.WriteLine ((string) texto);
+}
+```
+La modalidad no bloqueante en las llamadas a la librería es especialmente útil **cuando
+queremos interactuar con el dron mediante una interfaz gráfica**. Por ejemplo, no vamos a
+querer que se bloquee la interfaz mientras el dron ejecuta una operación de movimiento. Seguramente querremos seguir
+procesando los datos de telemetría mientras el dron se mueve, para mostrar al usuario, por
+ejemplo, la posición del dron en el mapa.     
+   
+ 
+
