@@ -107,5 +107,14 @@ querer que se bloquee la interfaz mientras el dron ejecuta una operación de mov
 procesando los datos de telemetría mientras el dron se mueve, para mostrar al usuario, por
 ejemplo, la posición del dron en el mapa.     
    
+ ## 3. Videos explicativos
+ En este video se explica cómo está organizada la librería (cosa que puede ser útil para el desarrollador de código para librería) y se muestran en funcionamiento los programas de test (esto será útil para el usuario de la librería). [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-csDronLink_organización-pink.svg)](https://www.youtube.com/playlist?list=PLyAtSQhMsD4o6s7OSD32KVOksonKDSRJ-)     
+ 
+  
+ Este vídeo muestra en funcionamiento la aplicación de ejemplo (Simple Example). [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-csDronLink_demoAplicación-pink.svg)](https://www.youtube.com/playlist?list=PLyAtSQhMsD4o6s7OSD32KVOksonKDSRJ-)       
+ Y aquí se explica brevemente el código de esa aplicación.   [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-csDronLink_códigoAplicación-pink.svg)](https://www.youtube.com/playlist?list=PLyAtSQhMsD4o6s7OSD32KVOksonKDSRJ-)       
+   
+ Este vídeo muestra cómo crear una aplicación super sencilla desde cero, usando la librería. [![DroneEngineeringEcosystem Badge](https://img.shields.io/badge/DEE-csDronLink_demoDesdeCero-pink.svg)](https://www.youtube.com/playlist?list=PLyAtSQhMsD4o6s7OSD32KVOksonKDSRJ-)       
+ Y aquí se explica brevemente el código de esa aplicación.   
  
 
