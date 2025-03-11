@@ -83,11 +83,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dron.cs" />
+    <Compile Include="Dron_comprobadores.cs" />
+    <Compile Include="Dron_despegue_aterrizaje_RTL.cs" />
+    <Compile Include="Dron_escenario.cs" />
+    <Compile Include="Dron_miscelanea.cs" />
+    <Compile Include="Dron_mision.cs" />
+    <Compile Include="Dron_movimiento.cs" />
+    <Compile Include="Dron_navegacion.cs" />
+    <Compile Include="Dron_parametros.cs" />
+    <Compile Include="Dron_telemetria.cs" />
     <Compile Include="mavlink.cs" />
     <Compile Include="MavlinkCRC.cs" />
     <Compile Include="MAVLinkMessage.cs" />
     <Compile Include="MavlinkParse.cs" />
     <Compile Include="MavlinkUtil.cs" />
+    <Compile Include="MessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

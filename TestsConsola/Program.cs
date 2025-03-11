@@ -111,6 +111,19 @@ namespace TestsConsola
                 Thread.Sleep(5000);
             }
         }
+        static void EnWayPoint (object n)
+        {
+            Console.WriteLine("He llegado al waypoint "+ n);
+        }
+        static void FinMision (object dron)
+        {
+            Console.WriteLine("Retorno");
+            Dron miDron = (Dron)dron;
+            miDron.RTL();
+            Console.WriteLine("Fin");
+            Console.ReadKey();
+
+        }
         static void test_mision (Dron dron)
         {
             // Se asume que el dron está en el centro del Nou Camp
@@ -127,11 +140,8 @@ namespace TestsConsola
             Console.WriteLine("Despego a 20 m");
             dron.Despegar(20);
             Console.WriteLine("Ejecuto la mision");
-            dron.EjecutarMision();
-            Console.WriteLine("Retorno");
-            dron.RTL();
-            Console.WriteLine("Fin");
-            Console.ReadKey();
+            dron.EjecutarMision(bloquear:false, EnWaypoint: EnWayPoint, f: FinMision, param:dron);
+           
         }
         static void test_escenario (Dron dron)
         {
@@ -217,9 +227,10 @@ namespace TestsConsola
             //test_telemetria(miDron);
             //test_cambioHeading(miDron);
             //test_llamadasNoBloqueantes(miDron);
-            //test_mision (miDron);
+            test_mision (miDron);
             //test_escenario(miDron);
-            test_irAPunto (miDron);
+            //test_irAPunto (miDron);
+            Console.ReadKey();
 
         }
     }

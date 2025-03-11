@@ -12,65 +12,178 @@ using GMap.NET.WindowsForms.Markers;
 using csDronLink;
 
 
+
 namespace SimpleExample
 {
     public partial class simpleexample : Form
     {
-        MAVLink.MavlinkParse mavlink = new MAVLink.MavlinkParse();
 
-        //private System.Windows.Forms.Timer timer;
         Dron dron = new Dron();
+        // para gestionar el mapa
         private GMapControl gmap;
         private GMapOverlay overlay;
-        private Bitmap iconoPersonalizado;
-
-
         private GMapRoute ruta;
-        GMarkerGoogle dronIcon;
-        GMapRoute dronHeading;
+
+        // Para representar el dron
+        private Bitmap iconoPersonalizado; //imagen de dron
+        GMarkerGoogle dronIcon; // marcador para la posición del dron
+        GMapRoute dronHeading; // linea marcando el heading
+
+        // aqui iremos guardando los waypoints de la misión
         List<(float lat, float lon)> mision;
 
         PointLatLng home; // coordenadas del DroneLab o del Nou Camp (a elegir)
         string nombreHome;
+
         public simpleexample()
         {
-
+            // No queremos que nos molesten con la excepción Cross-Threading
             CheckForIllegalCrossThreadCalls = false;
-            InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
 
-            // Botones con imagenes de flechas
+            InitializeComponent();
+
+            // Hacemos que el formulario principal ocupe toda la pantalla
+            //this.WindowState = FormWindowState.Maximized;
+
+            // Configuramos los 9 botones de movimiento. Todos ellos tendrán asociada la misma función
+            // para gestionar el evento click, pero en el tag ponemos la palabra que identifica la dirección 
+            // del movimiento, que es la palabra que hay que pasarle como parámetro al dron para que haga la
+            // operación. El texto es el código de una flechita que representa la dirección del movimineto.
+
+            Font letraGrande = new Font("Arial", 16);
+            Font letraPequeña = new Font("Arial", 12);
+
             button26.Text = "\u2196";
+            button26.Tag = "ForwardLeft";
+            button26.Click += movButton_Click;
+            button26.Font = letraGrande;
+
+
             button25.Text = "\u25B2";
+            button25.Tag = "Forward";
+            button25.Click += movButton_Click;
+            button25.Font = letraGrande;
+
+
             button24.Text = "\u2197";
+            button24.Tag = "ForwardRight";
+            button24.Click += movButton_Click;
+            button24.Font = letraGrande;
+
 
             button19.Text = "\u25C4";
+            button19.Tag = "Left";
+            button19.Click += movButton_Click;
+            button19.Font = letraGrande;
+
+
             button8.Text = "Stop";
+            button8.Tag = "Stop";
+            button8.Click += movButton_Click;
+            button8.Font = letraPequeña;
+
+
             button5.Text = "\u25BA";
+            button5.Tag = "Right";
+            button5.Click += movButton_Click;
+            button5.Font = letraGrande;
+
 
             button4.Text = "\u2199";
+            button4.Tag = "BackLeft";
+            button4.Click += movButton_Click;
+            button4.Font = letraGrande;
+
+
             button3.Text = "\u25BC";
+            button3.Tag = "Back";
+            button3.Click += movButton_Click;
+            button3.Font = letraGrande;
+
+
             button2.Text = "\u2198";
+            button2.Tag = "BackRight";
+            button2.Click += movButton_Click;
+            button2.Font = letraGrande;
 
 
-            try
-            {
+            // Ahora configuramos los botones de navegación
 
-                iconoPersonalizado = new Bitmap("dron.png"); // Asegúrate de que el archivo esté en la carpeta del ejecutable
-                iconoPersonalizado = RedimensionarImagen(iconoPersonalizado, 20, 20); // Reducimos el tamaño del icono            
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar la imagen: " + ex.Message);
-                iconoPersonalizado = null;
-            }
+            button9.Text = "NW";
+            button9.Tag = "NorthWest";
+            button9.Click += navButton_Click;
+            button9.Font = letraGrande;
 
 
+            button10.Text = "N";
+            button10.Tag = "North";
+            button10.Click += navButton_Click;
+            button10.Font = letraGrande;
+
+
+            button11.Text = "NE";
+            button11.Tag = "NorthEast";
+            button11.Click += navButton_Click;
+            button11.Font = letraGrande;
+
+
+            button12.Text = "W";
+            button12.Tag = "West";
+            button12.Click += navButton_Click;
+            button12.Font = letraGrande;
+
+
+            button13.Text = "Stop";
+            button13.Tag = "Stop";
+            button13.Click += navButton_Click;
+            button13.Font = letraPequeña;
+
+
+            button14.Text = "E";
+            button14.Tag = "East";
+            button14.Click += navButton_Click;
+            button14.Font = letraGrande;
+
+
+            button15.Text = "SW";
+            button15.Tag = "SouthWest";
+            button15.Click += navButton_Click;
+            button15.Font = letraGrande;
+
+
+            button16.Text = "S";
+            button16.Tag = "South";
+            button16.Click += navButton_Click;
+            button16.Font = letraGrande;
+
+
+            button17.Text = "SE";
+            button17.Tag = "SouthEast";
+            button17.Click += navButton_Click;
+            button17.Font = letraGrande;
+
+
+            // ahora configuro los botores de arriba y abajo
+
+
+            button21.Text = "Arriba";
+            button21.Tag = "Up";
+            button21.Click += movButton_Click;
+            button21.Font = letraPequeña;
+
+            button20.Text = "Abajo";
+            button20.Tag = "Down";
+            button20.Click += movButton_Click;
+            button20.Font = letraPequeña;
+
+            // Cargamos la imagen del dron (un punto rojo)
+            iconoPersonalizado = new Bitmap("dron.png"); 
+            // y ajustamos su trabajo
+            iconoPersonalizado = RedimensionarImagen(iconoPersonalizado, 20, 20);           
+      
             // Configuración del formulario
-            this.Text = "Mapa Interactivo - Círculos de Clic";
-            this.Size = new System.Drawing.Size(800, 600);
-
-
+            //this.Text = "Mapa Interactivo - Círculos de Clic";
+            //this.Size = new System.Drawing.Size(800, 600);
 
             // Configurar el control del mapa
             gmap = new GMapControl
@@ -91,6 +204,18 @@ namespace SimpleExample
 
 
         }
+
+        private Bitmap RedimensionarImagen(Bitmap img, int ancho, int alto)
+        {
+            Bitmap nuevaImagen = new Bitmap(ancho, alto);
+            using (Graphics g = Graphics.FromImage(nuevaImagen))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(img, 0, 0, ancho, alto);
+            }
+            return nuevaImagen;
+        }
+
         private void AñadirWaypoint((float lat, float lon) point)
         {
             // Cuando estoy creando una misión, vengo aquí al clicar
@@ -109,10 +234,10 @@ namespace SimpleExample
 
             if (this.mision.Count > 1)
             {
+                // Hay que dibujar la linea que va del anterior al nuevo
                 PointLatLng previo = new PointLatLng(
                     this.mision[this.mision.Count - 2].lat,
                     this.mision[this.mision.Count - 2].lon);
-                // si no es el primero trazo una linea que lo une al anterior
                 List<PointLatLng> points = new List<PointLatLng>
                 {
                     previo,
@@ -142,7 +267,7 @@ namespace SimpleExample
                 ToolStripMenuItem option2 = new ToolStripMenuItem("Pon waypoint");
                 ToolStripMenuItem option3 = new ToolStripMenuItem("Opción 3");
                 // indico lo que ha que hacer según la opción elegida
-                option1.Click += (s, ev) => dron.IrAlPunto((float)point.Lat, (float)point.Lng, 20);
+                option1.Click += (s, ev) => dron.IrAlPunto((float)point.Lat, (float)point.Lng, 20, bloquear: false);
                 option2.Click += (s, ev) => AñadirWaypoint(((float)point.Lat, (float)point.Lng));
 
                 contextMenu.Items.Add(option1);
@@ -155,33 +280,33 @@ namespace SimpleExample
 
         private void but_connect_Click(object sender, EventArgs e)
         {
-            dron.Conectar("sim", CMB_comport.Text);
-            but_connect.BackColor = Color.Green;
-            but_connect.ForeColor = Color.White;
-            // Configurar GMap.NET
-            gmap.MapProvider = GMapProviders.GoogleSatelliteMap;
-            GMaps.Instance.Mode = AccessMode.ServerOnly;
+            if (nombreHome == null)
+                MessageBox.Show("No has elegido la zona de vuelo (DroneLab o Nou Camp");
+            else
+            {
+                if (prodRadio.Checked)
+                    dron.Conectar("produccion", CMB_comport.Text);
+                else
+                    dron.Conectar("simulacion");
 
-            gmap.Position = home;
-            gmap.MinZoom = 5;
-            gmap.MaxZoom = 22;
-            gmap.Zoom = 19;
-            gmap.ShowCenter = true;
-            gmap.Visible = true; // Mostrar el mapa
+                but_connect.BackColor = Color.Green;
+                but_connect.ForeColor = Color.White;
 
-            gmap.CanDragMap = true;           // Permite arrastrar con el mouse
-            gmap.DragButton = MouseButtons.Left; // Se usa el clic izquierdo para arrastrar
-            gmap.MouseWheelZoomType = MouseWheelZoomType.MousePositionAndCenter; // Zoom en la posición del cursor
-            gmap.IgnoreMarkerOnMouseWheel = true;
+                // Acabo la configuración del mapa
+                gmap.MapProvider = GMapProviders.GoogleSatelliteMap;
+                GMaps.Instance.Mode = AccessMode.ServerOnly;
 
-            // Crear un overlay para los marcadores y rutas
-            overlay = new GMapOverlay("circulos");
-            gmap.Overlays.Add(overlay);
 
-            //ruta = new GMapRoute(new List<PointLatLng>(), "Ruta");
-            //ruta.Stroke = new Pen(Color.Blue, 3); // Línea azul de grosor 3
-            //overlay.Routes.Add(ruta);
-            panelMapa.Controls.Add(gmap);
+                // Situo el mapa en el home elegido (DroneLab o Nou Camp
+                gmap.Position = home;
+
+                gmap.Visible = true; // Mostrar el mapa
+
+                // Crear un overlay para los marcadores y rutas
+                overlay = new GMapOverlay("circulos");
+                gmap.Overlays.Add(overlay);
+                panelMapa.Controls.Add(gmap);
+            }
         }
 
 
@@ -212,14 +337,14 @@ namespace SimpleExample
             // Click en boton para dspegar
             // Llamada no bloqueante para no bloquear el formulario
             dron.Despegar(int.Parse(alturaBox.Text), bloquear: false, EnAire, "Volando");
+
             despegarBtn.BackColor = Color.Yellow;
         }
 
-
-
-
         private void navButton_Click(object sender, EventArgs e)
         {
+            // Aqui vendremos cuando se clique cualquiera de los botones de navagación
+            // En el tag del boton tenemos la dirección de navegación.
             Button b = (Button)sender;
             string tag = b.Tag.ToString();
             dron.Navegar(tag);
@@ -227,16 +352,14 @@ namespace SimpleExample
         }
         private void movButton_Click(object sender, EventArgs e)
         {
-            // obtenco el boton que he clicado
+            // Aqui vendremos cuando se clique cualquiera de los botones de movimiento
+            // En el tag del boton tenemos la dirección de navegación.
+       
             Button b = (Button)sender;
-            // El tag me indica la dirección en la que debo moverme
             string direccion = b.Tag.ToString();
             // recupero la distancia que debe recorrer el dron
             int distancia = Convert.ToInt32(pasoLbl.Text);
             dron.Mover(direccion, distancia, bloquear: false);
-
-           
-
         }
         private void EnTierra(object mensaje)
         {
@@ -250,33 +373,34 @@ namespace SimpleExample
 
 
 
-        private void button7_Click(object sender, EventArgs e)
+        private void aterrizarBtn_Click(object sender, EventArgs e)
         {
             // Click en el botón de aterrizar
             dron.Aterrizar(bloquear: false, EnTierra, "Aterrizaje");
             button7.BackColor = Color.Yellow;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void RTLBtn_Click(object sender, EventArgs e)
         {
             // Click en el botón de RTL
             dron.RTL(bloquear: false, EnTierra, "RTL");
             button6.BackColor = Color.Yellow;
         }
 
-        private void button23_Click(object sender, EventArgs e)
+        private void enviarTelemetriaBtn_Click(object sender, EventArgs e)
         {
 
             dron.EnviarDatosTelemetria(ProcesarTelemetria);
         }
 
-        private void button22_Click(object sender, EventArgs e)
+        private void detenerTelemetriaBtn_Click(object sender, EventArgs e)
         {
             dron.DetenerDatosTelemetria();
         }
 
         private void ProcesarTelemetria(List<(string nombre, float valor)> telemetria)
         {
+            // Aqui vendre cada vez que llegue un paquete de telemetría
             double lat = ((double)telemetria[1].valor) / 0.1E+8;
             double lon = ((double)telemetria[2].valor) / 0.1E+8;
             double heading = ((double)telemetria[3].valor) / 100;
@@ -290,6 +414,8 @@ namespace SimpleExample
             // Actualizo posición y heading del dron en el mapa
             PointLatLng point = new PointLatLng(lat, lon);
             int angulo = Convert.ToInt16(telemetria[3].valor / 100);
+
+            // Defino la linea que debe señalar el heading
             double anguloRad = angulo * Math.PI / 180.0;
             // La línea que señala el heading va desde la posición del dron
             // hasta 50 metros en la dirección del heading
@@ -298,24 +424,26 @@ namespace SimpleExample
             double lat2 = lat + (distanciaGrados * Math.Cos(anguloRad));
             double lon2 = lon + (distanciaGrados * Math.Sin(anguloRad) / Math.Cos(lat * Math.PI / 180));
 
-            // Ahora dibujo la linea
+            // Ahora preparo la linea
             List<PointLatLng> puntosLinea = new List<PointLatLng>
             {
                 new PointLatLng(lat, lon),  // Punto de inicio
                 new PointLatLng(lat2, lon2) // Punto final
             };
+       
             // Borro el marcador y linea de heading del dron si es que hay
-            if (dronIcon != null)
+            if (overlay.Markers.Contains(dronIcon))
+            {
                 overlay.Markers.Remove(dronIcon);
-            if (dronHeading != null)
                 overlay.Routes.Remove(dronHeading);
-            // Dibujo la linea y añado el nuevo marcador
+            }
             dronHeading = new GMapRoute(puntosLinea, "miLinea")
             {
                 Stroke = new Pen(Color.Red, 2) // Color rojo, grosor 2
             };
-
+            // Añado la linea
             overlay.Routes.Add(dronHeading);
+            // y el icono del dron
             dronIcon = new GMarkerGoogle(point, iconoPersonalizado);
             // Añado un offset para que el centro del icono esté exactamente en la
             // posición del mapa en la que está el dron
@@ -324,42 +452,30 @@ namespace SimpleExample
 
         }
 
-        private Bitmap RedimensionarImagen(Bitmap img, int ancho, int alto)
-        {
-            Bitmap nuevaImagen = new Bitmap(ancho, alto);
-            using (Graphics g = Graphics.FromImage(nuevaImagen))
-            {
-                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                g.DrawImage(img, 0, 0, ancho, alto);
-            }
-            return nuevaImagen;
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void distanciaTrackBar_Scroll(object sender, EventArgs e)
         {
             // Recojo el valor de la distancia a aplicar en las operaciones
             // de movimiento
             int n = trackBar1.Value;
             pasoLbl.Text = n.ToString();
         }
-        private void trackBar2_Scroll(object sender, EventArgs e)
+        private void headingTrackBar_Scroll(object sender, EventArgs e)
         {
-            // Recojo el valor de la distancia a aplicar en las operaciones
-            // de movimiento
+            // Recojo el valor del heading seleccionado
             int n = trackBar2.Value;
             headingLbl.Text = n.ToString();
         }
 
 
-        private void trackBar2_MouseUp(object sender, MouseEventArgs e)
+        private void headingTrackBar_MouseUp(object sender, MouseEventArgs e)
         {
             // Cuando se libera la barra de desplazamiento recojo el valor
             // definitivo para el heading y lo envío al dron
             float valorSeleccionado = trackBar2.Value;
-            dron.CambiarHeading(valorSeleccionado);
+            dron.CambiarHeading(valorSeleccionado, bloquear: false);
         }
 
-        private void trackBar3_Scroll(object sender, EventArgs e)
+        private void velocidadTrackBar_Scroll(object sender, EventArgs e)
         {
             // Recojo y muestro el valor la velocidad según se mueve 
             // la barra de desplazamiento
@@ -368,7 +484,7 @@ namespace SimpleExample
 
         }
 
-        private void trackBar3_MouseUp(object sender, MouseEventArgs e)
+        private void velocidadTrackBar_MouseUp(object sender, MouseEventArgs e)
         {
             // Cuando se libera la barra de desplazamiento recojo el valor
             // definitivo para la velocidad y lo envío al dron
@@ -377,6 +493,8 @@ namespace SimpleExample
         }
         private void DibujarLimites(List<(float lat, float lon)> limites)
         {
+            // Dibujo el poligono que define los límites del area de vuelo (geofence
+            // de inclusió)
             // Convierto los puntos
             List<PointLatLng> puntos = new List<PointLatLng>();
             foreach ((float lat, float lon) p in limites)
@@ -433,8 +551,9 @@ namespace SimpleExample
             overlay.Polygons.Add(polygon);
         }
 
-        private void button27_Click(object sender, EventArgs e)
+        private void enviarEscenarioBtn_Click(object sender, EventArgs e)
         {
+            // Dibujo el escenario segun la zona de vuelo elegida
             if (nombreHome == "Nou Camp")
             {
                 // Envio un escenario predefinido formado por el rectangulo
@@ -521,17 +640,34 @@ namespace SimpleExample
         }
         private void FinMision (object param=null)
         {
+            // Borro los puntos y lineas de la misión
+            overlay.Markers.Clear();
+            overlay.Routes.Clear();
+            mision = null;
             dron.PonModoGuiado();
         }
-
-        private void button28_Click(object sender, EventArgs e)
+        private void EnWaypoint (object n)
         {
-            dron.EjecutarMision(bloquear: false, FinMision, null);
+            // Acabo de llegar al siguiente waypoint de la misión
+            Console.WriteLine("Estoy en waypoint " + (int) n);
+            (float lat, float lon) waypoint = mision[(int) n];
+
+            PointLatLng p = new PointLatLng(waypoint.lat, waypoint.lon);
+            // añado un marcador de color verde
+            GMarkerGoogle marker = new GMarkerGoogle(p, GMarkerGoogleType.green_dot);
+            overlay.Markers.Add(marker);
+        }
+
+        private void ejecutarMisionBtn_Click(object sender, EventArgs e)
+        {
+            // Ejecuto la misión indicando que al llegar al siguiente waypoint
+            // ejecute EnWaypoit y cuando acabe ejecute FinMision
+            dron.EjecutarMision(bloquear: false, EnWaypoint:EnWaypoint, FinMision);
             button28.BackColor = Color.Green;
             button28.ForeColor = Color.White;
         }
 
-        private void button29_Click(object sender, EventArgs e)
+        private void cargarMisionBtn_Click(object sender, EventArgs e)
         {
             // En mision están los waypoints que se han ido recogiendo
             // cuando el usuario clicado sobre el mapa
@@ -547,7 +683,7 @@ namespace SimpleExample
             f.ShowDialog();
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        private void DroneLabBtn_Click(object sender, EventArgs e)
         {
          
             nombreHome = "DroneLab";
@@ -556,7 +692,7 @@ namespace SimpleExample
             button18.ForeColor = Color.White;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NouCampBtn_Click(object sender, EventArgs e)
         {
             nombreHome = "Nou Camp";
             home = new PointLatLng(41.38090032929851, 2.12283331445973);
@@ -565,23 +701,20 @@ namespace SimpleExample
 
         }
 
-        private void simRadio_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void simRadio_CheckedChanged(object sender, EventArgs e)
         {
-        
             CMB_comport.Visible = false;
-
         }
 
         private void prodRadio_CheckedChanged(object sender, EventArgs e)
-        {
-     
+        { 
             CMB_comport.Visible = true;
-      
+        }
+
+        private void ponGuiadoBtn_Click(object sender, EventArgs e)
+        {
+            dron.PonModoGuiado();
         }
     }
 

@@ -37,6 +37,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.prodRadio = new System.Windows.Forms.RadioButton();
+            this.simRadio = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.alturaBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -89,8 +91,7 @@
             this.parámetrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
-            this.simRadio = new System.Windows.Forms.RadioButton();
-            this.prodRadio = new System.Windows.Forms.RadioButton();
+            this.ponGuiadoBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -102,10 +103,11 @@
             // 
             // CMB_comport
             // 
+            this.CMB_comport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CMB_comport.FormattingEnabled = true;
-            this.CMB_comport.Location = new System.Drawing.Point(105, 30);
+            this.CMB_comport.Location = new System.Drawing.Point(10, 137);
             this.CMB_comport.Name = "CMB_comport";
-            this.CMB_comport.Size = new System.Drawing.Size(121, 33);
+            this.CMB_comport.Size = new System.Drawing.Size(139, 37);
             this.CMB_comport.TabIndex = 0;
             this.CMB_comport.Text = "Elije COM";
             this.CMB_comport.Visible = false;
@@ -114,9 +116,10 @@
             // but_connect
             // 
             this.but_connect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.but_connect.Location = new System.Drawing.Point(244, 29);
+            this.but_connect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but_connect.Location = new System.Drawing.Point(444, 29);
             this.but_connect.Name = "but_connect";
-            this.but_connect.Size = new System.Drawing.Size(135, 34);
+            this.but_connect.Size = new System.Drawing.Size(196, 48);
             this.but_connect.TabIndex = 2;
             this.but_connect.Text = "Connectar";
             this.but_connect.UseVisualStyleBackColor = false;
@@ -125,9 +128,10 @@
             // despegarBtn
             // 
             this.despegarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.despegarBtn.Location = new System.Drawing.Point(199, 71);
+            this.despegarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.despegarBtn.Location = new System.Drawing.Point(444, 83);
             this.despegarBtn.Name = "despegarBtn";
-            this.despegarBtn.Size = new System.Drawing.Size(196, 35);
+            this.despegarBtn.Size = new System.Drawing.Size(196, 48);
             this.despegarBtn.TabIndex = 5;
             this.despegarBtn.Text = "Despegar";
             this.despegarBtn.UseVisualStyleBackColor = false;
@@ -136,24 +140,26 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button6.Location = new System.Drawing.Point(8, 110);
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(242, 137);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(185, 36);
+            this.button6.Size = new System.Drawing.Size(196, 47);
             this.button6.TabIndex = 10;
             this.button6.Text = "RTL";
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.RTLBtn_Click);
             // 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button7.Location = new System.Drawing.Point(199, 110);
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(444, 137);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(196, 36);
+            this.button7.Size = new System.Drawing.Size(196, 47);
             this.button7.TabIndex = 13;
             this.button7.Text = "Aterrizar";
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.aterrizarBtn_Click);
             // 
             // groupBox1
             // 
@@ -168,39 +174,58 @@
             this.groupBox1.Controls.Add(this.despegarBtn);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 41);
+            this.groupBox1.Location = new System.Drawing.Point(12, 56);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(405, 158);
+            this.groupBox1.Size = new System.Drawing.Size(655, 208);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Control";
             // 
+            // prodRadio
+            // 
+            this.prodRadio.AutoSize = true;
+            this.prodRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prodRadio.Location = new System.Drawing.Point(10, 97);
+            this.prodRadio.Name = "prodRadio";
+            this.prodRadio.Size = new System.Drawing.Size(133, 29);
+            this.prodRadio.TabIndex = 15;
+            this.prodRadio.TabStop = true;
+            this.prodRadio.Text = "producción";
+            this.prodRadio.UseVisualStyleBackColor = true;
+            this.prodRadio.CheckedChanged += new System.EventHandler(this.prodRadio_CheckedChanged);
+            // 
+            // simRadio
+            // 
+            this.simRadio.AutoSize = true;
+            this.simRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simRadio.Location = new System.Drawing.Point(10, 61);
+            this.simRadio.Name = "simRadio";
+            this.simRadio.Size = new System.Drawing.Size(129, 29);
+            this.simRadio.TabIndex = 14;
+            this.simRadio.TabStop = true;
+            this.simRadio.Text = "simulación";
+            this.simRadio.UseVisualStyleBackColor = true;
+            this.simRadio.CheckedChanged += new System.EventHandler(this.simRadio_CheckedChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 79);
+            this.label1.Location = new System.Drawing.Point(291, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 25);
+            this.label1.Size = new System.Drawing.Size(115, 37);
             this.label1.TabIndex = 7;
             this.label1.Text = "metros";
             // 
             // alturaBox
             // 
-            this.alturaBox.Location = new System.Drawing.Point(6, 73);
+            this.alturaBox.Location = new System.Drawing.Point(242, 88);
             this.alturaBox.Name = "alturaBox";
-            this.alturaBox.Size = new System.Drawing.Size(77, 31);
+            this.alturaBox.Size = new System.Drawing.Size(196, 43);
             this.alturaBox.TabIndex = 6;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.velocidadLbl);
-            this.groupBox2.Controls.Add(this.trackBar3);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.headingLbl);
-            this.groupBox2.Controls.Add(this.trackBar2);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button4);
@@ -210,8 +235,6 @@
             this.groupBox2.Controls.Add(this.button24);
             this.groupBox2.Controls.Add(this.button25);
             this.groupBox2.Controls.Add(this.button26);
-            this.groupBox2.Controls.Add(this.pasoLbl);
-            this.groupBox2.Controls.Add(this.trackBar1);
             this.groupBox2.Controls.Add(this.button21);
             this.groupBox2.Controls.Add(this.button20);
             this.groupBox2.Controls.Add(this.button17);
@@ -224,9 +247,9 @@
             this.groupBox2.Controls.Add(this.button10);
             this.groupBox2.Controls.Add(this.button9);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 205);
+            this.groupBox2.Location = new System.Drawing.Point(12, 260);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(556, 293);
+            this.groupBox2.Size = new System.Drawing.Size(666, 371);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Movimiento";
@@ -235,39 +258,40 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(407, 266);
+            this.label9.Location = new System.Drawing.Point(608, 634);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 16);
+            this.label9.Size = new System.Drawing.Size(99, 25);
             this.label9.TabIndex = 28;
             this.label9.Text = "Velocidad";
             // 
             // velocidadLbl
             // 
             this.velocidadLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.velocidadLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.velocidadLbl.ForeColor = System.Drawing.Color.Red;
-            this.velocidadLbl.Location = new System.Drawing.Point(360, 256);
+            this.velocidadLbl.Location = new System.Drawing.Point(632, 666);
             this.velocidadLbl.Name = "velocidadLbl";
-            this.velocidadLbl.Size = new System.Drawing.Size(41, 30);
+            this.velocidadLbl.Size = new System.Drawing.Size(65, 46);
             this.velocidadLbl.TabIndex = 27;
             this.velocidadLbl.Text = "0";
             this.velocidadLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // trackBar3
             // 
-            this.trackBar3.Location = new System.Drawing.Point(159, 248);
+            this.trackBar3.Location = new System.Drawing.Point(479, 666);
             this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(195, 45);
+            this.trackBar3.Size = new System.Drawing.Size(147, 69);
             this.trackBar3.TabIndex = 26;
-            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
-            this.trackBar3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar3_MouseUp);
+            this.trackBar3.Scroll += new System.EventHandler(this.velocidadTrackBar_Scroll);
+            this.trackBar3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.velocidadTrackBar_MouseUp);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(213, 14);
+            this.label8.Location = new System.Drawing.Point(622, 714);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 16);
+            this.label8.Size = new System.Drawing.Size(85, 25);
             this.label8.TabIndex = 25;
             this.label8.Text = "Heading";
             // 
@@ -275,47 +299,48 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(474, 14);
+            this.label7.Location = new System.Drawing.Point(622, 802);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 16);
+            this.label7.Size = new System.Drawing.Size(92, 25);
             this.label7.TabIndex = 24;
             this.label7.Text = "Distancia";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(219, 22);
+            this.label6.Location = new System.Drawing.Point(128, 64);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 25);
+            this.label6.Size = new System.Drawing.Size(0, 37);
             this.label6.TabIndex = 18;
             // 
             // headingLbl
             // 
             this.headingLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.headingLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.headingLbl.ForeColor = System.Drawing.Color.Red;
-            this.headingLbl.Location = new System.Drawing.Point(209, 35);
+            this.headingLbl.Location = new System.Drawing.Point(632, 742);
             this.headingLbl.Name = "headingLbl";
-            this.headingLbl.Size = new System.Drawing.Size(61, 30);
+            this.headingLbl.Size = new System.Drawing.Size(65, 46);
             this.headingLbl.TabIndex = 23;
             this.headingLbl.Text = "0";
             this.headingLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // trackBar2
             // 
-            this.trackBar2.Location = new System.Drawing.Point(23, 33);
+            this.trackBar2.Location = new System.Drawing.Point(479, 742);
             this.trackBar2.Maximum = 360;
             this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(195, 45);
+            this.trackBar2.Size = new System.Drawing.Size(147, 69);
             this.trackBar2.TabIndex = 22;
-            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
-            this.trackBar2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar2_MouseUp);
+            this.trackBar2.Scroll += new System.EventHandler(this.headingTrackBar_Scroll);
+            this.trackBar2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.headingTrackBar_MouseUp);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button2.Location = new System.Drawing.Point(411, 190);
+            this.button2.Location = new System.Drawing.Point(511, 242);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 51);
+            this.button2.Size = new System.Drawing.Size(79, 72);
             this.button2.TabIndex = 21;
             this.button2.Tag = "BackRight";
             this.button2.Text = "SE";
@@ -325,9 +350,9 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button3.Location = new System.Drawing.Point(345, 190);
+            this.button3.Location = new System.Drawing.Point(426, 242);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 51);
+            this.button3.Size = new System.Drawing.Size(79, 72);
             this.button3.TabIndex = 20;
             this.button3.Tag = "Back";
             this.button3.Text = "S";
@@ -337,9 +362,9 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button4.Location = new System.Drawing.Point(279, 190);
+            this.button4.Location = new System.Drawing.Point(341, 243);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 51);
+            this.button4.Size = new System.Drawing.Size(79, 72);
             this.button4.TabIndex = 19;
             this.button4.Tag = "BackLeft";
             this.button4.Text = "SW";
@@ -349,9 +374,9 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button5.Location = new System.Drawing.Point(411, 133);
+            this.button5.Location = new System.Drawing.Point(511, 162);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(60, 51);
+            this.button5.Size = new System.Drawing.Size(79, 72);
             this.button5.TabIndex = 18;
             this.button5.Tag = "Right";
             this.button5.Text = "E";
@@ -362,9 +387,9 @@
             // 
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(345, 133);
+            this.button8.Location = new System.Drawing.Point(426, 164);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(60, 51);
+            this.button8.Size = new System.Drawing.Size(79, 72);
             this.button8.TabIndex = 17;
             this.button8.Tag = "Stop";
             this.button8.Text = "Stop";
@@ -374,9 +399,9 @@
             // button19
             // 
             this.button19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button19.Location = new System.Drawing.Point(279, 133);
+            this.button19.Location = new System.Drawing.Point(341, 164);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(60, 51);
+            this.button19.Size = new System.Drawing.Size(79, 72);
             this.button19.TabIndex = 16;
             this.button19.Tag = "Left";
             this.button19.Text = "W";
@@ -386,9 +411,9 @@
             // button24
             // 
             this.button24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button24.Location = new System.Drawing.Point(411, 76);
+            this.button24.Location = new System.Drawing.Point(511, 89);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(60, 51);
+            this.button24.Size = new System.Drawing.Size(79, 69);
             this.button24.TabIndex = 15;
             this.button24.Tag = "ForwardRight";
             this.button24.Text = "NE";
@@ -398,9 +423,9 @@
             // button25
             // 
             this.button25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button25.Location = new System.Drawing.Point(345, 76);
+            this.button25.Location = new System.Drawing.Point(426, 89);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(60, 51);
+            this.button25.Size = new System.Drawing.Size(79, 69);
             this.button25.TabIndex = 14;
             this.button25.Tag = "Forward";
             this.button25.Text = "N";
@@ -410,9 +435,9 @@
             // button26
             // 
             this.button26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button26.Location = new System.Drawing.Point(279, 76);
+            this.button26.Location = new System.Drawing.Point(341, 89);
             this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(60, 51);
+            this.button26.Size = new System.Drawing.Size(79, 69);
             this.button26.TabIndex = 13;
             this.button26.Tag = "ForwardLeft";
             this.button26.Text = "NW";
@@ -422,30 +447,31 @@
             // pasoLbl
             // 
             this.pasoLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pasoLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pasoLbl.ForeColor = System.Drawing.Color.Red;
-            this.pasoLbl.Location = new System.Drawing.Point(476, 35);
+            this.pasoLbl.Location = new System.Drawing.Point(632, 827);
             this.pasoLbl.Name = "pasoLbl";
-            this.pasoLbl.Size = new System.Drawing.Size(60, 30);
+            this.pasoLbl.Size = new System.Drawing.Size(65, 45);
             this.pasoLbl.TabIndex = 12;
             this.pasoLbl.Text = "0";
             this.pasoLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(276, 33);
+            this.trackBar1.Location = new System.Drawing.Point(474, 825);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(195, 45);
+            this.trackBar1.Size = new System.Drawing.Size(147, 69);
             this.trackBar1.TabIndex = 11;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.trackBar1.Scroll += new System.EventHandler(this.distanciaTrackBar_Scroll);
             // 
             // button21
             // 
             this.button21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.Location = new System.Drawing.Point(7, 92);
+            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.Location = new System.Drawing.Point(101, 44);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(27, 133);
+            this.button21.Size = new System.Drawing.Size(456, 39);
             this.button21.TabIndex = 10;
             this.button21.Tag = "Up";
             this.button21.Text = "ARRIBA";
@@ -455,10 +481,10 @@
             // button20
             // 
             this.button20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button20.Location = new System.Drawing.Point(477, 94);
+            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button20.Location = new System.Drawing.Point(101, 321);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(26, 133);
+            this.button20.Size = new System.Drawing.Size(456, 42);
             this.button20.TabIndex = 9;
             this.button20.Tag = "Down";
             this.button20.Text = "ABAJO";
@@ -468,9 +494,9 @@
             // button17
             // 
             this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button17.Location = new System.Drawing.Point(172, 190);
+            this.button17.Location = new System.Drawing.Point(232, 242);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(60, 51);
+            this.button17.Size = new System.Drawing.Size(77, 72);
             this.button17.TabIndex = 8;
             this.button17.Tag = "SouthEast";
             this.button17.Text = "SE";
@@ -480,9 +506,9 @@
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button16.Location = new System.Drawing.Point(106, 190);
+            this.button16.Location = new System.Drawing.Point(149, 242);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(60, 51);
+            this.button16.Size = new System.Drawing.Size(77, 70);
             this.button16.TabIndex = 7;
             this.button16.Tag = "South";
             this.button16.Text = "S";
@@ -492,9 +518,9 @@
             // button15
             // 
             this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button15.Location = new System.Drawing.Point(40, 190);
+            this.button15.Location = new System.Drawing.Point(66, 242);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(60, 51);
+            this.button15.Size = new System.Drawing.Size(77, 70);
             this.button15.TabIndex = 6;
             this.button15.Tag = "SouthWest";
             this.button15.Text = "SW";
@@ -504,9 +530,9 @@
             // button14
             // 
             this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button14.Location = new System.Drawing.Point(172, 133);
+            this.button14.Location = new System.Drawing.Point(232, 164);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(60, 51);
+            this.button14.Size = new System.Drawing.Size(77, 72);
             this.button14.TabIndex = 5;
             this.button14.Tag = "East";
             this.button14.Text = "E";
@@ -517,9 +543,9 @@
             // 
             this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(106, 133);
+            this.button13.Location = new System.Drawing.Point(149, 164);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(60, 51);
+            this.button13.Size = new System.Drawing.Size(77, 72);
             this.button13.TabIndex = 4;
             this.button13.Tag = "Stop";
             this.button13.Text = "Stop";
@@ -529,9 +555,9 @@
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button12.Location = new System.Drawing.Point(40, 133);
+            this.button12.Location = new System.Drawing.Point(66, 164);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(60, 51);
+            this.button12.Size = new System.Drawing.Size(77, 70);
             this.button12.TabIndex = 3;
             this.button12.Tag = "West";
             this.button12.Text = "W";
@@ -541,9 +567,9 @@
             // button11
             // 
             this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button11.Location = new System.Drawing.Point(172, 76);
+            this.button11.Location = new System.Drawing.Point(232, 89);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(60, 51);
+            this.button11.Size = new System.Drawing.Size(77, 69);
             this.button11.TabIndex = 2;
             this.button11.Tag = "NorthEast";
             this.button11.Text = "NE";
@@ -553,9 +579,9 @@
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button10.Location = new System.Drawing.Point(106, 76);
+            this.button10.Location = new System.Drawing.Point(149, 89);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(60, 51);
+            this.button10.Size = new System.Drawing.Size(77, 69);
             this.button10.TabIndex = 1;
             this.button10.Tag = "North";
             this.button10.Text = "N";
@@ -565,9 +591,9 @@
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button9.Location = new System.Drawing.Point(40, 76);
+            this.button9.Location = new System.Drawing.Point(66, 90);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(60, 51);
+            this.button9.Size = new System.Drawing.Size(77, 68);
             this.button9.TabIndex = 0;
             this.button9.Tag = "NorthWest";
             this.button9.Text = "NW";
@@ -587,9 +613,9 @@
             this.groupBox4.Controls.Add(this.button22);
             this.groupBox4.Controls.Add(this.button23);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(61, 504);
+            this.groupBox4.Location = new System.Drawing.Point(11, 666);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(438, 141);
+            this.groupBox4.Size = new System.Drawing.Size(457, 179);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Telemetría";
@@ -597,143 +623,144 @@
             // headLbl
             // 
             this.headLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.headLbl.Location = new System.Drawing.Point(305, 102);
+            this.headLbl.Location = new System.Drawing.Point(332, 132);
             this.headLbl.Name = "headLbl";
-            this.headLbl.Size = new System.Drawing.Size(121, 30);
+            this.headLbl.Size = new System.Drawing.Size(106, 30);
             this.headLbl.TabIndex = 10;
             // 
             // otraLbl
             // 
             this.otraLbl.AutoSize = true;
-            this.otraLbl.Location = new System.Drawing.Point(230, 103);
+            this.otraLbl.Location = new System.Drawing.Point(224, 131);
             this.otraLbl.Name = "otraLbl";
-            this.otraLbl.Size = new System.Drawing.Size(69, 20);
+            this.otraLbl.Size = new System.Drawing.Size(104, 29);
             this.otraLbl.TabIndex = 9;
             this.otraLbl.Text = "Heading";
             // 
             // longitudLbl
             // 
             this.longitudLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.longitudLbl.Location = new System.Drawing.Point(92, 102);
+            this.longitudLbl.Location = new System.Drawing.Point(120, 129);
             this.longitudLbl.Name = "longitudLbl";
-            this.longitudLbl.Size = new System.Drawing.Size(121, 31);
+            this.longitudLbl.Size = new System.Drawing.Size(101, 31);
             this.longitudLbl.TabIndex = 8;
             // 
             // latitudLbl
             // 
             this.latitudLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.latitudLbl.Location = new System.Drawing.Point(92, 65);
+            this.latitudLbl.Location = new System.Drawing.Point(120, 92);
             this.latitudLbl.Name = "latitudLbl";
-            this.latitudLbl.Size = new System.Drawing.Size(121, 31);
+            this.latitudLbl.Size = new System.Drawing.Size(101, 31);
             this.latitudLbl.TabIndex = 7;
             // 
             // altitudLbl
             // 
             this.altitudLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.altitudLbl.Location = new System.Drawing.Point(305, 65);
+            this.altitudLbl.Location = new System.Drawing.Point(332, 94);
             this.altitudLbl.Name = "altitudLbl";
-            this.altitudLbl.Size = new System.Drawing.Size(121, 30);
+            this.altitudLbl.Size = new System.Drawing.Size(106, 30);
             this.altitudLbl.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(236, 66);
+            this.label2.Location = new System.Drawing.Point(249, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.Size = new System.Drawing.Size(79, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "Altitud";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 66);
+            this.label3.Location = new System.Drawing.Point(30, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.Size = new System.Drawing.Size(84, 29);
             this.label3.TabIndex = 3;
             this.label3.Text = "Latitud";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 103);
+            this.label5.Location = new System.Drawing.Point(8, 127);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 20);
+            this.label5.Size = new System.Drawing.Size(106, 29);
             this.label5.TabIndex = 2;
             this.label5.Text = "Longitud";
             // 
             // button22
             // 
-            this.button22.Location = new System.Drawing.Point(133, 25);
+            this.button22.Location = new System.Drawing.Point(315, 18);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(96, 29);
+            this.button22.Size = new System.Drawing.Size(105, 46);
             this.button22.TabIndex = 1;
             this.button22.Text = "Parar";
             this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
+            this.button22.Click += new System.EventHandler(this.detenerTelemetriaBtn_Click);
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(6, 25);
+            this.button23.Location = new System.Drawing.Point(180, 18);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(107, 29);
+            this.button23.Size = new System.Drawing.Size(118, 46);
             this.button23.TabIndex = 0;
             this.button23.Text = "Iniciar";
             this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
+            this.button23.Click += new System.EventHandler(this.enviarTelemetriaBtn_Click);
             // 
             // panelMapa
             // 
-            this.panelMapa.Location = new System.Drawing.Point(571, 140);
+            this.panelMapa.Location = new System.Drawing.Point(713, 196);
             this.panelMapa.Name = "panelMapa";
-            this.panelMapa.Size = new System.Drawing.Size(687, 558);
+            this.panelMapa.Size = new System.Drawing.Size(887, 698);
             this.panelMapa.TabIndex = 8;
             // 
             // button27
             // 
             this.button27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button27.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button27.Location = new System.Drawing.Point(423, 53);
+            this.button27.Location = new System.Drawing.Point(708, 70);
             this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(148, 108);
+            this.button27.Size = new System.Drawing.Size(172, 120);
             this.button27.TabIndex = 14;
             this.button27.Text = "Enviar Escenario";
             this.button27.UseVisualStyleBackColor = false;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
+            this.button27.Click += new System.EventHandler(this.enviarEscenarioBtn_Click);
             // 
             // button28
             // 
             this.button28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button28.Location = new System.Drawing.Point(870, 93);
+            this.button28.Location = new System.Drawing.Point(1178, 137);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(269, 41);
+            this.button28.Size = new System.Drawing.Size(274, 53);
             this.button28.TabIndex = 18;
             this.button28.Text = "Ejecutar misión";
             this.button28.UseVisualStyleBackColor = false;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
+            this.button28.Click += new System.EventHandler(this.ejecutarMisionBtn_Click);
             // 
             // button29
             // 
             this.button29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.button29.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button29.Location = new System.Drawing.Point(595, 93);
+            this.button29.Location = new System.Drawing.Point(888, 137);
             this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(269, 41);
+            this.button29.Size = new System.Drawing.Size(284, 53);
             this.button29.TabIndex = 19;
             this.button29.Text = "Cargar misión";
             this.button29.UseVisualStyleBackColor = false;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
+            this.button29.Click += new System.EventHandler(this.cargarMisionBtn_Click);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.parámetrosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1284, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1612, 53);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -741,7 +768,7 @@
             // 
             this.parámetrosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.parámetrosToolStripMenuItem.Name = "parámetrosToolStripMenuItem";
-            this.parámetrosToolStripMenuItem.Size = new System.Drawing.Size(129, 34);
+            this.parámetrosToolStripMenuItem.Size = new System.Drawing.Size(196, 49);
             this.parámetrosToolStripMenuItem.Text = "Parámetros";
             this.parámetrosToolStripMenuItem.Click += new System.EventHandler(this.parámetrosToolStripMenuItem_Click);
             // 
@@ -749,65 +776,60 @@
             // 
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(870, 55);
+            this.button1.Location = new System.Drawing.Point(1161, 67);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(269, 32);
+            this.button1.Size = new System.Drawing.Size(291, 64);
             this.button1.TabIndex = 21;
             this.button1.Text = "Nou Camp";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.NouCampBtn_Click);
             // 
             // button18
             // 
             this.button18.BackColor = System.Drawing.Color.White;
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button18.ForeColor = System.Drawing.Color.Black;
-            this.button18.Location = new System.Drawing.Point(595, 53);
+            this.button18.Location = new System.Drawing.Point(886, 66);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(269, 34);
+            this.button18.Size = new System.Drawing.Size(269, 65);
             this.button18.TabIndex = 22;
             this.button18.Text = "DroneLab";
             this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.button18.Click += new System.EventHandler(this.DroneLabBtn_Click);
             // 
-            // simRadio
+            // ponGuiadoBtn
             // 
-            this.simRadio.AutoSize = true;
-            this.simRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simRadio.Location = new System.Drawing.Point(6, 46);
-            this.simRadio.Name = "simRadio";
-            this.simRadio.Size = new System.Drawing.Size(89, 20);
-            this.simRadio.TabIndex = 14;
-            this.simRadio.TabStop = true;
-            this.simRadio.Text = "simulación";
-            this.simRadio.UseVisualStyleBackColor = true;
-            this.simRadio.CheckedChanged += new System.EventHandler(this.simRadio_CheckedChanged);
-            this.simRadio.Click += new System.EventHandler(this.simRadio_Click);
-            // 
-            // prodRadio
-            // 
-            this.prodRadio.AutoSize = true;
-            this.prodRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prodRadio.Location = new System.Drawing.Point(6, 26);
-            this.prodRadio.Name = "prodRadio";
-            this.prodRadio.Size = new System.Drawing.Size(92, 20);
-            this.prodRadio.TabIndex = 15;
-            this.prodRadio.TabStop = true;
-            this.prodRadio.Text = "producción";
-            this.prodRadio.UseVisualStyleBackColor = true;
-            this.prodRadio.CheckedChanged += new System.EventHandler(this.prodRadio_CheckedChanged);
+            this.ponGuiadoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.ponGuiadoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ponGuiadoBtn.Location = new System.Drawing.Point(1458, 71);
+            this.ponGuiadoBtn.Name = "ponGuiadoBtn";
+            this.ponGuiadoBtn.Size = new System.Drawing.Size(142, 116);
+            this.ponGuiadoBtn.TabIndex = 23;
+            this.ponGuiadoBtn.Text = "Modo Guiado";
+            this.ponGuiadoBtn.UseVisualStyleBackColor = false;
+            this.ponGuiadoBtn.Click += new System.EventHandler(this.ponGuiadoBtn_Click);
             // 
             // simpleexample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 701);
+            this.ClientSize = new System.Drawing.Size(1612, 966);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.ponGuiadoBtn);
+            this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.button18);
+            this.Controls.Add(this.velocidadLbl);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.trackBar3);
             this.Controls.Add(this.button29);
+            this.Controls.Add(this.pasoLbl);
             this.Controls.Add(this.button28);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.button27);
+            this.Controls.Add(this.headingLbl);
             this.Controls.Add(this.panelMapa);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -896,6 +918,7 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.RadioButton prodRadio;
         private System.Windows.Forms.RadioButton simRadio;
+        private System.Windows.Forms.Button ponGuiadoBtn;
     }
 }
 

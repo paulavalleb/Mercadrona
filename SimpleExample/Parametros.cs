@@ -18,6 +18,7 @@ namespace SimpleExample
         Dron dron;
         public Parametros(Dron dron)
         {
+            // Recibo el dron 
             InitializeComponent();
             this.dron = dron;
         }
@@ -31,7 +32,7 @@ namespace SimpleExample
             list.Add("FENCE_ENABLE");
             list.Add("FENCE_ALT_MAX");
             List<float> resultado = dron.LeerParametros(list);
-            float altura = resultado[0];
+            float altura = resultado[0]/100;
             RTL_ALT_lbl.Text = altura.ToString();
             if (altura < 10)
                 trackBar1.Value = (int) altura;
@@ -66,22 +67,19 @@ namespace SimpleExample
             Leer_parametros();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void leerBtn_Click(object sender, EventArgs e)
         {
-
             Leer_parametros();
-
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             int n = trackBar1.Value;
-
             RTL_ALT_lbl.Text = n.ToString();
         }
      
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cerrarBtn_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -102,10 +100,10 @@ namespace SimpleExample
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void escribirBtn_Click(object sender, EventArgs e)
         {
             List<(string parametro, float valor)> parametros = new List < (string parametro, float valor) > ();
-            double v = Convert.ToDouble(RTL_ALT_lbl.Text);
+            double v = Convert.ToDouble(RTL_ALT_lbl.Text)*100;
             parametros.Add(("RTL_ALT", (float) v));
             int action = 0;
             if (RTL_radio.Checked)
