@@ -13,6 +13,7 @@ using csDronLink;
 
 
 
+
 namespace SimpleExample
 {
     public partial class simpleexample : Form
@@ -43,14 +44,16 @@ namespace SimpleExample
             InitializeComponent();
 
             // Hacemos que el formulario principal ocupe toda la pantalla
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
+
+         
 
             // Configuramos los 9 botones de movimiento. Todos ellos tendrán asociada la misma función
             // para gestionar el evento click, pero en el tag ponemos la palabra que identifica la dirección 
             // del movimiento, que es la palabra que hay que pasarle como parámetro al dron para que haga la
             // operación. El texto es el código de una flechita que representa la dirección del movimineto.
 
-            Font letraGrande = new Font("Arial", 16);
+            Font letraGrande = new Font("Arial", 14);
             Font letraPequeña = new Font("Arial", 12);
 
             button26.Text = "\u2196";

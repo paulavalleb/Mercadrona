@@ -27,7 +27,6 @@ namespace csDronLink
             float vy = position.vy;
             float vz = position.vz;
             double velocidad = Math.Sqrt(vx * vx + vy * vy + vz * vz) / 100;
-            Console.WriteLine("velocidad " + velocidad);
             return velocidad < 0.1;
         }
         public bool ComprobarEnTierra(MAVLink.MAVLinkMessage msg, object param = null)
