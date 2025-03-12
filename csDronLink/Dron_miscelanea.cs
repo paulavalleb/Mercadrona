@@ -48,7 +48,8 @@ namespace csDronLink
         }
         public void _CambiarHeading(float nuevoHeading, Action<object> f = null, object param = null)
         {
-
+            // paro el bucle de navegación, si es que está activo
+            this.navegando = false;
             var req = new MAVLink.mavlink_command_long_t
             {
                 target_system = 1,       // ID del dron
