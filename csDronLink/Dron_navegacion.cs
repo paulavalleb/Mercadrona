@@ -23,7 +23,7 @@ namespace csDronLink
                 Thread.Sleep(1000);
             }
         }
-        public void _Navegar(string direccion, Action<object> f = null, object param = null)
+        public void Navegar(string direccion)
         {
             int vx = 0, vy = 0, vz = 0;
             int velocidad = this.velocidad;
@@ -119,21 +119,6 @@ namespace csDronLink
                 t.Start();
             }
 
-            if (f != null)
-                f(param);
-
-        }
-        public void Navegar(string direccion, Boolean bloquear = true, Action<object> f = null, object param = null)
-        {
-            if (bloquear)
-            {
-                this._Navegar(direccion);
-            }
-            else
-            {
-                Thread t = new Thread(() => _Navegar(direccion));
-                t.Start();
-            }
         }
 
     }
