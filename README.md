@@ -3,8 +3,9 @@
 La librería csDronLink es una versión de la librería dronLink para aplicaciones en C#. El modelo de programación es el mismo que el 
 de dronLink, aunque el nombre de las funciones es distinto y en algunos casos los parámetros también.    
      
-Este repositorio contiene 3 carpetas:    
-* *csDronLink*, que contiene el código de la librería.     
+Este repositorio contiene 4 carpetas:    
+* *csDronLink*, que contiene el código de la librería.
+* *docs*. que contiene la descripcion de los métodos disponibles en la versión actual  
 * *SimpleExample*, que contiene una aplicación de formularios (no tan simple) que usa muchas de las funciones de la librería.     
 * *TestConsola*, con una colección de funciones de test para probar muchas de las funciones de la librería. Mirar ese código es la mejor forma de ver cómo usar las funciones de la librería.
      
