@@ -221,13 +221,13 @@ namespace TestsConsola
         static void Main(string[] args)
         {
             Dron miDron = new Dron();
-            miDron.Conectar("Simulacion");
+            miDron.Conectar("simulacion");
             //test_basico(miDron);
             //test_navegacion(miDron);
             //test_telemetria(miDron);
             //test_cambioHeading(miDron);
-            //test_llamadasNoBloqueantes(miDron);
-            test_mision (miDron);
+            test_llamadasNoBloqueantes(miDron);
+            //test_mision (miDron);
             //test_escenario(miDron);
             //test_irAPunto (miDron);
             Console.ReadKey();
