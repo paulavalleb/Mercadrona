@@ -5,7 +5,7 @@ de dronLink, aunque el nombre de las funciones es distinto y en algunos casos lo
      
 Este repositorio contiene 4 carpetas:    
 * *csDronLink*, que contiene el código de la librería.
-* *docs*. que contiene la descripcion de los métodos disponibles en la versión actual  
+* *docs*, que contiene la descripcion de los métodos disponibles en la versión actual  
 * *SimpleExample*, que contiene una aplicación de formularios (no tan simple) que usa muchas de las funciones de la librería.     
 * *TestConsola*, con una colección de funciones de test para probar muchas de las funciones de la librería. Mirar ese código es la mejor forma de ver cómo usar las funciones de la librería.
      
