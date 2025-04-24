@@ -479,6 +479,11 @@ namespace SimpleExample
                 desplegable.Items.Add(i);
             }
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

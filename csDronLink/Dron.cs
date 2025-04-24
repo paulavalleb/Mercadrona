@@ -147,6 +147,25 @@ namespace csDronLink
             EnviarMensaje(packet);
         }
 
+        public float GetLat()
+        {
+            return this.lat;
+        }
+        public float GetLon()
+        {
+            return this.lat;
+        }
+
+        public void SetLat(float lat)
+        {
+            this.lat = lat;
+        }
+
+        public void SetLon(float lon)
+        {
+            this.lon = lon;
+        }
+
 
     }
 }

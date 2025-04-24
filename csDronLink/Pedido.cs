@@ -68,8 +68,8 @@ namespace csDronLink
 
         public float calcula_dist(Dron dron, PointLatLng coordenadas)
         {
-            double dist_x = Math.Abs(coordenadas.Lat - dron.lat);
-            double dist_y = Math.Abs(coordenadas.Lng - dron.lon);
+            double dist_x = Math.Abs(coordenadas.Lat - dron.GetLat());
+            double dist_y = Math.Abs(coordenadas.Lng - dron.GetLon());
             float distancia = Convert.ToSingle(Math.Sqrt(dist_x * dist_x + dist_y * dist_y));
             return distancia;
         }
