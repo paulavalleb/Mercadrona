@@ -122,6 +122,10 @@ namespace csDronLink
                 // Configuro la conexión con el simulador
                 // ESTO HABRÁ QUE CAMBIARLO PORQUE PUEDE QUE EL CLIENTE QUIERA CONECTARSE A OTROS PUERTOS
                 string ip = "127.0.0.1";
+                if (port == 0)
+                {
+                    port = 5763;
+                }
                 TcpClient client = new TcpClient(ip, port);
                 puertoTCP = client.GetStream();
                 messageHandler = new MessageHandler(modo, puertoTCP);
@@ -166,15 +170,15 @@ namespace csDronLink
         {
             return this.pedido_id;
         }
-        public float GetDist_base(float lat)
+        public float GetDist_base()
         {
             return this.dist_base;
         }
-        public string GetEstado(float lat)
+        public string GetEstado()
         {
             return this.estado;
         }
-        public int GetPedidos_en_cola(float lat)
+        public int GetPedidos_en_cola()
         {
             return this.pedidos_en_cola;
         }

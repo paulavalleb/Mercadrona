@@ -21,6 +21,7 @@ namespace SimpleExample
     {
         Dron dron = new Dron();
 
+
         List<Dron> drons_list = new List<Dron>(); // lista de drons que se conectan al programa
 
         // para gestionar el mapa: diferentes mapas para cada capa
@@ -442,7 +443,8 @@ namespace SimpleExample
                 button27.ForeColor = Color.White;
                 */
 
-
+            }
+        }
         private void trackBarSpeed_Scroll(object sender, EventArgs e)
         {
             // Recojo y muestro el valor la velocidad según se mueve 
@@ -475,7 +477,7 @@ namespace SimpleExample
         {
             desplegable.Items.Clear();
             drons_list.Clear();
-            int numDrons = Convert.ToInt16(textBoxNumDrons.Text);
+            int numDrons = Convert.ToInt32(textBoxNumDrons.Text);
             for (int i = 1; i <= numDrons; i++)
             {
                 Dron dron = new Dron();

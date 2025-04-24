@@ -41,7 +41,7 @@ namespace csDronLink
             for (int i = 0; i < drones.Count; i++)
             {
                 Dron dron = drones[i];
-                if (dron.estado == "disponible")
+                if (dron.GetEstado() == "disponible")
                 {
                     drones_disponibles.Add(dron);
                 }
@@ -52,17 +52,17 @@ namespace csDronLink
                 {
                     Dron dron = drones_disponibles[j];
                     float dist_base = calcula_dist(dron, base_coords);
-                    dron.dist_base = dist_base;
+                    dron.SetDist_base(dist_base);
                 }
-                drones_disponibles.OrderBy(dron => dron.dist_base);
-                drones_disponibles[0].estado = "ocupado";
-                drones_disponibles[0].pedido_id = pedido_id;
+                drones_disponibles.OrderBy(dron => dron.GetDist_base());
+                drones_disponibles[0].SetEstado("ocupado");
+                drones_disponibles[0].SetPedido_id(pedido_id);
             }
             else
             {
-                drones.OrderBy(dron => dron.pedidos_en_cola);
-                drones[0].estado = "ocupado";
-                drones[0].pedido_id = pedido_id;
+                drones.OrderBy(dron => dron.GetPedidos_en_cola());
+                drones[0].SetEstado("ocupado");
+                drones[0].SetPedido_id(pedido_id);
             }
         }
 
