@@ -48,3 +48,7 @@ C:\Users\USER\Documents\Miguel\DEE_all_repos\csDronLink\csDronLink\csDronLink\ob
 C:\Users\USER\Documents\Miguel\DEE_all_repos\csDronLink\csDronLink\csDronLink\obj\Debug\csDronLink.csproj.CopyComplete
 C:\Users\USER\Documents\Miguel\DEE_all_repos\csDronLink\csDronLink\csDronLink\obj\Debug\csDronLink.dll
 C:\Users\USER\Documents\Miguel\DEE_all_repos\csDronLink\csDronLink\csDronLink\obj\Debug\csDronLink.pdb
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.AssemblyReference.cache
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.CoreCompileInputs.cache
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\obj\Debug\csDronLink.dll
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\obj\Debug\csDronLink.pdb

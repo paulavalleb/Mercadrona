@@ -17,16 +17,18 @@ namespace SimpleExample
             InitializeComponent();
         }
 
-        private void mercadrona_Click(object sender, EventArgs e)
-        {
-            Mercadrona mercadrona = new Mercadrona();
-            mercadrona.Show();
-        }
+        
 
         private void simulación_Click(object sender, EventArgs e)
         {
             simpleexample simulacion = new simpleexample();
             simulacion.Show();
+        }
+
+        private void mercadrona_Click(object sender, EventArgs e)
+        {
+            Mercadrona mercadrona = new Mercadrona();
+            mercadrona.Show();
         }
     }
 }

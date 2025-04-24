@@ -41,6 +41,7 @@
             this.simulación.TabIndex = 3;
             this.simulación.Text = "Simulación";
             this.simulación.UseVisualStyleBackColor = true;
+            this.simulación.Click += new System.EventHandler(this.simulación_Click);
             // 
             // mercadrona
             // 
@@ -51,6 +52,7 @@
             this.mercadrona.TabIndex = 2;
             this.mercadrona.Text = "Mercadrona";
             this.mercadrona.UseVisualStyleBackColor = true;
+            this.mercadrona.Click += new System.EventHandler(this.mercadrona_Click);
             // 
             // Inicio
             // 
