@@ -60,6 +60,13 @@ namespace csDronLink
         // Velocidad para las operaciones de navegación
         int velocidad = 1;
 
+        // Atributos pedido
+        public int dron_id;
+        public int pedido_id;
+        public float dist_base;
+        public string estado;
+        public int pedidos_en_cola;
+
         MessageHandler messageHandler;
 
         // Constrictor, conexión, registro de telemetria y envio de mensajes
