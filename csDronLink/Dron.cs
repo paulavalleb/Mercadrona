@@ -61,12 +61,15 @@ namespace csDronLink
         int velocidad = 1;
 
         // Atributos pedido
-        public int dron_id;
-        public int pedido_id;
-        public float dist_base;
-        public string estado;
-        public int pedidos_en_cola;
+        int dron_id;
+        int pedido_id;
+        float dist_base;
+        string estado;
+        int pedidos_en_cola;
 
+        int port;
+
+        
         MessageHandler messageHandler;
 
         // Constrictor, conexión, registro de telemetria y envio de mensajes
@@ -113,12 +116,12 @@ namespace csDronLink
                 puertoSerie.Open();
                 // Pongo en marcha en message handler
                 messageHandler = new MessageHandler(modo, puertoSerie);
-            } else
+            } 
+            else
             {
                 // Configuro la conexión con el simulador
                 // ESTO HABRÁ QUE CAMBIARLO PORQUE PUEDE QUE EL CLIENTE QUIERA CONECTARSE A OTROS PUERTOS
                 string ip = "127.0.0.1";
-                int port = 5763;
                 TcpClient client = new TcpClient(ip, port);
                 puertoTCP = client.GetStream();
                 messageHandler = new MessageHandler(modo, puertoTCP);
@@ -155,6 +158,26 @@ namespace csDronLink
         {
             return this.lat;
         }
+        public int GetDron_id()
+        {
+            return this.dron_id;
+        }
+        public int GetPedido_id()
+        {
+            return this.pedido_id;
+        }
+        public float GetDist_base(float lat)
+        {
+            return this.dist_base;
+        }
+        public string GetEstado(float lat)
+        {
+            return this.estado;
+        }
+        public int GetPedidos_en_cola(float lat)
+        {
+            return this.pedidos_en_cola;
+        }
 
         public void SetLat(float lat)
         {
@@ -165,7 +188,72 @@ namespace csDronLink
         {
             this.lon = lon;
         }
+        public void SetDron_id(int dron_id)
+        {
+            this.dron_id = dron_id;
+
+            if (this.dron_id == 1)
+            {
+                this.port = 5763;
+            }
+            else if (this.dron_id == 2)
+            {
+                this.dron_id = 5773;
+            }
+            else if (this.dron_id == 3)
+            {
+                this.dron_id = 5783;
+            }
+            else if (this.dron_id == 4)
+            {
+                this.dron_id = 5793;
+            }
+            else if (this.dron_id == 5)
+            {
+                this.dron_id = 5803;
+            }
+            else if (this.dron_id == 6)
+            {
+                this.dron_id = 5813;
+            }
+            else if (this.dron_id == 7)
+            {
+                this.dron_id = 5823;
+            }
+            else if (this.dron_id == 8)
+            {
+                this.dron_id = 5833;
+            }
+            else if (this.dron_id == 9)
+            {
+                this.dron_id = 5843;
+            }
+            else
+            {
+                this.dron_id = 5853;
+            }
+
+        }
+        public void SetPedido_id(int pedido_id)
+        {
+            this.pedido_id = pedido_id;
+        }
+        public void SetDist_base(float dist_base)
+        {
+            this.dist_base = dist_base;
+        }
+        public void SetEstado(string estado)
+        {
+            this.estado = estado;
+        }
+        public void SetPedidos_en_cola(int pedidos_en_cola)
+        {
+            this.pedidos_en_cola = pedidos_en_cola;
+        }
+
+
+
 
 
     }
-}
+    }

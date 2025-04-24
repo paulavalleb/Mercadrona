@@ -379,7 +379,7 @@ namespace SimpleExample
             CMB_comport.Visible = true;
         }
 
-        private void but_connect_Click(object sender, EventArgs e)
+        private void but_connect_Click_1(object sender, EventArgs e)
         {
             if (!prodRadio.Checked && !simRadio.Checked)
                 MessageBox.Show("No has elegido un modo de control: simulación o producción.");
@@ -441,8 +441,7 @@ namespace SimpleExample
                 button27.BackColor = Color.Green;
                 button27.ForeColor = Color.White;
                 */
-            }
-        }
+
 
         private void trackBarSpeed_Scroll(object sender, EventArgs e)
         {
@@ -467,7 +466,12 @@ namespace SimpleExample
             pasoLbl.Text = n.ToString();
         }
 
-        private void Connectar_click(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Connectar_button_Click(object sender, EventArgs e)
         {
             desplegable.Items.Clear();
             drons_list.Clear();
@@ -475,15 +479,14 @@ namespace SimpleExample
             for (int i = 1; i <= numDrons; i++)
             {
                 Dron dron = new Dron();
+                dron.SetDron_id(i);
+               
                 drons_list.Add(dron);
                 desplegable.Items.Add(i);
             }
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 
 }
