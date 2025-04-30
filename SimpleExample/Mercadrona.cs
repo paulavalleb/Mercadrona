@@ -1,19 +1,16 @@
-﻿using csDronLink;
-using GMap.NET.MapProviders;
-using GMap.NET.WindowsForms;
-using GMap.NET;
+﻿using GMap.NET;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using GMap.NET.WindowsForms.Markers;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.IO.Ports;
+using System.Text;
+using System.Windows.Forms;
+using static MAVLink;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using csDronLink;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SimpleExample
 {
@@ -78,11 +75,7 @@ namespace SimpleExample
             this.Controls.Add(gmap);
         }
 
-        private void Mercadrona_Load(object sender, EventArgs e)
-        {
-            drons_list.Add(dron); // añado el dron a la lista de drons
-            desplegable.Items.Add("1");
-        }
+        
 
 
 
@@ -132,7 +125,7 @@ namespace SimpleExample
             }
 
         }
-        private void GMapControl1_MouseDown(object sender, MouseEventArgs e)
+        private void GMapControl1_MouseDown(object sender, MouseEventArgs e) // no seria click?
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -159,13 +152,6 @@ namespace SimpleExample
         }
 
 
-        private void CMB_comport_Click(object sender, EventArgs e)
-        {
-            // cargo la lista de los puertos disponibles
-            CMB_comport.DataSource = SerialPort.GetPortNames();
-        }
-
-
 
         private void EnAire(object param)
         {
@@ -175,49 +161,18 @@ namespace SimpleExample
             despegarBtn.Text = (string)param;
         }
 
-        private void but_takeoff_Click(object sender, EventArgs e)
-        {
-            // Click en boton para dspegar
-            // Llamada no bloqueante para no bloquear el formulario
-            dron.Despegar(int.Parse(alturaBox.Text), bloquear: false, EnAire, "Volando");
-
-            despegarBtn.BackColor = Color.Yellow;
-        }
+        
         private void EnTierra(object mensaje)
         {
             // Aqui vendre cuando el dron esté en tierra
             // El mensaje me dice si vengo de un aterrizaje o de un RTL
             if ((string)mensaje == "Aterrizaje")
-                button7.BackColor = Color.Green;
+                aterrizarBtn.BackColor = Color.Green;
             else
-                button6.BackColor = Color.Green;
+                RTLBtn.BackColor = Color.Green;
         }
 
-        private void aterrizarBtn_Click(object sender, EventArgs e)
-        {
-            // Click en el botón de aterrizar
-            dron.Aterrizar(bloquear: false, EnTierra, "Aterrizaje");
-            button7.BackColor = Color.Yellow;
-        }
-
-        private void RTLBtn_Click(object sender, EventArgs e)
-        {
-            // Click en el botón de RTL
-            dron.RTL(bloquear: false, EnTierra, "RTL");
-            button6.BackColor = Color.Yellow;
-        }
-
-        private void enviarTelemetriaBtn_Click(object sender, EventArgs e)
-        {
-
-            dron.EnviarDatosTelemetria(ProcesarTelemetria);
-        }
-
-        private void detenerTelemetriaBtn_Click(object sender, EventArgs e)
-        {
-            dron.DetenerDatosTelemetria();
-        }
-
+        
         private void ProcesarTelemetria(List<(string nombre, float valor)> telemetria)
         {
             // Aqui vendre cada vez que llegue un paquete de telemetría
@@ -273,16 +228,6 @@ namespace SimpleExample
         }
 
 
-
-        private void headingTrackBar_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void velocidadTrackBar_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
         private void DibujarLimites(List<(float lat, float lon)> limites)
         {
             // Dibujo el poligono que define los límites del area de vuelo (geofence
@@ -363,11 +308,29 @@ namespace SimpleExample
             overlay.Markers.Add(marker);
         }
 
-        private void parámetrosToolStripMenuItem_Click(object sender, EventArgs e)
+       
+
+
+
+        private void Connectar_button_Click(object sender, EventArgs e)
         {
-            // Abro el formulario para leer/escribir los parámetros
-            Parametros f = new Parametros(dron);
-            f.ShowDialog();
+            desplegable.Items.Clear();
+            drons_list.Clear();
+            int numDrons = Convert.ToInt32(textBoxNumDrons.Text);
+            for (int i = 1; i <= numDrons; i++)
+            {
+                Dron dron = new Dron();
+                dron.SetDron_id(i);
+               
+                drons_list.Add(dron);
+                desplegable.Items.Add(i);
+            }
+        }
+
+        private void Mercadrona_Load(object sender, EventArgs e)
+        {
+            drons_list.Add(dron); // añado el dron a la lista de drons
+            desplegable.Items.Add("1");
         }
 
         private void simRadio_CheckedChanged(object sender, EventArgs e)
@@ -380,7 +343,13 @@ namespace SimpleExample
             CMB_comport.Visible = true;
         }
 
-        private void but_connect_Click_1(object sender, EventArgs e)
+        private void CMB_comport_Click(object sender, EventArgs e)
+        {
+            // cargo la lista de los puertos disponibles
+            CMB_comport.DataSource = SerialPort.GetPortNames();
+        }
+
+        private void but_connect_Click(object sender, EventArgs e)
         {
             if (!prodRadio.Checked && !simRadio.Checked)
                 MessageBox.Show("No has elegido un modo de control: simulación o producción.");
@@ -445,6 +414,61 @@ namespace SimpleExample
 
             }
         }
+
+        private void despegarBtn_Click(object sender, EventArgs e)
+        {
+            // Click en boton para dspegar
+            // Llamada no bloqueante para no bloquear el formulario
+            dron.Despegar(int.Parse(alturaBox.Text), bloquear: false, EnAire, "Volando");
+
+            despegarBtn.BackColor = Color.Yellow;
+        }
+        private void RTLBtn_Click(object sender, EventArgs e)
+        {
+            // Click en el botón de RTL
+            dron.RTL(bloquear: false, EnTierra, "RTL");
+            RTLBtn.BackColor = Color.Yellow;
+        }
+
+        private void aterrizarBtn_Click(object sender, EventArgs e)
+        {
+            // Click en el botón de aterrizar
+            dron.Aterrizar(bloquear: false, EnTierra, "Aterrizaje");
+            aterrizarBtn.BackColor = Color.Yellow;
+        }
+
+        private void navButton_Click(object sender, EventArgs e)
+        {
+            // Aqui vendremos cuando se clique cualquiera de los botones de navagación
+            // En el tag del boton tenemos la dirección de navegación.
+            Button b = (Button)sender;
+            string tag = b.Tag.ToString();
+            dron.Navegar(tag);
+
+        }
+        private void movButton_Click(object sender, EventArgs e)
+        {
+            // Aqui vendremos cuando se clique cualquiera de los botones de movimiento
+            // En el tag del boton tenemos la dirección de navegación.
+
+            Button b = (Button)sender;
+            string direccion = b.Tag.ToString();
+            // recupero la distancia que debe recorrer el dron
+            int distancia = Convert.ToInt32(pasoLbl.Text);
+            dron.Mover(direccion, distancia, bloquear: false);
+        }
+
+
+        private void enviarTelemetria(object sender, EventArgs e)
+        {
+            dron.EnviarDatosTelemetria(ProcesarTelemetria);
+        }
+
+        private void detenerTelemetria_Click(object sender, EventArgs e)
+        {
+            dron.DetenerDatosTelemetria();
+        }
+
         private void trackBarSpeed_Scroll(object sender, EventArgs e)
         {
             // Recojo y muestro el valor la velocidad según se mueve 
@@ -453,6 +477,7 @@ namespace SimpleExample
             velocidadLbl.Text = n.ToString();
         }
 
+      
         private void trackBarHeading_Scroll(object sender, EventArgs e)
         {
             // Recojo el valor del heading seleccionado
@@ -468,29 +493,29 @@ namespace SimpleExample
             pasoLbl.Text = n.ToString();
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void trackBarHeading_MouseUp(object sender, MouseEventArgs e)
         {
-
+            // Cuando se libera la barra de desplazamiento recojo el valor
+            // definitivo para el heading y lo envío al dron
+            float valorSeleccionado = trackBarHeading.Value;
+            dron.CambiarHeading(valorSeleccionado, bloquear: false);
         }
 
-        private void Connectar_button_Click(object sender, EventArgs e)
+        private void trackBarSpeed_MouseUp(object sender, MouseEventArgs e)
         {
-            desplegable.Items.Clear();
-            drons_list.Clear();
-            int numDrons = Convert.ToInt32(textBoxNumDrons.Text);
-            for (int i = 1; i <= numDrons; i++)
-            {
-                Dron dron = new Dron();
-                dron.SetDron_id(i);
-               
-                drons_list.Add(dron);
-                desplegable.Items.Add(i);
-            }
+            // Cuando se libera la barra de desplazamiento recojo el valor
+            // definitivo para la velocidad y lo envío al dron
+            int valorSeleccionado = trackBarSpeed.Value;
+            dron.CambiaVelocidad(valorSeleccionado);
         }
 
-        
+        private void parámetrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Abro el formulario para leer/escribir los parámetros
+            Parametros f = new Parametros(dron);
+            f.ShowDialog();
+        }
     }
-
 }
 
 

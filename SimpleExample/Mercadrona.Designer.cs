@@ -31,11 +31,11 @@
             this.but_connect = new System.Windows.Forms.Button();
             this.CMB_comport = new System.Windows.Forms.ComboBox();
             this.despegarBtn = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.RTLBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.aterrizarBtn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.headLbl = new System.Windows.Forms.Label();
             this.longitudLbl = new System.Windows.Forms.Label();
@@ -44,8 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
+            this.detenerTelemetria = new System.Windows.Forms.Button();
+            this.IniciaTelemetría = new System.Windows.Forms.Button();
             this.ponGuiadoBtn = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -85,12 +85,15 @@
             this.simRadio = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.parámetrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHeading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDistancia)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // but_connect
@@ -104,7 +107,7 @@
             this.but_connect.TabIndex = 2;
             this.but_connect.Text = "Connectar";
             this.but_connect.UseVisualStyleBackColor = false;
-            this.but_connect.Click += new System.EventHandler(this.but_connect_Click_1);
+            this.but_connect.Click += new System.EventHandler(this.but_connect_Click);
             // 
             // CMB_comport
             // 
@@ -117,6 +120,7 @@
             this.CMB_comport.TabIndex = 0;
             this.CMB_comport.Text = "Elije COM";
             this.CMB_comport.Visible = false;
+            this.CMB_comport.Click += new System.EventHandler(this.CMB_comport_Click);
             // 
             // despegarBtn
             // 
@@ -129,18 +133,20 @@
             this.despegarBtn.TabIndex = 5;
             this.despegarBtn.Text = "Despegar";
             this.despegarBtn.UseVisualStyleBackColor = false;
+            this.despegarBtn.Click += new System.EventHandler(this.despegarBtn_Click);
             // 
-            // button6
+            // RTLBtn
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(322, 162);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(105, 48);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "RTL";
-            this.button6.UseVisualStyleBackColor = false;
+            this.RTLBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.RTLBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RTLBtn.Location = new System.Drawing.Point(322, 162);
+            this.RTLBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RTLBtn.Name = "RTLBtn";
+            this.RTLBtn.Size = new System.Drawing.Size(105, 48);
+            this.RTLBtn.TabIndex = 10;
+            this.RTLBtn.Text = "RTL";
+            this.RTLBtn.UseVisualStyleBackColor = false;
+            this.RTLBtn.Click += new System.EventHandler(this.RTLBtn_Click);
             // 
             // label6
             // 
@@ -162,6 +168,7 @@
             this.button2.Tag = "BackRight";
             this.button2.Text = "SE";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.movButton_Click);
             // 
             // button3
             // 
@@ -174,18 +181,20 @@
             this.button3.Tag = "Back";
             this.button3.Text = "S";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.movButton_Click);
             // 
-            // button7
+            // aterrizarBtn
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(435, 162);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(124, 48);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "Aterrizar";
-            this.button7.UseVisualStyleBackColor = false;
+            this.aterrizarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.aterrizarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aterrizarBtn.Location = new System.Drawing.Point(435, 162);
+            this.aterrizarBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.aterrizarBtn.Name = "aterrizarBtn";
+            this.aterrizarBtn.Size = new System.Drawing.Size(124, 48);
+            this.aterrizarBtn.TabIndex = 13;
+            this.aterrizarBtn.Text = "Aterrizar";
+            this.aterrizarBtn.UseVisualStyleBackColor = false;
+            this.aterrizarBtn.Click += new System.EventHandler(this.aterrizarBtn_Click);
             // 
             // label7
             // 
@@ -263,31 +272,33 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Longitud";
             // 
-            // button22
+            // detenerTelemetria
             // 
-            this.button22.Location = new System.Drawing.Point(112, 28);
-            this.button22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(81, 40);
-            this.button22.TabIndex = 1;
-            this.button22.Text = "Parar";
-            this.button22.UseVisualStyleBackColor = true;
+            this.detenerTelemetria.Location = new System.Drawing.Point(112, 28);
+            this.detenerTelemetria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.detenerTelemetria.Name = "detenerTelemetria";
+            this.detenerTelemetria.Size = new System.Drawing.Size(81, 40);
+            this.detenerTelemetria.TabIndex = 1;
+            this.detenerTelemetria.Text = "Parar";
+            this.detenerTelemetria.UseVisualStyleBackColor = true;
+            this.detenerTelemetria.Click += new System.EventHandler(this.detenerTelemetria_Click);
             // 
-            // button23
+            // IniciaTelemetría
             // 
-            this.button23.Location = new System.Drawing.Point(22, 28);
-            this.button23.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(81, 40);
-            this.button23.TabIndex = 0;
-            this.button23.Text = "Iniciar";
-            this.button23.UseVisualStyleBackColor = true;
+            this.IniciaTelemetría.Location = new System.Drawing.Point(22, 28);
+            this.IniciaTelemetría.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.IniciaTelemetría.Name = "IniciaTelemetría";
+            this.IniciaTelemetría.Size = new System.Drawing.Size(81, 40);
+            this.IniciaTelemetría.TabIndex = 0;
+            this.IniciaTelemetría.Text = "Iniciar";
+            this.IniciaTelemetría.UseVisualStyleBackColor = true;
+            this.IniciaTelemetría.Click += new System.EventHandler(this.enviarTelemetria);
             // 
             // ponGuiadoBtn
             // 
             this.ponGuiadoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ponGuiadoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ponGuiadoBtn.Location = new System.Drawing.Point(1137, 68);
+            this.ponGuiadoBtn.Location = new System.Drawing.Point(1137, 119);
             this.ponGuiadoBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ponGuiadoBtn.Name = "ponGuiadoBtn";
             this.ponGuiadoBtn.Size = new System.Drawing.Size(262, 138);
@@ -306,6 +317,7 @@
             this.button4.Tag = "BackLeft";
             this.button4.Text = "SW";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.movButton_Click);
             // 
             // groupBox4
             // 
@@ -317,10 +329,10 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.button22);
-            this.groupBox4.Controls.Add(this.button23);
+            this.groupBox4.Controls.Add(this.detenerTelemetria);
+            this.groupBox4.Controls.Add(this.IniciaTelemetría);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(15, 684);
+            this.groupBox4.Location = new System.Drawing.Point(15, 735);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -353,7 +365,7 @@
             this.groupBox2.Controls.Add(this.button10);
             this.groupBox2.Controls.Add(this.button9);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(15, 239);
+            this.groupBox2.Location = new System.Drawing.Point(15, 290);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -373,6 +385,7 @@
             this.button5.Tag = "Right";
             this.button5.Text = "E";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.movButton_Click);
             // 
             // button8
             // 
@@ -386,6 +399,7 @@
             this.button8.Tag = "Stop";
             this.button8.Text = "Stop";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.movButton_Click);
             // 
             // button19
             // 
@@ -398,6 +412,7 @@
             this.button19.Tag = "Left";
             this.button19.Text = "W";
             this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.movButton_Click);
             // 
             // button24
             // 
@@ -410,6 +425,7 @@
             this.button24.Tag = "ForwardRight";
             this.button24.Text = "NE";
             this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.movButton_Click);
             // 
             // button25
             // 
@@ -422,6 +438,7 @@
             this.button25.Tag = "Forward";
             this.button25.Text = "N";
             this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.movButton_Click);
             // 
             // button26
             // 
@@ -434,6 +451,7 @@
             this.button26.Tag = "ForwardLeft";
             this.button26.Text = "NW";
             this.button26.UseVisualStyleBackColor = false;
+            this.button26.Click += new System.EventHandler(this.movButton_Click);
             // 
             // button21
             // 
@@ -447,6 +465,7 @@
             this.button21.Tag = "Up";
             this.button21.Text = "ARRIBA";
             this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.movButton_Click);
             // 
             // button20
             // 
@@ -460,6 +479,7 @@
             this.button20.Tag = "Down";
             this.button20.Text = "ABAJO";
             this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.movButton_Click);
             // 
             // button17
             // 
@@ -472,6 +492,7 @@
             this.button17.Tag = "SouthEast";
             this.button17.Text = "SE";
             this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.navButton_Click);
             // 
             // button16
             // 
@@ -484,6 +505,7 @@
             this.button16.Tag = "South";
             this.button16.Text = "S";
             this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.navButton_Click);
             // 
             // button15
             // 
@@ -496,6 +518,7 @@
             this.button15.Tag = "SouthWest";
             this.button15.Text = "SW";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.navButton_Click);
             // 
             // button14
             // 
@@ -508,6 +531,7 @@
             this.button14.Tag = "East";
             this.button14.Text = "E";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.navButton_Click);
             // 
             // button13
             // 
@@ -521,6 +545,7 @@
             this.button13.Tag = "Stop";
             this.button13.Text = "Stop";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.navButton_Click);
             // 
             // button12
             // 
@@ -533,6 +558,7 @@
             this.button12.Tag = "West";
             this.button12.Text = "W";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.navButton_Click);
             // 
             // button11
             // 
@@ -545,6 +571,7 @@
             this.button11.Tag = "NorthEast";
             this.button11.Text = "NE";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.navButton_Click);
             // 
             // button10
             // 
@@ -557,6 +584,7 @@
             this.button10.Tag = "North";
             this.button10.Text = "N";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.navButton_Click);
             // 
             // button9
             // 
@@ -570,13 +598,14 @@
             this.button9.Tag = "NorthWest";
             this.button9.Text = "NW";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.navButton_Click);
             // 
             // velocidadLbl
             // 
             this.velocidadLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.velocidadLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.velocidadLbl.ForeColor = System.Drawing.Color.Red;
-            this.velocidadLbl.Location = new System.Drawing.Point(19, 911);
+            this.velocidadLbl.Location = new System.Drawing.Point(19, 974);
             this.velocidadLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.velocidadLbl.Name = "velocidadLbl";
             this.velocidadLbl.Size = new System.Drawing.Size(72, 36);
@@ -586,17 +615,19 @@
             // 
             // trackBarSpeed
             // 
-            this.trackBarSpeed.Location = new System.Drawing.Point(29, 968);
+            this.trackBarSpeed.Location = new System.Drawing.Point(29, 1023);
             this.trackBarSpeed.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.trackBarSpeed.Name = "trackBarSpeed";
             this.trackBarSpeed.Size = new System.Drawing.Size(164, 69);
             this.trackBarSpeed.TabIndex = 52;
+            this.trackBarSpeed.Scroll += new System.EventHandler(this.trackBarSpeed_Scroll);
+            this.trackBarSpeed.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarSpeed_MouseUp);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(321, 924);
+            this.label4.Location = new System.Drawing.Point(325, 984);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 25);
@@ -605,19 +636,21 @@
             // 
             // trackBarHeading
             // 
-            this.trackBarHeading.Location = new System.Drawing.Point(238, 968);
+            this.trackBarHeading.Location = new System.Drawing.Point(238, 1019);
             this.trackBarHeading.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.trackBarHeading.Maximum = 360;
             this.trackBarHeading.Name = "trackBarHeading";
             this.trackBarHeading.Size = new System.Drawing.Size(147, 69);
             this.trackBarHeading.TabIndex = 50;
+            this.trackBarHeading.Scroll += new System.EventHandler(this.trackBarHeading_Scroll);
+            this.trackBarHeading.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarHeading_MouseUp);
             // 
             // headingLbl
             // 
             this.headingLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.headingLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.headingLbl.ForeColor = System.Drawing.Color.Red;
-            this.headingLbl.Location = new System.Drawing.Point(240, 919);
+            this.headingLbl.Location = new System.Drawing.Point(238, 980);
             this.headingLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.headingLbl.Name = "headingLbl";
             this.headingLbl.Size = new System.Drawing.Size(72, 30);
@@ -627,19 +660,20 @@
             // 
             // trackBarDistancia
             // 
-            this.trackBarDistancia.Location = new System.Drawing.Point(450, 959);
+            this.trackBarDistancia.Location = new System.Drawing.Point(450, 1019);
             this.trackBarDistancia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.trackBarDistancia.Maximum = 100;
             this.trackBarDistancia.Name = "trackBarDistancia";
             this.trackBarDistancia.Size = new System.Drawing.Size(148, 69);
             this.trackBarDistancia.TabIndex = 48;
+            this.trackBarDistancia.Scroll += new System.EventHandler(this.trackBarDistancia_Scroll);
             // 
             // pasoLbl
             // 
             this.pasoLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pasoLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pasoLbl.ForeColor = System.Drawing.Color.Red;
-            this.pasoLbl.Location = new System.Drawing.Point(450, 915);
+            this.pasoLbl.Location = new System.Drawing.Point(450, 977);
             this.pasoLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pasoLbl.Name = "pasoLbl";
             this.pasoLbl.Size = new System.Drawing.Size(72, 30);
@@ -651,7 +685,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(106, 919);
+            this.label9.Location = new System.Drawing.Point(106, 980);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 25);
@@ -668,7 +702,7 @@
             // 
             // panelMapa
             // 
-            this.panelMapa.Location = new System.Drawing.Point(663, 314);
+            this.panelMapa.Location = new System.Drawing.Point(663, 365);
             this.panelMapa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMapa.Name = "panelMapa";
             this.panelMapa.Size = new System.Drawing.Size(736, 615);
@@ -685,12 +719,12 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.alturaBox);
             this.groupBox1.Controls.Add(this.but_connect);
-            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.aterrizarBtn);
             this.groupBox1.Controls.Add(this.CMB_comport);
             this.groupBox1.Controls.Add(this.despegarBtn);
-            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.RTLBtn);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(15, 14);
+            this.groupBox1.Location = new System.Drawing.Point(15, 65);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -741,6 +775,7 @@
             this.prodRadio.TabStop = true;
             this.prodRadio.Text = "producción";
             this.prodRadio.UseVisualStyleBackColor = true;
+            this.prodRadio.CheckedChanged += new System.EventHandler(this.prodRadio_CheckedChanged);
             // 
             // simRadio
             // 
@@ -754,6 +789,7 @@
             this.simRadio.TabStop = true;
             this.simRadio.Text = "simulación";
             this.simRadio.UseVisualStyleBackColor = true;
+            this.simRadio.CheckedChanged += new System.EventHandler(this.simRadio_CheckedChanged);
             // 
             // label1
             // 
@@ -770,19 +806,39 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(531, 916);
+            this.label8.Location = new System.Drawing.Point(539, 982);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 25);
             this.label8.TabIndex = 57;
             this.label8.Text = "Distancia";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parámetrosToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1452, 53);
+            this.menuStrip1.TabIndex = 58;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // parámetrosToolStripMenuItem
+            // 
+            this.parámetrosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parámetrosToolStripMenuItem.Name = "parámetrosToolStripMenuItem";
+            this.parámetrosToolStripMenuItem.Size = new System.Drawing.Size(196, 49);
+            this.parámetrosToolStripMenuItem.Text = "Parámetros";
+            this.parámetrosToolStripMenuItem.Click += new System.EventHandler(this.parámetrosToolStripMenuItem_Click);
             // 
             // Mercadrona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 1050);
+            this.ClientSize = new System.Drawing.Size(1452, 1121);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pasoLbl);
             this.Controls.Add(this.trackBarSpeed);
@@ -800,6 +856,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Mercadrona";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Mercadrona_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -809,6 +866,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDistancia)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -819,11 +878,11 @@
         private System.Windows.Forms.Button but_connect;
         private System.Windows.Forms.ComboBox CMB_comport;
         private System.Windows.Forms.Button despegarBtn;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button RTLBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button aterrizarBtn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label headLbl;
         private System.Windows.Forms.Label longitudLbl;
@@ -832,8 +891,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button detenerTelemetria;
+        private System.Windows.Forms.Button IniciaTelemetría;
         private System.Windows.Forms.Button ponGuiadoBtn;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -873,5 +932,7 @@
         private System.Windows.Forms.RadioButton simRadio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem parámetrosToolStripMenuItem;
     }
 }
