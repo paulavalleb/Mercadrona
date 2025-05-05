@@ -20,6 +20,7 @@ namespace SimpleExample
     {
 
         Dron dron = new Dron();
+        
         // para gestionar el mapa
         private GMapControl gmap;
         private GMapOverlay overlay;
@@ -38,6 +39,7 @@ namespace SimpleExample
 
         public simpleexample()
         {
+            dron.SetDron_id(1); // afegit
             // No queremos que nos molesten con la excepción Cross-Threading
             CheckForIllegalCrossThreadCalls = false;
 

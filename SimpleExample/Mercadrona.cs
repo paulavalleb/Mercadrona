@@ -10,17 +10,17 @@ using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using csDronLink;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SimpleExample
 {
     public partial class Mercadrona : Form
     {
-        Dron dron = new Dron();
+        // Dron:
+        List<Dron> drons_list = new List<Dron> (); // lista de drons que se conectan al programa
+        Dron dron_selected = new Dron();
 
-
-        List<Dron> drons_list = new List<Dron>(); // lista de drons que se conectan al programa
-
+        // Diseño
+        
         // para gestionar el mapa: diferentes mapas para cada capa
         private GMapControl gmap;
         private GMapOverlay overlay;
@@ -39,11 +39,13 @@ namespace SimpleExample
 
         public Mercadrona()
         {
+                     
+
             // No queremos que nos molesten con la excepción Cross-Threading
             CheckForIllegalCrossThreadCalls = false;
 
             InitializeComponent();
-
+            
             // Hacemos que el formulario principal ocupe toda la pantalla
             this.WindowState = FormWindowState.Maximized;
 
@@ -73,6 +75,7 @@ namespace SimpleExample
             };
             gmap.MouseDown += GMapControl1_MouseDown; // capturo el evento de click en raton
             this.Controls.Add(gmap);
+            
         }
 
         
@@ -141,7 +144,7 @@ namespace SimpleExample
                 ToolStripMenuItem option2 = new ToolStripMenuItem("Pon waypoint");
                 ToolStripMenuItem option3 = new ToolStripMenuItem("Opción 3");
                 // indico lo que ha que hacer según la opción elegida
-                option1.Click += (s, ev) => dron.IrAlPunto((float)point.Lat, (float)point.Lng, 20, bloquear: false);
+                option1.Click += (s, ev) => dron_selected.IrAlPunto((float)point.Lat, (float)point.Lng, 20, bloquear: false);
                 option2.Click += (s, ev) => AñadirWaypoint(((float)point.Lat, (float)point.Lng));
 
                 contextMenu.Items.Add(option1);
@@ -151,28 +154,53 @@ namespace SimpleExample
             }
         }
 
-
+        private void EnTierra()
+        {
+            dron_selected.SetFase(0);
+            despegarBtn.BackColor = Color.DarkOrange;
+            aterrizarBtn.BackColor = Color.Orange;
+            RTLBtn.BackColor = Color.Orange;
+            despegarBtn.Text = "Despegar";
+        }
 
         private void EnAire(object param)
         {
             // Esto es lo que haré cuando el dron haya alcanzado la altura de despegue
-            despegarBtn.BackColor = Color.Green;
-            despegarBtn.ForeColor = Color.White;
+            dron_selected.SetFase(1);
+            despegarBtn.BackColor = Color.Orange;
             despegarBtn.Text = (string)param;
         }
 
-        
         private void EnTierra(object mensaje)
         {
             // Aqui vendre cuando el dron esté en tierra
             // El mensaje me dice si vengo de un aterrizaje o de un RTL
-            if ((string)mensaje == "Aterrizaje")
-                aterrizarBtn.BackColor = Color.Green;
-            else
-                RTLBtn.BackColor = Color.Green;
+            //if ((string)mensaje == "Aterrizaje")
+
+            dron_selected.SetFase(2);
+            despegarBtn.BackColor = Color.DarkOrange;
+            aterrizarBtn.BackColor = Color.Orange;
+            RTLBtn.BackColor = Color.Orange;
+            despegarBtn.Text = "Despegar";
+        }
+        private void Aterrizando()
+        {
+            dron_selected.SetFase(3);
+            despegarBtn.BackColor = Color.Orange;
+            aterrizarBtn.BackColor = Color.Green;
+            RTLBtn.BackColor = Color.Orange;
+            despegarBtn.Text = "Despegar";
+        }
+        private void en_RTL()
+        {
+            dron_selected.SetFase(4);
+            despegarBtn.BackColor = Color.Orange;
+            aterrizarBtn.BackColor = Color.Orange;
+            RTLBtn.BackColor = Color.Green;
+            despegarBtn.Text = "Despegar";
         }
 
-        
+
         private void ProcesarTelemetria(List<(string nombre, float valor)> telemetria)
         {
             // Aqui vendre cada vez que llegue un paquete de telemetría
@@ -294,7 +322,7 @@ namespace SimpleExample
             overlay.Markers.Clear();
             overlay.Routes.Clear();
             mision = null;
-            dron.PonModoGuiado();
+            dron_selected.PonModoGuiado();
         }
         private void EnWaypoint(object n)
         {
@@ -314,23 +342,93 @@ namespace SimpleExample
 
         private void Connectar_button_Click(object sender, EventArgs e)
         {
-            desplegable.Items.Clear();
-            drons_list.Clear();
-            int numDrons = Convert.ToInt32(textBoxNumDrons.Text);
-            for (int i = 1; i <= numDrons; i++)
+            if (!prodRadio.Checked && !simRadio.Checked)
+                MessageBox.Show("No has elegido un modo de control: simulación o producción.");
+            else
             {
-                Dron dron = new Dron();
-                dron.SetDron_id(i);
-               
-                drons_list.Add(dron);
-                desplegable.Items.Add(i);
+                if (prodRadio.Checked)
+                {
+                    dron_selected.Conectar("produccion", CMB_comport.Text);
+                }
+                else
+                {
+                    desplegable.Items.Clear();
+                    
+                    if (textBoxNumDrons.Text == null)
+                    {
+                        MessageBox.Show("Porfavor, indica el número de drones a conectar");
+                    }
+                    else
+                    {
+                        int numDrons = Convert.ToInt32(textBoxNumDrons.Text);
+                        for (int i = 1; i <= numDrons; i++)
+                        {
+                            Dron dron = new Dron();
+                            dron.SetDron_id(i);
+
+                            drons_list.Add(dron);
+                            desplegable.Items.Add(i);
+                            dron.Conectar("simulacion");
+                        }
+                    }
+
+                    Connectar_button.BackColor = Color.Green;
+                    Connectar_button.ForeColor = Color.White;
+
+                    // Acabo la configuración del mapa
+                    gmap.MapProvider = GMapProviders.GoogleSatelliteMap;
+                    GMaps.Instance.Mode = AccessMode.ServerOnly;
+
+
+                    // Situo el mapa en el home elegido (DroneLab o Nou Camp
+                    gmap.Position = home;
+
+                    gmap.Visible = true; // Mostrar el mapa
+
+                    // Crear un overlay para los marcadores y rutas
+                    overlay = new GMapOverlay("circulos");
+                    gmap.Overlays.Add(overlay);
+                    panelMapa.Controls.Add(gmap);
+
+                    // Zona de operación Mercadrona
+
+                    List<(float lat, float lon)> fenceInclusion = new List<(float lat, float lon)> // o fer cercle
+                    {
+                        (41.29000677730377f, 1.98301118f),
+                        (41.29000677730377f, 1.9830111940801851f),
+                        (41.290005f, 1.98301118f),
+                        (41.290005f, 1.9830111940801851f)
+                    };
+                    List<List<(float lat, float lon)>> scenario = new List<List<(float lat, float lon)>>();
+                    scenario.Add(fenceInclusion);
+                    DibujarLimites(fenceInclusion);
+
+                    // Zonas que no se pueden sobrevolar
+
+                    // Colegios...
+                    /*List<(float lat, float lon)> fenceEnclusion = new List<(float lat, float lon)>
+                    {
+                         (41.27638358037891f, 1.9884803813032008f),
+                         (41.27640757922506f, 1.9887081705037886f),
+                         (41.27650197460089f, 1.9888018408292638f),
+                         (41.27655797179322f, 1.988935959704376f),
+                         (41.27639157999527f, 1.9890317589008852f),
+                         (41.27626838579467f, 1.988493154529402f)
+                    };
+                    dron.EstableceEscenario(scenario);
+                    scenario.Add(fenceEnclusion);
+                    DibujarObstaculo(fenceEnclusion);
+                    dron.EstableceEscenario(scenario);
+                    button27.BackColor = Color.Green;
+                    button27.ForeColor = Color.White;
+                    */
+                }
             }
         }
 
         private void Mercadrona_Load(object sender, EventArgs e)
         {
-            drons_list.Add(dron); // añado el dron a la lista de drons
-            desplegable.Items.Add("1");
+                       
         }
 
         private void simRadio_CheckedChanged(object sender, EventArgs e)
@@ -349,92 +447,34 @@ namespace SimpleExample
             CMB_comport.DataSource = SerialPort.GetPortNames();
         }
 
-        private void but_connect_Click(object sender, EventArgs e)
-        {
-            if (!prodRadio.Checked && !simRadio.Checked)
-                MessageBox.Show("No has elegido un modo de control: simulación o producción.");
-            else
-            {
-                if (prodRadio.Checked)
-                    dron.Conectar("produccion", CMB_comport.Text);
-                else
-                    dron.Conectar("simulacion");
-
-
-                but_connect.BackColor = Color.Green;
-                but_connect.ForeColor = Color.White;
-
-                // Acabo la configuración del mapa
-                gmap.MapProvider = GMapProviders.GoogleSatelliteMap;
-                GMaps.Instance.Mode = AccessMode.ServerOnly;
-
-
-                // Situo el mapa en el home elegido (DroneLab o Nou Camp
-                gmap.Position = home;
-
-                gmap.Visible = true; // Mostrar el mapa
-
-                // Crear un overlay para los marcadores y rutas
-                overlay = new GMapOverlay("circulos");
-                gmap.Overlays.Add(overlay);
-                panelMapa.Controls.Add(gmap);
-
-                // Zona de operación Mercadrona
-
-                List<(float lat, float lon)> fenceInclusion = new List<(float lat, float lon)> // o fer cercle
-                {
-                    (41.29000677730377f, 1.98301118f),
-                    (41.29000677730377f, 1.9830111940801851f),
-                    (41.290005f, 1.98301118f),
-                    (41.290005f, 1.9830111940801851f)
-                };
-                List<List<(float lat, float lon)>> scenario = new List<List<(float lat, float lon)>>();
-                scenario.Add(fenceInclusion);
-                DibujarLimites(fenceInclusion);
-
-                // Zonas que no se pueden sobrevolar
-
-                // Colegios...
-                /*List<(float lat, float lon)> fenceEnclusion = new List<(float lat, float lon)>
-                {
-                     (41.27638358037891f, 1.9884803813032008f),
-                     (41.27640757922506f, 1.9887081705037886f),
-                     (41.27650197460089f, 1.9888018408292638f),
-                     (41.27655797179322f, 1.988935959704376f),
-                     (41.27639157999527f, 1.9890317589008852f),
-                     (41.27626838579467f, 1.988493154529402f)
-                };
-                dron.EstableceEscenario(scenario);
-                scenario.Add(fenceEnclusion);
-                DibujarObstaculo(fenceEnclusion);
-                dron.EstableceEscenario(scenario);
-                button27.BackColor = Color.Green;
-                button27.ForeColor = Color.White;
-                */
-
-            }
-        }
+        
 
         private void despegarBtn_Click(object sender, EventArgs e)
         {
             // Click en boton para dspegar
+            // Click en boton para dspegar
             // Llamada no bloqueante para no bloquear el formulario
-            dron.Despegar(int.Parse(alturaBox.Text), bloquear: false, EnAire, "Volando");
-
+            
+            dron_selected.Despegar(int.Parse(alturaBox.Text), bloquear: false, EnAire, "Volando");
             despegarBtn.BackColor = Color.Yellow;
+            RTLBtn.BackColor = Color.DarkOrange;
+            aterrizarBtn.BackColor = Color.DarkOrange;
         }
+        
         private void RTLBtn_Click(object sender, EventArgs e)
         {
             // Click en el botón de RTL
-            dron.RTL(bloquear: false, EnTierra, "RTL");
+            dron_selected.RTL(bloquear: false, EnTierra, "RTL");
             RTLBtn.BackColor = Color.Yellow;
+            despegarBtn.BackColor = Color.DarkOrange;
         }
 
         private void aterrizarBtn_Click(object sender, EventArgs e)
         {
             // Click en el botón de aterrizar
-            dron.Aterrizar(bloquear: false, EnTierra, "Aterrizaje");
+            dron_selected.Aterrizar(bloquear: false, EnTierra, "Aterrizaje");
             aterrizarBtn.BackColor = Color.Yellow;
+            despegarBtn.BackColor = Color.DarkOrange;
         }
 
         private void navButton_Click(object sender, EventArgs e)
@@ -443,7 +483,7 @@ namespace SimpleExample
             // En el tag del boton tenemos la dirección de navegación.
             Button b = (Button)sender;
             string tag = b.Tag.ToString();
-            dron.Navegar(tag);
+            dron_selected.Navegar(tag);
 
         }
         private void movButton_Click(object sender, EventArgs e)
@@ -455,18 +495,18 @@ namespace SimpleExample
             string direccion = b.Tag.ToString();
             // recupero la distancia que debe recorrer el dron
             int distancia = Convert.ToInt32(pasoLbl.Text);
-            dron.Mover(direccion, distancia, bloquear: false);
+            dron_selected.Mover(direccion, distancia, bloquear: false);
         }
 
 
         private void enviarTelemetria(object sender, EventArgs e)
         {
-            dron.EnviarDatosTelemetria(ProcesarTelemetria);
+            dron_selected.EnviarDatosTelemetria(ProcesarTelemetria);
         }
 
         private void detenerTelemetria_Click(object sender, EventArgs e)
         {
-            dron.DetenerDatosTelemetria();
+            dron_selected.DetenerDatosTelemetria();
         }
 
         private void trackBarSpeed_Scroll(object sender, EventArgs e)
@@ -498,7 +538,7 @@ namespace SimpleExample
             // Cuando se libera la barra de desplazamiento recojo el valor
             // definitivo para el heading y lo envío al dron
             float valorSeleccionado = trackBarHeading.Value;
-            dron.CambiarHeading(valorSeleccionado, bloquear: false);
+            dron_selected.CambiarHeading(valorSeleccionado, bloquear: false);
         }
 
         private void trackBarSpeed_MouseUp(object sender, MouseEventArgs e)
@@ -506,14 +546,48 @@ namespace SimpleExample
             // Cuando se libera la barra de desplazamiento recojo el valor
             // definitivo para la velocidad y lo envío al dron
             int valorSeleccionado = trackBarSpeed.Value;
-            dron.CambiaVelocidad(valorSeleccionado);
+            dron_selected.CambiaVelocidad(valorSeleccionado);
         }
 
         private void parámetrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Abro el formulario para leer/escribir los parámetros
-            Parametros f = new Parametros(dron);
+            Parametros f = new Parametros(dron_selected);
             f.ShowDialog();
+        }
+
+        private void desplegable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int texto = Convert.ToInt32(desplegable.Text);
+            if (desplegable.Text == "")
+            {
+                MessageBox.Show("Porfavor, selecciona un dron que dirigir.");
+            }
+            else
+            {
+                dron_selected = drons_list[Convert.ToInt32(desplegable.Text)-1];
+                if (dron_selected.GetFase() == 0) // en tierra
+                {
+                    EnTierra(null);
+                }
+                else if (dron_selected.GetFase() == 1) // despegando
+                {
+                    EnTierra();
+                }
+                else if (dron_selected.GetFase() == 2) // en vuelo
+                {
+                    EnAire("Volando");
+                }
+                else if (dron_selected.GetFase() == 3) // aterrizando
+                {
+                    Aterrizando();
+                }
+                else if (dron_selected.GetFase() == 4) // RTL
+                {
+                    en_RTL();
+                }
+            }
+
         }
     }
 }

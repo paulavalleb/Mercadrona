@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.but_connect = new System.Windows.Forms.Button();
             this.CMB_comport = new System.Windows.Forms.ComboBox();
             this.despegarBtn = new System.Windows.Forms.Button();
             this.RTLBtn = new System.Windows.Forms.Button();
@@ -96,19 +95,6 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // but_connect
-            // 
-            this.but_connect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.but_connect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.but_connect.Location = new System.Drawing.Point(336, 54);
-            this.but_connect.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.but_connect.Name = "but_connect";
-            this.but_connect.Size = new System.Drawing.Size(148, 45);
-            this.but_connect.TabIndex = 2;
-            this.but_connect.Text = "Connectar";
-            this.but_connect.UseVisualStyleBackColor = false;
-            this.but_connect.Click += new System.EventHandler(this.but_connect_Click);
-            // 
             // CMB_comport
             // 
             this.CMB_comport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,7 +110,7 @@
             // 
             // despegarBtn
             // 
-            this.despegarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.despegarBtn.BackColor = System.Drawing.Color.DarkOrange;
             this.despegarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.despegarBtn.Location = new System.Drawing.Point(182, 162);
             this.despegarBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -718,7 +704,6 @@
             this.groupBox1.Controls.Add(this.simRadio);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.alturaBox);
-            this.groupBox1.Controls.Add(this.but_connect);
             this.groupBox1.Controls.Add(this.aterrizarBtn);
             this.groupBox1.Controls.Add(this.CMB_comport);
             this.groupBox1.Controls.Add(this.despegarBtn);
@@ -762,6 +747,7 @@
             this.desplegable.Name = "desplegable";
             this.desplegable.Size = new System.Drawing.Size(121, 45);
             this.desplegable.TabIndex = 16;
+            this.desplegable.SelectedIndexChanged += new System.EventHandler(this.desplegable_SelectedIndexChanged);
             // 
             // prodRadio
             // 
@@ -837,7 +823,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 1121);
+            this.ClientSize = new System.Drawing.Size(1452, 1050);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pasoLbl);
@@ -874,8 +860,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button but_connect;
         private System.Windows.Forms.ComboBox CMB_comport;
         private System.Windows.Forms.Button despegarBtn;
         private System.Windows.Forms.Button RTLBtn;

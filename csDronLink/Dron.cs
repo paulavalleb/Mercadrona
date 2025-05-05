@@ -67,9 +67,13 @@ namespace csDronLink
         string estado;
         int pedidos_en_cola;
 
+        // Atributos conexión
         int port;
 
-        
+        // Atributos de vuelo
+        int fase; // 0: en tierra, 1: despegando, 2: en vuelo, 3: aterrizando, 4: en RTL
+
+
         MessageHandler messageHandler;
 
         // Constrictor, conexión, registro de telemetria y envio de mensajes
@@ -122,7 +126,6 @@ namespace csDronLink
                 // Configuro la conexión con el simulador
                 // ESTO HABRÁ QUE CAMBIARLO PORQUE PUEDE QUE EL CLIENTE QUIERA CONECTARSE A OTROS PUERTOS
                 string ip = "127.0.0.1";
-                port = 5763;
                 
                 TcpClient client = new TcpClient(ip, port);
                 puertoTCP = client.GetStream();
@@ -180,6 +183,10 @@ namespace csDronLink
         {
             return this.pedidos_en_cola;
         }
+        public int GetFase()
+        {
+            return this.fase;
+        }
 
         public void SetLat(float lat)
         {
@@ -196,43 +203,43 @@ namespace csDronLink
 
             if (this.dron_id == 1)
             {
-                this.port = 5763;
+                this.port = 5762;
             }
             else if (this.dron_id == 2)
             {
-                this.dron_id = 5773;
+                this.port = 5772;
             }
             else if (this.dron_id == 3)
             {
-                this.dron_id = 5783;
+                this.port = 5782;
             }
             else if (this.dron_id == 4)
             {
-                this.dron_id = 5793;
+                this.port = 5792;
             }
             else if (this.dron_id == 5)
             {
-                this.dron_id = 5803;
+                this.port = 5802;
             }
             else if (this.dron_id == 6)
             {
-                this.dron_id = 5813;
+                this.port = 5812;
             }
             else if (this.dron_id == 7)
             {
-                this.dron_id = 5823;
+                this.port = 5822;
             }
             else if (this.dron_id == 8)
             {
-                this.dron_id = 5833;
+                this.port = 5832;
             }
             else if (this.dron_id == 9)
             {
-                this.dron_id = 5843;
+                this.port = 5842;
             }
             else
             {
-                this.dron_id = 5853;
+                this.port = 5852;
             }
 
         }
@@ -251,6 +258,10 @@ namespace csDronLink
         public void SetPedidos_en_cola(int pedidos_en_cola)
         {
             this.pedidos_en_cola = pedidos_en_cola;
+        }
+        public void SetFase(int fase)
+        {
+            this.fase = fase;
         }
 
 
