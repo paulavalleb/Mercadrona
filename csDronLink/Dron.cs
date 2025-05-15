@@ -26,6 +26,7 @@ namespace csDronLink
 
     public partial class Dron
     {
+
         // Atributos
         MAVLink.MavlinkParse mavlink = new MAVLink.MavlinkParse();
         // El modo puede ser "simulacion" o "produccion"
@@ -62,7 +63,7 @@ namespace csDronLink
         int velocidad = 1;
 
         // Atributos pedido
-        int dron_id;
+        byte id;
         int pedido_id;
         float dist_base;
         string estado;
@@ -78,8 +79,9 @@ namespace csDronLink
         MessageHandler messageHandler;
 
         // Constrictor, conexión, registro de telemetria y envio de mensajes
-        public Dron()
+        public Dron(byte id = 1)
         {
+            this.id = id;
         }
         private void EnviarMensaje(byte[] packet)
         {
@@ -125,9 +127,12 @@ namespace csDronLink
             else
             {
                 // Configuro la conexión con el simulador
-                // ESTO HABRÁ QUE CAMBIARLO PORQUE PUEDE QUE EL CLIENTE QUIERA CONECTARSE A OTROS PUERTOS
                 string ip = "127.0.0.1";
-
+                // El puerto depende del identificador:
+                // 1 -> 5763
+                // 2 -> 5773
+                // id -> 5763 + (id-1)*10
+                int port = 5763 + (this.id - 1) * 10;
                 TcpClient client = new TcpClient(ip, port);
                 puertoTCP = client.GetStream();
                 messageHandler = new MessageHandler(modo, puertoTCP);
@@ -145,7 +150,7 @@ namespace csDronLink
             // los datos de telemetría, cada 2 segundos)
             MAVLink.mavlink_command_long_t req = new MAVLink.mavlink_command_long_t
             {
-                target_system = 1,
+                target_system = this.id,
                 target_component = 1,
                 command = (ushort)MAVLink.MAV_CMD.SET_MESSAGE_INTERVAL,
                 param1 = (float)MAVLink.MAVLINK_MSG_ID.GLOBAL_POSITION_INT, // ID del mensaje que queremos recibir
@@ -154,6 +159,7 @@ namespace csDronLink
 
             byte[] packet = mavlink.GenerateMAVLinkPacket10(MAVLink.MAVLINK_MSG_ID.COMMAND_LONG, req);
             EnviarMensaje(packet);
+            Console.WriteLine("Enviado el mensaje de conexion");
         }
 
         public float GetLat()
@@ -164,10 +170,7 @@ namespace csDronLink
         {
             return this.lat;
         }
-        public int GetDron_id()
-        {
-            return this.dron_id;
-        }
+        
         public int GetPedido_id()
         {
             return this.pedido_id;
@@ -202,52 +205,7 @@ namespace csDronLink
         {
             this.lon = lon;
         }
-        public void SetDron_id(int dron_id)
-        {
-            this.dron_id = dron_id;
-
-            if (this.dron_id == 1)
-            {
-                this.port = 5762;
-            }
-            else if (this.dron_id == 2)
-            {
-                this.port = 5772;
-            }
-            else if (this.dron_id == 3)
-            {
-                this.port = 5782;
-            }
-            else if (this.dron_id == 4)
-            {
-                this.port = 5792;
-            }
-            else if (this.dron_id == 5)
-            {
-                this.port = 5802;
-            }
-            else if (this.dron_id == 6)
-            {
-                this.port = 5812;
-            }
-            else if (this.dron_id == 7)
-            {
-                this.port = 5822;
-            }
-            else if (this.dron_id == 8)
-            {
-                this.port = 5832;
-            }
-            else if (this.dron_id == 9)
-            {
-                this.port = 5842;
-            }
-            else
-            {
-                this.port = 5852;
-            }
-
-        }
+      
         public void SetPedido_id(int pedido_id)
         {
             this.pedido_id = pedido_id;

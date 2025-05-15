@@ -39,7 +39,6 @@ namespace SimpleExample
 
         public simpleexample()
         {
-            dron.SetDron_id(1); // afegit
             // No queremos que nos molesten con la excepción Cross-Threading
             CheckForIllegalCrossThreadCalls = false;
 

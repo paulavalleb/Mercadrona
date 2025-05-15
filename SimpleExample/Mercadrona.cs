@@ -553,10 +553,9 @@ namespace SimpleExample
                     else
                     {
                         int numDrons = Convert.ToInt32(textBoxNumDrons.Text);
-                        for (int i = 1; i <= numDrons; i++)
+                        for (byte i = 1; i <= numDrons; i++)
                         {
-                            Dron dron = new Dron();
-                            dron.SetDron_id(i);
+                            Dron dron = new Dron(i);
 
                             drons_list.Add(dron);
                             desplegable.Items.Add(i);
