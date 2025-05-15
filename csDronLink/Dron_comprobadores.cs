@@ -16,11 +16,7 @@ namespace csDronLink
             var position = (MAVLink.mavlink_global_position_int_t)msg.data;
             float altitud = position.relative_alt / 1000.0f;
             // retorno el resultado de realizar la comprobacion (con un margen del 10%)
-            float altitudObjetivo = (int)targetAlt * 0.90f;
-            Console.WriteLine($"Altitud actual: {altitud} m, objetivo mínimo: {altitudObjetivo} m");
-
             return altitud > (int)targetAlt * 0.90;
-
         }
         private bool ComprobarParado(MAVLink.MAVLinkMessage msg, object param = null)
         {

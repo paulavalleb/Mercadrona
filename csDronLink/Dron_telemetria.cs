@@ -11,10 +11,8 @@ namespace csDronLink
         // Telemetria
         public void EnviarDatosTelemetria(Action<List<(string nombre, float valor)>> f)
         {
-            // El cliente me pide que ejecute la función f cada vez que reciba un mensaje
-            // con datos de telemetría
+            // Adaptamos la firma de la función para que coincida con el tipo esperado
             this.ProcesarTelemetria = f;
-
         }
         public void DetenerDatosTelemetria()
         {

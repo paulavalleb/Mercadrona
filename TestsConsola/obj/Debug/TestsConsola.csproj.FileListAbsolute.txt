@@ -7,3 +7,12 @@ E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\
 E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\obj\Debug\TestsConsola.csproj.CopyComplete
 E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\obj\Debug\TestsConsola.exe
 E:\Julio2018\Docencia\RPAS\DroneEngineeringEcosystem\csDronLink\Demo_csDronLink\TestsConsola\obj\Debug\TestsConsola.pdb
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\TestsConsola\bin\Debug\TestsConsola.exe.config
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\TestsConsola\bin\Debug\TestsConsola.exe
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\TestsConsola\bin\Debug\TestsConsola.pdb
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\TestsConsola\bin\Debug\csDronLink.dll
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\TestsConsola\obj\Debug\TestsConsola.csproj.AssemblyReference.cache
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\TestsConsola\obj\Debug\TestsConsola.csproj.CoreCompileInputs.cache
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\TestsConsola\obj\Debug\TestsCon.7FF3751A.Up2Date
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\TestsConsola\obj\Debug\TestsConsola.exe
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\TestsConsola\obj\Debug\TestsConsola.pdb
