@@ -170,3 +170,4 @@ C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.cs
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleEx.F04EA621.Up2Date
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.exe
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.pdb
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Pedidos_forms.resources

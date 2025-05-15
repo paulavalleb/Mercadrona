@@ -86,6 +86,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.parámetrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidos = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -819,11 +821,30 @@
             this.parámetrosToolStripMenuItem.Text = "Parámetros";
             this.parámetrosToolStripMenuItem.Click += new System.EventHandler(this.parámetrosToolStripMenuItem_Click);
             // 
+            // pedidos
+            // 
+            this.pedidos.Location = new System.Drawing.Point(673, 126);
+            this.pedidos.Name = "pedidos";
+            this.pedidos.Size = new System.Drawing.Size(156, 49);
+            this.pedidos.TabIndex = 59;
+            this.pedidos.Text = "Pedidos";
+            this.pedidos.UseVisualStyleBackColor = true;
+            this.pedidos.Click += new System.EventHandler(this.pedidos_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1022, 256);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.TabIndex = 60;
+            // 
             // Mercadrona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1452, 1050);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.pedidos);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pasoLbl);
@@ -918,5 +939,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem parámetrosToolStripMenuItem;
+        private System.Windows.Forms.Button pedidos;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -46,6 +46,7 @@ namespace csDronLink
         float lat;
         float lon;
         float heading;
+        int vertiport = 0;
 
 
         // Aquí guardaré la referencia a la función que tengo que ejecutar
@@ -80,15 +81,15 @@ namespace csDronLink
         public Dron()
         {
         }
-        private void EnviarMensaje (byte[] packet)
+        private void EnviarMensaje(byte[] packet)
         {
             if (modo == "produccion")
                 puertoSerie.Write(packet, 0, packet.Length);
             else
                 puertoTCP.Write(packet, 0, packet.Length);
         }
-        private void RegistrarTelemetria (MAVLinkMessage msg)
-        {   
+        private void RegistrarTelemetria(MAVLinkMessage msg)
+        {
             // Cada vez que se recibe un mensaje con datos de telemetria me los guardo
             // De momento solo me interesan la altitud, latitud, longitud y heading, pero se pueden
             // recoger muchos otros (nivel de bateria, etc.)
@@ -101,10 +102,10 @@ namespace csDronLink
             if (this.ProcesarTelemetria != null)
             {
                 List<(string nombre, float valor)> telemetria = new List<(string nombre, float valor)>();
-                telemetria.Add(("Alt",this.relative_alt));
+                telemetria.Add(("Alt", this.relative_alt));
                 telemetria.Add(("Lat", this.lat));
-                telemetria.Add(("Lon",this.lon));
-                telemetria.Add(("Heading",this.heading));
+                telemetria.Add(("Lon", this.lon));
+                telemetria.Add(("Heading", this.heading));
                 // Los envío a la función que me indicó el cliente
                 this.ProcesarTelemetria(telemetria);
             }
@@ -120,13 +121,13 @@ namespace csDronLink
                 puertoSerie.Open();
                 // Pongo en marcha en message handler
                 messageHandler = new MessageHandler(modo, puertoSerie);
-            } 
+            }
             else
             {
                 // Configuro la conexión con el simulador
                 // ESTO HABRÁ QUE CAMBIARLO PORQUE PUEDE QUE EL CLIENTE QUIERA CONECTARSE A OTROS PUERTOS
                 string ip = "127.0.0.1";
-                
+
                 TcpClient client = new TcpClient(ip, port);
                 puertoTCP = client.GetStream();
                 messageHandler = new MessageHandler(modo, puertoTCP);
@@ -139,7 +140,7 @@ namespace csDronLink
             // Le indico que cuando llegue un mensaje de ese tipo ejecute la función RegistrarTelemetria
             string msgType = ((int)MAVLink.MAVLINK_MSG_ID.GLOBAL_POSITION_INT).ToString();
             messageHandler.RegisterHandler(msgType, RegistrarTelemetria);
-            
+
             // Ahora le pido al autopiloto que me envíe mensajes del tipo indicado (los que contienen
             // los datos de telemetría, cada 2 segundos)
             MAVLink.mavlink_command_long_t req = new MAVLink.mavlink_command_long_t
@@ -188,6 +189,10 @@ namespace csDronLink
             return this.fase;
         }
 
+        public int GetVertiport()
+        {
+            return this.vertiport;
+        }
         public void SetLat(float lat)
         {
             this.lat = lat;
@@ -264,9 +269,14 @@ namespace csDronLink
             this.fase = fase;
         }
 
+        public void SetVertiport(int verti)
+        {
+            this.vertiport = verti;
+        }
+
 
 
 
 
     }
-    }
+}
