@@ -9,7 +9,7 @@ namespace csDronLink
     public partial class Dron
     {
         // Telemetria
-        public void EnviarDatosTelemetria(Action<List<(string nombre, float valor)>> f)
+        public void EnviarDatosTelemetria(Action<byte, List<(string nombre, float valor)>> f)
         {
             // Adaptamos la firma de la función para que coincida con el tipo esperado
             this.ProcesarTelemetria = f;

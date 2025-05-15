@@ -52,7 +52,7 @@ namespace csDronLink
 
         // Aquí guardaré la referencia a la función que tengo que ejecutar
         // si el cliente me pide que le envíe los datos de telemetría.
-        Action<List<(string nombre, float valor)>> ProcesarTelemetria = null;
+        Action<byte,List<(string nombre, float valor)>> ProcesarTelemetria = null;
 
         // Cuando reciba un comando de navegación debo poner en marcha el 
         // bucle de navegación para que recuerde al autopiloto que mantenga
@@ -109,7 +109,7 @@ namespace csDronLink
                 telemetria.Add(("Lon", this.lon));
                 telemetria.Add(("Heading", this.heading));
                 // Los envío a la función que me indicó el cliente
-                this.ProcesarTelemetria(telemetria);
+                this.ProcesarTelemetria(this.id, telemetria);
             }
         }
         public void Conectar(string modo, string conector = null)

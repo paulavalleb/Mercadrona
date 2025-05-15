@@ -136,6 +136,16 @@ C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\SimpleExample\obj\Debug\Simp
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\SimpleExample\obj\Debug\SimpleEx.F04EA621.Up2Date
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\SimpleExample\obj\Debug\SimpleExample.exe
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\SimpleExample\obj\Debug\SimpleExample.pdb
+C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Pedidos_forms.resources
+C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.csproj.AssemblyReference.cache
+C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Inicio.resources
+C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Mercadrona.resources
+C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Parametros.resources
+C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Pedidos_forms.resources
+C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Properties.Resources.resources
+C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.simpleexample.resources
+C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.csproj.GenerateResource.cache
+C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.csproj.CoreCompileInputs.cache
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\bin\Debug\SimpleExample.exe.config
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\bin\Debug\SimpleExample.exe
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\bin\Debug\SimpleExample.pdb
@@ -159,15 +169,6 @@ C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\bin\Debug\Newtonsoft.Json.
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\bin\Debug\System.Data.SqlClient.xml
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\bin\Debug\System.Data.SQLite.xml
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\bin\Debug\System.Security.Principal.Windows.xml
-C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.csproj.AssemblyReference.cache
-C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Inicio.resources
-C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Mercadrona.resources
-C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Parametros.resources
-C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Properties.Resources.resources
-C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.simpleexample.resources
-C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.csproj.GenerateResource.cache
-C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.csproj.CoreCompileInputs.cache
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleEx.F04EA621.Up2Date
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.exe
 C:\Users\Hp\Documents\GitHub\Mercadrona\SimpleExample\obj\Debug\SimpleExample.pdb
-C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\SimpleExample\obj\Debug\SimpleExample.Pedidos_forms.resources

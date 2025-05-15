@@ -52,31 +52,6 @@ C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\obj\Debug\csDronL
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.CoreCompileInputs.cache
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\obj\Debug\csDronLink.dll
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\obj\Debug\csDronLink.pdb
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.AssemblyReference.cache
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.CoreCompileInputs.cache
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.pdb
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\csDronLink.dll.config
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\csDronLink.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\csDronLink.pdb
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\EntityFramework.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\GMap.NET.Core.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\GMap.NET.WindowsForms.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\GMap.NET.WindowsPresentation.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SqlClient.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SQLite.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SQLite.EF6.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SQLite.Linq.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Security.Principal.Windows.dll
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\EntityFramework.xml
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SqlClient.xml
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SQLite.xml
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Security.Principal.Windows.xml
-C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.Up2Date
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\bin\Debug\csDronLink.dll.config
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\bin\Debug\csDronLink.dll
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\bin\Debug\csDronLink.pdb
@@ -98,3 +73,28 @@ C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\bin\Debug\System.
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\bin\Debug\System.Data.SQLite.xml
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\paula\Desktop\4B\PDD\PROJECTE 2\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.Up2Date
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.AssemblyReference.cache
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\csDronLink.dll.config
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\csDronLink.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\csDronLink.pdb
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\EntityFramework.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\GMap.NET.Core.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\GMap.NET.WindowsPresentation.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SQLite.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\EntityFramework.xml
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Data.SQLite.xml
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.csproj.Up2Date
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.dll
+C:\Users\Hp\Documents\GitHub\Mercadrona\csDronLink\obj\Debug\csDronLink.pdb

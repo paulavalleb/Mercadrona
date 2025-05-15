@@ -340,7 +340,7 @@ namespace SimpleExample
         {
             // Click en boton para dspegar
             // Llamada no bloqueante para no bloquear el formulario
-            dron.Despegar(int.Parse(alturaBox.Text), bloquear: false, EnAire, "Volando");
+            dron.Despegar(int.Parse(alturaBox.Text), bloquear: false, (id, param) => EnAire(param), "Volando");
 
             despegarBtn.BackColor = Color.Yellow;
         }
@@ -380,21 +380,21 @@ namespace SimpleExample
         private void aterrizarBtn_Click(object sender, EventArgs e)
         {
             // Click en el botón de aterrizar
-            dron.Aterrizar(bloquear: false, EnTierra, "Aterrizaje");
+            dron.Aterrizar(bloquear: false, (id, param) => EnTierra(param), "Aterrizaje");
             button7.BackColor = Color.Yellow;
         }
 
         private void RTLBtn_Click(object sender, EventArgs e)
         {
             // Click en el botón de RTL
-            dron.RTL(bloquear: false, EnTierra, "RTL");
+            dron.RTL(bloquear: false, (id, param) => EnTierra(param), "RTL");
             button6.BackColor = Color.Yellow;
         }
 
         private void enviarTelemetriaBtn_Click(object sender, EventArgs e)
         {
 
-            dron.EnviarDatosTelemetria(ProcesarTelemetria);
+            dron.EnviarDatosTelemetria((id, param) => ProcesarTelemetria(param));
         }
 
         private void detenerTelemetriaBtn_Click(object sender, EventArgs e)
@@ -666,7 +666,7 @@ namespace SimpleExample
         {
             // Ejecuto la misión indicando que al llegar al siguiente waypoint
             // ejecute EnWaypoit y cuando acabe ejecute FinMision
-            dron.EjecutarMision(bloquear: false, EnWaypoint:EnWaypoint, FinMision);
+            dron.EjecutarMision(bloquear: false, EnWaypoint: (id, param) => EnWaypoint(param), (id, param) => FinMision(param));
             button28.BackColor = Color.Green;
             button28.ForeColor = Color.White;
         }

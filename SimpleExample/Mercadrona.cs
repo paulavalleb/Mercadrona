@@ -546,7 +546,7 @@ namespace SimpleExample
                             drons_list.Add(dron);
                             desplegable.Items.Add(i);
                             dron.Conectar("simulacion");
-                            //dron.EstableceEscenario(scenario);
+                            dron.EstableceEscenario(scenario);
                         }
                     }
                 }
@@ -581,8 +581,7 @@ namespace SimpleExample
         {
             // Click en boton para dspegar
             // Llamada no bloqueante para no bloquear el formulario
-            
-            dron_selected.Despegar(int.Parse(alturaBox.Text), bloquear: false, EnAire, "Volando");
+            dron_selected.Despegar(int.Parse(alturaBox.Text), bloquear: false, (id, param) => EnAire(param), "Volando");
             despegarBtn.BackColor = Color.Yellow;
             RTLBtn.BackColor = Color.DarkOrange;
             aterrizarBtn.BackColor = Color.DarkOrange;
@@ -591,7 +590,8 @@ namespace SimpleExample
         private void RTLBtn_Click(object sender, EventArgs e)
         {
             // Click en el botón de RTL
-            dron_selected.RTL(bloquear: false, EnTierra, "RTL");
+
+            dron_selected.RTL(bloquear: false, (id, param) => EnTierra(param), "RTL");
             RTLBtn.BackColor = Color.Yellow;
             despegarBtn.BackColor = Color.DarkOrange;
         }
@@ -599,7 +599,7 @@ namespace SimpleExample
         private void aterrizarBtn_Click(object sender, EventArgs e)
         {
             // Click en el botón de aterrizar
-            dron_selected.Aterrizar(bloquear: false, EnTierra, "Aterrizaje");
+            dron_selected.Aterrizar(bloquear: false, (id, param) => EnTierra(param), "Aterrizaje");
             aterrizarBtn.BackColor = Color.Yellow;
             despegarBtn.BackColor = Color.DarkOrange;
         }
@@ -628,7 +628,7 @@ namespace SimpleExample
 
         private void enviarTelemetria(object sender, EventArgs e)
         {
-            dron_selected.EnviarDatosTelemetria(ProcesarTelemetria);
+            dron_selected.EnviarDatosTelemetria((id, param) => ProcesarTelemetria(param));
         }
 
         private void detenerTelemetria_Click(object sender, EventArgs e)
