@@ -366,11 +366,11 @@ namespace SimpleExample
                 List<(float lat, float lon)> castelldefels = new List<(float lat, float lon)>
                 {
                     (41.26550366424082f,1.957548455354883f),
-                         (41.2659333294012f,1.996936111622045f),
-                         (41.28955283495678f,1.999446311437694f),
-                         (41.29630656658788f,1.977017624399422f),
-                         (41.28111720670424f,1.954384326190344f),
-                         (41.26550366424082f,1.957548455354883f)
+                    (41.2659333294012f,1.996936111622045f),
+                    (41.28955283495678f,1.999446311437694f),
+                    (41.29630656658788f,1.977017624399422f),
+                    (41.28111720670424f,1.954384326190344f),
+                    (41.26550366424082f,1.957548455354883f)
                 };
 
                
@@ -384,7 +384,7 @@ namespace SimpleExample
                 List<(float lat, float lon)> fenceEnclusion1 = new List<(float lat, float lon)>
                     {
                         //Zona prohibida 1:
-                        (41.27099943353775f,1.977631560058872f),
+                     (41.27099943353775f,1.977631560058872f),
                      (41.27027621209532f,1.97767676002818f),
                      (41.27030454020156f,1.979152792360499f),
                      (41.27104327071283f,1.979154935020309f),
@@ -398,8 +398,6 @@ namespace SimpleExample
                         (41.27147830210465f,1.988507551032976f),
                         (41.27160855559626f,1.990522529649097f),
                         (41.27334509840505f,1.990535784068159f),
-                        (41.27345449942672f,1.988582844079294f),
-                        (41.27283798891926f,1.988586504728218f)
                     };
                 
                 List<(float lat, float lon)> fenceEnclusion3 = new List<(float lat, float lon)>
@@ -408,8 +406,7 @@ namespace SimpleExample
                         (41.2770882556513f,1.980939593902604f),
                         (41.27809273912374f,1.983876271785934f),
                         (41.27946942271178f,1.98302120145837f),
-                        (41.27860920655556f,1.979998984963587f),
-                        (41.2770882556513f,1.980939593902604f)
+                        (41.27860920655556f,1.979998984963587f)
                     };
                 List<(float lat, float lon)> fenceEnclusion4 = new List<(float lat, float lon)>
                     { 
@@ -417,16 +414,14 @@ namespace SimpleExample
                         (41.27463243683545f,1.976336649473214f),
                         (41.27545515341081f,1.977646093108056f),
                         (41.2764290286723f,1.976632835194603f),
-                        (41.27550160648772f,1.975356767951471f),
-                        (41.27463243683545f,1.976336649473214f)
+                        (41.27550160648772f,1.975356767951471f)
                     };
                 List<(float lon, float lat)> fenceEnclusion5 = new List<(float lon, float lat)>
                     {
                         (41.2741639050083f, 1.967764949657134f),
                         (41.27440508502002f, 1.969788531763554f),
                         (41.2757897553886f, 1.969574400775693f),
-                        (41.27551718621686f, 1.967610846031294f),
-                        (41.2741639050083f, 1.967764949657134f)
+                        (41.27551718621686f, 1.967610846031294f)
                     };
 
                 List<(float lon, float lat)> fenceEnclusion6 = new List<(float lon, float lat)>
@@ -434,8 +429,7 @@ namespace SimpleExample
                         (41.27704673951776f, 1.969464373460454f),
                         (41.27715599299962f, 1.970586151283267f),
                         (41.27800611896174f, 1.97051349514578f),
-                        (41.27790609839828f, 1.969290429840806f),
-                        (41.27704673951776f, 1.969464373460454f)
+                        (41.27790609839828f, 1.969290429840806f)
                     };
 
                 List<(float lon, float lat)> fenceEnclusion7 = new List<(float lon, float lat)>
@@ -443,8 +437,7 @@ namespace SimpleExample
                         (41.27767293756999f, 1.971114672959771f),
                         (41.2776723586971f, 1.971938476524795f),
                         (41.27846503158283f, 1.972043622484534f),
-                        (41.27845996926608f, 1.97121952282644f),
-                        (41.27767293756999f, 1.971114672959771f)
+                        (41.27845996926608f, 1.97121952282644f)
                     };
 
                 List<(float lon, float lat)> fenceEnclusion8 = new List<(float lon, float lat)>
@@ -452,8 +445,7 @@ namespace SimpleExample
                         (41.28097767218927f, 1.970712858695269f),
                         (41.28114914950467f, 1.971760842925125f),
                         (41.28201519901487f, 1.971724957251053f),
-                        (41.28180506424749f, 1.970623027175686f),
-                        (41.28097767218927f, 1.970712858695269f)
+                        (41.28180506424749f, 1.970623027175686f)
                     };
 
                 List<(float lon, float lat)> fenceEnclusion9 = new List<(float lon, float lat)>
@@ -461,8 +453,7 @@ namespace SimpleExample
                         (41.28255617778812f, 1.971794836784413f),
                         (41.28314309908107f, 1.974440002356612f),
                         (41.28444264632859f, 1.974062963453653f),
-                        (41.28387145460871f, 1.971409068803733f),
-                        (41.28255617778812f, 1.971794836784413f)
+                        (41.28387145460871f, 1.971409068803733f)
                     };
 
                 List<(float lon, float lat)> fenceEnclusion10 = new List<(float lon, float lat)>
@@ -470,8 +461,7 @@ namespace SimpleExample
                         (41.28811777147848f, 1.972859760110355f),
                         (41.28697659676988f, 1.973151605557883f),
                         (41.28719281173127f, 1.974647846628526f),
-                        (41.28836973015334f, 1.974360220181166f),
-                        (41.28811777147848f, 1.972859760110355f)
+                        (41.28836973015334f, 1.974360220181166f)
                     };
 
                 List<(float lon, float lat)> fenceEnclusion11 = new List<(float lon, float lat)>
@@ -479,8 +469,7 @@ namespace SimpleExample
                         (41.28721961665448f, 1.980898818698691f),
                         (41.28621053921606f, 1.980963075418516f),
                         (41.28625954833255f, 1.982195232795525f),
-                        (41.28725778896633f, 1.982098479461161f),
-                        (41.28721961665448f, 1.980898818698691f)
+                        (41.28725778896633f, 1.982098479461161f)
                     };
 
                 List<(float lon, float lat)> fenceEnclusion12 = new List<(float lon, float lat)>
@@ -488,8 +477,7 @@ namespace SimpleExample
                         (41.28856366187149f, 1.981545723049238f),
                         (41.28777363537311f, 1.981659168083165f),
                         (41.28781966231267f, 1.982643414438363f),
-                        (41.28859877900759f, 1.982541961489621f),
-                        (41.28856366187149f, 1.981545723049238f)
+                        (41.28859877900759f, 1.982541961489621f)
                     };
 
                 List<(float lon, float lat)> fenceEnclusion13 = new List<(float lon, float lat)>
@@ -497,8 +485,7 @@ namespace SimpleExample
                         (41.28896657919925f, 1.983493688840789f),
                         (41.28810331729189f, 1.983385431599158f),
                         (41.28815457623424f, 1.984655131702415f),
-                        (41.2889747038954f, 1.984764767514045f),
-                        (41.28896657919925f, 1.983493688840789f)
+                        (41.2889747038954f, 1.984764767514045f)
                     };
 
                 List<(float lon, float lat)> fenceEnclusion14 = new List<(float lon, float lat)>
@@ -506,38 +493,37 @@ namespace SimpleExample
                         (41.2909775748782f, 1.986669906670917f),
                         (41.28926594689915f, 1.986640771799881f),
                         (41.28940572342928f, 1.988783092985051f),
-                        (41.29104037324556f, 1.988935905247915f),
-                        (41.2909775748782f, 1.986669906670917f)
+                        (41.29104037324556f, 1.988935905247915f)
                     };
-                //scenario.Add(fenceEnclusion1);
-                //scenario.Add(fenceEnclusion2);
-                //scenario.Add(fenceEnclusion3);
-                //scenario.Add(fenceEnclusion4);
-                //scenario.Add(fenceEnclusion5);
-                //scenario.Add(fenceEnclusion6);
-                //scenario.Add(fenceEnclusion7);
-                //scenario.Add(fenceEnclusion8);
-                //scenario.Add(fenceEnclusion9);
-                //scenario.Add(fenceEnclusion10);
-                //scenario.Add(fenceEnclusion11);
-                //scenario.Add(fenceEnclusion12);
-                //scenario.Add(fenceEnclusion13);
-                //scenario.Add(fenceEnclusion14);
-                //DibujarObstaculo(fenceEnclusion1);
-                //DibujarObstaculo(fenceEnclusion2);
-                //DibujarObstaculo(fenceEnclusion3);
-                //DibujarObstaculo(fenceEnclusion4);
-                //DibujarObstaculo(fenceEnclusion5);
-                //DibujarObstaculo(fenceEnclusion6);
-                //DibujarObstaculo(fenceEnclusion7);
-                /*DibujarObstaculo(fenceEnclusion8);
+                scenario.Add(fenceEnclusion1);
+                scenario.Add(fenceEnclusion2);
+                scenario.Add(fenceEnclusion3);
+                scenario.Add(fenceEnclusion4);
+                scenario.Add(fenceEnclusion5);
+                scenario.Add(fenceEnclusion6);
+                scenario.Add(fenceEnclusion7);
+                scenario.Add(fenceEnclusion8);
+                scenario.Add(fenceEnclusion9);
+                scenario.Add(fenceEnclusion10);
+                scenario.Add(fenceEnclusion11);
+                scenario.Add(fenceEnclusion12);
+                scenario.Add(fenceEnclusion13);
+                scenario.Add(fenceEnclusion14);
+                DibujarObstaculo(fenceEnclusion1);
+                DibujarObstaculo(fenceEnclusion2);
+                DibujarObstaculo(fenceEnclusion3);
+                DibujarObstaculo(fenceEnclusion4);
+                DibujarObstaculo(fenceEnclusion5);
+                DibujarObstaculo(fenceEnclusion6);
+                DibujarObstaculo(fenceEnclusion7);
+                DibujarObstaculo(fenceEnclusion8);
                 DibujarObstaculo(fenceEnclusion9);
                 DibujarObstaculo(fenceEnclusion10);
                 DibujarObstaculo(fenceEnclusion11);
                 DibujarObstaculo(fenceEnclusion12);
                 DibujarObstaculo(fenceEnclusion13);
                 DibujarObstaculo(fenceEnclusion14);
-                */
+                
                 if (prodRadio.Checked)
                 {
                     dron_selected.Conectar("produccion", CMB_comport.Text);
