@@ -10,8 +10,9 @@ namespace csDronLink
     public partial class Pedido // partial?
     {
         // Atributos
-        List<(string nombre, float cantidad, float peso)> productos = new List<(string nombre, float cantidad, float peso)>();
-        List<(float x, float y)> direccion_coord = new List<(float x, float y)>();
+        int id;
+        List<(string nombre, int cantidad, double peso)> productos = new List<(string nombre, int cantidad, double peso)>();
+        PointLatLng direccion_coord = new PointLatLng();
         string destinatario;
         float lat_base = 0;
         float lon_base = 0;
@@ -23,19 +24,16 @@ namespace csDronLink
         {
             base_coords = new PointLatLng(lat_base, lon_base);
         }
-        public void crear_pedido(List<(string nombre, float cantidad, float peso)> productos, List<(float x, float y)> direccion_coord, string destinatario)
+        public void crear_pedido(int id, List<(string nombre, int cantidad, double peso)> productos, PointLatLng direccion_coord, string destinatario)
         {
+            this.id = id;
             this.productos = productos;
             this.direccion_coord = direccion_coord;
             this.destinatario = destinatario;
         }
 
-        public void eliminar_pedido()
-        {
 
-        }
-
-        public void asignar_pedido(List<Dron> drones, int pedido_id)
+        public void asignar_pedido(List<Dron> drones)
         {
             List<Dron> drones_disponibles = new List<Dron>();
             for (int i = 0; i < drones.Count; i++)
@@ -56,13 +54,13 @@ namespace csDronLink
                 }
                 drones_disponibles.OrderBy(dron => dron.GetDist_base());
                 drones_disponibles[0].SetEstado("ocupado");
-                drones_disponibles[0].SetPedido_id(pedido_id);
+                drones_disponibles[0].SetPedido_id(id);
             }
             else
             {
                 drones.OrderBy(dron => dron.GetPedidos_en_cola());
                 drones[0].SetEstado("ocupado");
-                drones[0].SetPedido_id(pedido_id);
+                drones[0].SetPedido_id(id);
             }
         }
 

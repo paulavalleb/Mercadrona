@@ -88,6 +88,7 @@
             this.parámetrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidos = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cargar_pedidos = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -823,7 +824,7 @@
             // 
             // pedidos
             // 
-            this.pedidos.Location = new System.Drawing.Point(673, 126);
+            this.pedidos.Location = new System.Drawing.Point(663, 87);
             this.pedidos.Name = "pedidos";
             this.pedidos.Size = new System.Drawing.Size(156, 49);
             this.pedidos.TabIndex = 59;
@@ -838,11 +839,22 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
             this.flowLayoutPanel1.TabIndex = 60;
             // 
+            // cargar_pedidos
+            // 
+            this.cargar_pedidos.Location = new System.Drawing.Point(663, 142);
+            this.cargar_pedidos.Name = "cargar_pedidos";
+            this.cargar_pedidos.Size = new System.Drawing.Size(156, 49);
+            this.cargar_pedidos.TabIndex = 61;
+            this.cargar_pedidos.Text = "Cargar pedidos";
+            this.cargar_pedidos.UseVisualStyleBackColor = true;
+            this.cargar_pedidos.Click += new System.EventHandler(this.cargar_pedidos_Click);
+            // 
             // Mercadrona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1452, 1050);
+            this.Controls.Add(this.cargar_pedidos);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pedidos);
             this.Controls.Add(this.menuStrip1);
@@ -941,5 +953,6 @@
         private System.Windows.Forms.ToolStripMenuItem parámetrosToolStripMenuItem;
         private System.Windows.Forms.Button pedidos;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button cargar_pedidos;
     }
 }

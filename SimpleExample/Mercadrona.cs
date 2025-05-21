@@ -351,7 +351,6 @@ namespace SimpleExample
                 GMaps.Instance.Mode = AccessMode.ServerOnly;
 
 
-                // Situo el mapa en el home elegido (DroneLab o Nou Camp
                 gmap.Position = home;
 
                 gmap.Visible = true; // Mostrar el mapa
@@ -553,7 +552,6 @@ namespace SimpleExample
             }
         }
 
-
         private void Mercadrona_Load(object sender, EventArgs e)
         {
                        
@@ -714,7 +712,6 @@ namespace SimpleExample
                     en_RTL();
                 }
             }
-
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -726,6 +723,17 @@ namespace SimpleExample
         {
             Pedidos_forms pedidos_f = new Pedidos_forms();
             pedidos_f.Show();
+        }
+
+        private void cargar_pedidos_Click(object sender, EventArgs e)
+        {
+            funcionesPedidos f = new funcionesPedidos();
+            List <Pedido> pedidos = f.GetPedidos();
+            foreach (Pedido pedido in pedidos)
+            {
+                pedido.asignar_pedido(drons_list);
+            }
+
         }
     }
 }
