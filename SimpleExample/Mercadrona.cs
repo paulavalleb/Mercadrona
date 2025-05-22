@@ -36,6 +36,12 @@ namespace SimpleExample
 
         PointLatLng home; // Coordenadas Mercadona
         string nombreHome;
+        PointLatLng Vertiport1;
+        PointLatLng Vertiport2;
+        PointLatLng Vertiport3;
+        PointLatLng Vertiport4;
+        PointLatLng Vertiport5;
+        List<PointLatLng> vertiports_list = new List<PointLatLng>();
 
 
         // Pedidos
@@ -65,6 +71,20 @@ namespace SimpleExample
 
             // Configurar el control del mapa
             home = new PointLatLng(41.282654591229225, 1.9733365698308918);
+
+            Vertiport1 = new PointLatLng(41.28800969553971f, 1.978115994177971f);
+            Vertiport2 = new PointLatLng(41.27201586056459f, 1.970035535884251f);
+            Vertiport3 = new PointLatLng(41.28800969553971f, 1.978115994177971f);
+            Vertiport4 = new PointLatLng(41.28300131082602f, 1.987667618535942f);
+            Vertiport5 = new PointLatLng(41.27468360752572f, 1.982542135377885f);
+
+            vertiports_list.Add(Vertiport1);
+            vertiports_list.Add(Vertiport2);
+            vertiports_list.Add(Vertiport3);
+            vertiports_list.Add(Vertiport4);
+            vertiports_list.Add(Vertiport5);
+
+
             gmap = new GMapControl
             {
                 Dock = DockStyle.Fill,
@@ -736,9 +756,17 @@ namespace SimpleExample
             List <Pedido> pedidos = f.GetPedidos();
             foreach (Pedido pedido in pedidos)
             {
-                pedido.asignar_pedido(drons_list);
+                Dron d = pedido.asignar_pedido(drons_list);
+                d.asignarVertiport(pedido.getDireccion(), vertiports_list);
+                d.Ir_Vertiport_desde_Origen();
             }
+        }
 
+        private void ejecutar_Click(object sender, EventArgs e)
+        {
+            foreach (Dron dron in drons_list)
+            {
+            }
         }
     }
 }

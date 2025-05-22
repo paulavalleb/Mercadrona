@@ -24,7 +24,7 @@ namespace SimpleExample
         List<Pedido> pedidos = new List<Pedido>();
         PointLatLng direccion;
         string lista_compra;
-        List<(string, int, double)> productos = new List<(string, int, double)>();
+        List<(string, int, double, double)> productos = new List<(string, int, double, double)>(); // nombre, cantidad, peso, precio
         DataTable table = new DataTable();
 
         funcionesPedidos f = new funcionesPedidos();
@@ -54,18 +54,11 @@ namespace SimpleExample
             gmap.Position = home;
             gmap.Visible = true; // Mostrar el mapa
 
-
-            comboBox1.Items.Add("Botella agua 1L");
-            comboBox1.Items.Add("Leche 1L");
-            comboBox1.Items.Add("Galletas");
-            comboBox1.Items.Add("Sandía");
-            comboBox1.Items.Add("Docena de huevos");
-
-            comboBox2.Items.Add("1");
-            comboBox2.Items.Add("2");
-            comboBox2.Items.Add("3");
-            comboBox2.Items.Add("4");
-            comboBox2.Items.Add("...");
+            foreach (var clave in productos_diccionario.Keys)
+            {
+                comboBox1.Items.Add(clave);
+            }
+            
         }
         private void GMapControl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -96,9 +89,17 @@ namespace SimpleExample
             Pedido pedido = new Pedido();
 
             // Crear un nuevo pedido
-            pedido.crear_pedido(table.Rows.Count, productos, direccion, textBox_destinatario.Text);
+            
+            double peso_total = 0; 
+            double precio_total = 0;
+            foreach (var elemento in productos)
+            {
+                peso_total += elemento.Item3;
+                precio_total += elemento.Item4;
+            }
+            pedido.crear_pedido(table.Rows.Count, productos, direccion, textBox_destinatario.Text, peso_total, precio_total);
             pedidos.Add(pedido);
-            f.setPedidos(pedidos);
+            
 
             // Creamos nueva fila y actualizamos tabla de pedidos
             DataRow nuevaFila = table.NewRow();
@@ -112,7 +113,8 @@ namespace SimpleExample
 
             dataGrid.DataSource = table;
             dataGrid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            
+
+            lista_compra = "";
             textBox_destinatario.Clear();
             textbox_direccion.Clear();
             textBox_pedido.Clear();
@@ -128,7 +130,8 @@ namespace SimpleExample
             string producto = comboBox1.SelectedItem.ToString();
             int cantidad = Convert.ToInt16(comboBox2.SelectedItem.ToString());
             double peso = calcular_peso(producto, cantidad);
-            productos.Add((producto, cantidad, peso));
+            double precio = calcular_precio(producto, cantidad);
+            productos.Add((producto, cantidad, peso, precio));
             lista_compra = lista_compra + producto + '(' + cantidad.ToString() + ')';
             textBox_pedido.Text = lista_compra;
             comboBox1.SelectedIndex = -1; // Reinicia el comboBox
@@ -138,32 +141,54 @@ namespace SimpleExample
         
         private double calcular_peso(string producto, int cantidad)
         {
-            if (producto == "Botella agua 1L")
+            if (productos_diccionario.TryGetValue(producto, out var info))
             {
-                return 1 * cantidad;
-            }
-            else if (producto == "Leche 1L")
-            {
-                return 1 * cantidad;
-            }
-            else if (producto == "Galletas")
-            {
-                return 0.5 * cantidad;
-            }
-            else if (producto == "Sandía")
-            {
-                return 5 * cantidad;
-            }
-            else if (producto == "Docena de huevos")
-            {
-                return 0.5 * cantidad;
+                return info.peso * cantidad;
             }
             else
             {
-                return 0; // Producto no reconocido
+                MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 0;
+            }     
+        }
+        private double calcular_precio(string producto, int cantidad)
+        {
+            if (productos_diccionario.TryGetValue(producto, out var info))
+            {
+                return info.precio * cantidad;
+            }
+            else
+            {
+                MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 0;
             }
         }
+        Dictionary<string, (double precio, double peso)> productos_diccionario = new Dictionary<string, (double, double)>
+        {
+            { "Manzanas", (2.5, 1.2) },
+            { "Leche", (1.1, 1.0) },
+            { "Arroz", (1.8, 1.0) },
+            { "Pan", (1.3, 0.5) },
+            { "Huevos", (2.2, 0.6) },
+            { "Pollo", (5.5, 1.8) },
+            { "Café", (3.7, 0.25) },
+            { "Queso", (4.0, 0.7) },
+            { "Tomates", (2.0, 1.0) },
+            { "Zanahorias", (1.6, 1.2) },
+            { "Pasta", (1.4, 0.5) },
+            { "Armario", (30.0,  30.0) },
+            { "Jabón", (1.5, 0.3) },
+            { "Champú", (3.2, 0.4) },
+            { "Detergente", (6.5, 2.0) },
+            { "Azúcar", (1.7, 1.0) },
+            { "Sal", (0.6, 0.75) },
+            { "Aceite de oliva", (4.8, 1.0) },
+            { "Agua embotellada", (0.5, 1.5) },
+            { "Cereal", (3.9, 0.6) }
+        };
 
         
+
+
     }
 }

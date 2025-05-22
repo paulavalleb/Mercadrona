@@ -89,6 +89,7 @@
             this.pedidos = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cargar_pedidos = new System.Windows.Forms.Button();
+            this.ejecutar = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
@@ -849,11 +850,22 @@
             this.cargar_pedidos.UseVisualStyleBackColor = true;
             this.cargar_pedidos.Click += new System.EventHandler(this.cargar_pedidos_Click);
             // 
+            // ejecutar
+            // 
+            this.ejecutar.Location = new System.Drawing.Point(663, 197);
+            this.ejecutar.Name = "ejecutar";
+            this.ejecutar.Size = new System.Drawing.Size(156, 49);
+            this.ejecutar.TabIndex = 62;
+            this.ejecutar.Text = "Ejecutar misiones";
+            this.ejecutar.UseVisualStyleBackColor = true;
+            this.ejecutar.Click += new System.EventHandler(this.ejecutar_Click);
+            // 
             // Mercadrona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1452, 1050);
+            this.Controls.Add(this.ejecutar);
             this.Controls.Add(this.cargar_pedidos);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pedidos);
@@ -954,5 +966,6 @@
         private System.Windows.Forms.Button pedidos;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button cargar_pedidos;
+        private System.Windows.Forms.Button ejecutar;
     }
 }

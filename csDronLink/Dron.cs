@@ -26,7 +26,6 @@ namespace csDronLink
 
     public partial class Dron
     {
-
         // Atributos
         MAVLink.MavlinkParse mavlink = new MAVLink.MavlinkParse();
         // El modo puede ser "simulacion" o "produccion"
@@ -192,6 +191,10 @@ namespace csDronLink
         {
             return this.fase;
         }
+        public int GetCargaMax()
+        {
+            return this.cargamax;
+        }
 
         public int GetVertiport()
         {
@@ -226,6 +229,10 @@ namespace csDronLink
         public void SetFase(int fase)
         {
             this.fase = fase;
+        }
+        public void GetCargaMax(int cargamax)
+        {
+            this.cargamax = cargamax;
         }
 
         public void SetVertiport(int verti)
