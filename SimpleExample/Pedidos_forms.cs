@@ -29,8 +29,9 @@ namespace SimpleExample
 
         funcionesPedidos f = new funcionesPedidos();
 
-        public Pedidos_forms()
+        public Pedidos_forms(funcionesPedidos f)
         {
+            this.f = f;
             InitializeComponent();
             home = new PointLatLng(41.282654591229225, 1.9733365698308918);
             gmap = new GMapControl

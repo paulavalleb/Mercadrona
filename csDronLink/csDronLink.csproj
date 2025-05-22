@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dron_rutas.cs" />
     <Compile Include="funcionesPedidos.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Dron.cs" />

@@ -37,6 +37,11 @@ namespace SimpleExample
         PointLatLng home; // Coordenadas Mercadona
         string nombreHome;
 
+
+        // Pedidos
+
+        funcionesPedidos f = new funcionesPedidos();
+
         public Mercadrona()
         {
                      
@@ -554,7 +559,7 @@ namespace SimpleExample
 
         private void Mercadrona_Load(object sender, EventArgs e)
         {
-                       
+            funcionesPedidos f = new funcionesPedidos();
         }
 
         private void simRadio_CheckedChanged(object sender, EventArgs e)
@@ -721,7 +726,7 @@ namespace SimpleExample
 
         private void pedidos_Click(object sender, EventArgs e)
         {
-            Pedidos_forms pedidos_f = new Pedidos_forms();
+            Pedidos_forms pedidos_f = new Pedidos_forms(f);
             pedidos_f.Show();
         }
 

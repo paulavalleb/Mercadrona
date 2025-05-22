@@ -48,6 +48,7 @@ namespace csDronLink
         float lon;
         float heading;
         int vertiport = 0;
+        int cargamax;
 
 
         // Aquí guardaré la referencia a la función que tengo que ejecutar
