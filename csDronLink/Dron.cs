@@ -26,6 +26,7 @@ namespace csDronLink
 
     public partial class Dron
     {
+        byte id;
         // Atributos
         MAVLink.MavlinkParse mavlink = new MAVLink.MavlinkParse();
         // El modo puede ser "simulacion" o "produccion"
@@ -45,6 +46,7 @@ namespace csDronLink
         float relative_alt;
         float lat;
         float lon;
+        float altura;
         float heading;
         int vertiport = 0;
         int cargamax;
@@ -63,18 +65,18 @@ namespace csDronLink
         int velocidad = 1;
 
         // Atributos pedido
-        byte id;
-        int pedido_id;
+        int pedido_id = 0;
         float dist_base;
         string estado;
         int pedidos_en_cola;
+        List<(float lat, float lon)> mision;
+        float alt_det;
 
         // Atributos conexión
         int port;
 
         // Atributos de vuelo
         int fase; // 0: en tierra, 1: despegando, 2: en vuelo, 3: aterrizando, 4: en RTL
-
 
         MessageHandler messageHandler;
 
@@ -162,6 +164,10 @@ namespace csDronLink
             Console.WriteLine("Enviado el mensaje de conexion");
         }
 
+        public byte GetID()
+        {
+            return this.id;
+        }
         public float GetLat()
         {
             return this.lat;
@@ -170,7 +176,11 @@ namespace csDronLink
         {
             return this.lat;
         }
-        
+        public float GetAlt()
+        {
+            return this.altura;
+        }
+
         public int GetPedido_id()
         {
             return this.pedido_id;
@@ -195,10 +205,22 @@ namespace csDronLink
         {
             return this.cargamax;
         }
+        public List<(float lat, float lon)> GetMision()
+        {
+            return this.mision;
+        }
 
         public int GetVertiport()
         {
             return this.vertiport;
+        }
+        public float GetAlt_det()
+        {
+            return this.alt_det;
+        }
+        public void SetID(byte id)
+        {
+            this.id = id;
         }
         public void SetLat(float lat)
         {
@@ -209,7 +231,11 @@ namespace csDronLink
         {
             this.lon = lon;
         }
-      
+        public void SetAlt(float altura)
+        {
+            this.altura = altura;
+        }
+
         public void SetPedido_id(int pedido_id)
         {
             this.pedido_id = pedido_id;
@@ -230,7 +256,7 @@ namespace csDronLink
         {
             this.fase = fase;
         }
-        public void GetCargaMax(int cargamax)
+        public void SetCargaMax(int cargamax)
         {
             this.cargamax = cargamax;
         }
@@ -238,6 +264,14 @@ namespace csDronLink
         public void SetVertiport(int verti)
         {
             this.vertiport = verti;
+        }
+        public void SetMision(List<(float lat, float lon)> mision)
+        {
+            this.mision = mision;
+        }
+        public void SetAlt_det(float alt_det)
+        {
+            this.alt_det = alt_det;
         }
 
 

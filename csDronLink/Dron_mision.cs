@@ -10,7 +10,7 @@ namespace csDronLink
     public partial class Dron
     {
         // Mision
-        public void CargarMision(List<(float lat, float lon)> mision)
+        public void CargarMision()
         {
 
             // primero borramos la misión que tenga el autopiloto
@@ -25,8 +25,8 @@ namespace csDronLink
 
 
             // POR ALGUNA RAZON que no controlo tengo que enviar dos veces el primer waypoint de la misión
-            (float lat, float lon) primero = mision[0];
-            mision.Insert(0, primero);
+            (float lat, float lon) primero = this.mision[0];
+            this.mision.Insert(0, primero);
 
             // Lista con los comandos
             List<MAVLink.mavlink_mission_item_int_t> wploader = new List<MAVLink.mavlink_mission_item_int_t>();

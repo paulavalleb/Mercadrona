@@ -10,6 +10,7 @@ using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using csDronLink;
+using static GMap.NET.Entity.OpenStreetMapGraphHopperGeocodeEntity;
 
 namespace SimpleExample
 {
@@ -31,8 +32,7 @@ namespace SimpleExample
         GMarkerGoogle dronIcon; // marcador para la posición del dron
         GMapRoute dronHeading; // linea marcando el heading
 
-        // aqui iremos guardando los waypoints de la misión
-        List<(float lat, float lon)> mision;
+        
 
         PointLatLng home; // Coordenadas Mercadona
         string nombreHome;
@@ -42,11 +42,19 @@ namespace SimpleExample
         PointLatLng Vertiport4;
         PointLatLng Vertiport5;
         List<PointLatLng> vertiports_list = new List<PointLatLng>();
+        List<(float lat, float lon)> mision;
 
 
         // Pedidos
 
         funcionesPedidos f = new funcionesPedidos();
+        GMarkerGoogle destinoIcon;
+        List<Pedido> pedidos;
+        int numDronsRuta1 = 0; // número de drons que van a la ruta 1
+        int numDronsRuta2 = 0; // número de drons que van a la ruta 2
+        int numDronsRuta3 = 0; // número de drons que van a la ruta 3
+        int numDronsRuta4 = 0; // número de drons que van a la ruta 4
+        int numDronsRuta5 = 0; // número de drons que van a la ruta 5
 
         public Mercadrona()
         {
@@ -105,8 +113,6 @@ namespace SimpleExample
 
         
 
-
-
         public Bitmap RedimensionarImagen(Bitmap img, int ancho, int alto) // antes era private
         {
             Bitmap nuevaImagen = new Bitmap(ancho, alto);
@@ -118,41 +124,7 @@ namespace SimpleExample
             return nuevaImagen;
         }
 
-        public void AñadirWaypoint((float lat, float lon) point)
-        {
-            // Cuando estoy creando una misión, vengo aquí al clicar
-            // en el mapa
-
-            if (this.mision == null)
-                // es el primer waypoint de la misión
-                this.mision = new List<(float lat, float lon)>();
-
-            PointLatLng p = new PointLatLng(point.lat, point.lon);
-            // añado un marcador
-            GMarkerGoogle marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_dot);
-            overlay.Markers.Add(marker);
-            // añado el punto a la misión
-            this.mision.Add(point);
-
-            if (this.mision.Count > 1)
-            {
-                // Hay que dibujar la linea que va del anterior al nuevo
-                PointLatLng previo = new PointLatLng(
-                    this.mision[this.mision.Count - 2].lat,
-                    this.mision[this.mision.Count - 2].lon);
-                List<PointLatLng> points = new List<PointLatLng>
-                {
-                    previo,
-                    p
-                };
-                GMapRoute route = new GMapRoute(points, "Line")
-                {
-                    Stroke = new System.Drawing.Pen(System.Drawing.Color.Blue, 2) // Color y grosor de la línea
-                };
-                overlay.Routes.Add(route);
-            }
-
-        }
+    
         private void GMapControl1_MouseDown(object sender, MouseEventArgs e) // no seria click?
         {
             if (e.Button == MouseButtons.Right)
@@ -182,6 +154,7 @@ namespace SimpleExample
         private void EnTierra()
         {
             dron_selected.SetFase(0);
+            textBox1.Text = "En tierra";
             despegarBtn.BackColor = Color.DarkOrange;
             aterrizarBtn.BackColor = Color.Orange;
             RTLBtn.BackColor = Color.Orange;
@@ -192,6 +165,7 @@ namespace SimpleExample
         {
             // Esto es lo que haré cuando el dron haya alcanzado la altura de despegue
             dron_selected.SetFase(1);
+            textBox1.Text = "En aire";
             despegarBtn.BackColor = Color.Orange;
             despegarBtn.Text = (string)param;
         }
@@ -203,6 +177,7 @@ namespace SimpleExample
             //if ((string)mensaje == "Aterrizaje")
 
             dron_selected.SetFase(2);
+            textBox1.Text = "Aterrizado.";
             despegarBtn.BackColor = Color.DarkOrange;
             aterrizarBtn.BackColor = Color.Orange;
             RTLBtn.BackColor = Color.Orange;
@@ -211,6 +186,7 @@ namespace SimpleExample
         private void Aterrizando()
         {
             dron_selected.SetFase(3);
+            textBox1.Text = "Aterrizando...";
             despegarBtn.BackColor = Color.Orange;
             aterrizarBtn.BackColor = Color.Green;
             RTLBtn.BackColor = Color.Orange;
@@ -219,6 +195,7 @@ namespace SimpleExample
         private void en_RTL()
         {
             dron_selected.SetFase(4);
+            textBox1.Text = "En RTL";
             despegarBtn.BackColor = Color.Orange;
             aterrizarBtn.BackColor = Color.Orange;
             RTLBtn.BackColor = Color.Green;
@@ -275,12 +252,10 @@ namespace SimpleExample
             dronIcon = new GMarkerGoogle(point, iconoPersonalizado);
             // Añado un offset para que el centro del icono esté exactamente en la
             // posición del mapa en la que está el dron
-            dronIcon.Offset = new Point(-iconoPersonalizado.Width / 2, -iconoPersonalizado.Height / 2);
+            dronIcon.Offset = new System.Drawing.Point(-iconoPersonalizado.Width / 2, -iconoPersonalizado.Height / 2);
             overlay.Markers.Add(dronIcon);
 
         }
-
-
         private void DibujarLimites(List<(float lat, float lon)> limites)
         {
             // Dibujo el poligono que define los límites del area de vuelo (geofence
@@ -361,6 +336,41 @@ namespace SimpleExample
             overlay.Markers.Add(marker);
         }
 
+        private void AñadirWaypoint((float lat, float lon) point)
+        {
+            // Cuando estoy creando una misión, vengo aquí al clicar
+            // en el mapa
+
+            if (this.mision == null)
+                // es el primer waypoint de la misión
+                this.mision = new List<(float lat, float lon)>();
+
+            PointLatLng p = new PointLatLng(point.lat, point.lon);
+            // añado un marcador
+            GMarkerGoogle marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_dot);
+            overlay.Markers.Add(marker);
+            // añado el punto a la misión
+            this.mision.Add(point);
+
+            if (this.mision.Count > 1)
+            {
+                // Hay que dibujar la linea que va del anterior al nuevo
+                PointLatLng previo = new PointLatLng(
+                    this.mision[this.mision.Count - 2].lat,
+                    this.mision[this.mision.Count - 2].lon);
+                List<PointLatLng> points = new List<PointLatLng>
+                {
+                    previo,
+                    p
+                };
+                GMapRoute route = new GMapRoute(points, "Line")
+                {
+                    Stroke = new System.Drawing.Pen(System.Drawing.Color.Blue, 2) // Color y grosor de la línea
+                };
+                overlay.Routes.Add(route);
+            }
+
+        }
 
         private void Connectar_button_Click(object sender, EventArgs e)
         {
@@ -556,7 +566,7 @@ namespace SimpleExample
                 {
                     desplegable.Items.Clear();
 
-                    if (textBoxNumDrons.Text == null)
+                    if (textBoxNumDrons.Text == "")
                     {
                         MessageBox.Show("Porfavor, indica el número de drones a conectar");
                     }
@@ -566,6 +576,8 @@ namespace SimpleExample
                         for (byte i = 1; i <= numDrons; i++)
                         {
                             Dron dron = new Dron(i);
+                            dron.SetEstado("disponible");
+                            dron.SetCargaMax(20);
 
                             drons_list.Add(dron);
                             desplegable.Items.Add(i);
@@ -648,7 +660,6 @@ namespace SimpleExample
             dron_selected.Mover(direccion, distancia, bloquear: false);
         }
 
-
         private void enviarTelemetria(object sender, EventArgs e)
         {
             dron_selected.EnviarDatosTelemetria((id, param) => ProcesarTelemetria(param));
@@ -659,7 +670,7 @@ namespace SimpleExample
             dron_selected.DetenerDatosTelemetria();
         }
 
-        private void trackBarSpeed_Scroll(object sender, EventArgs e)
+        private void trackBarSpeed_Scroll(object sender, EventArgs e) // Cada momento que se mueve la barra
         {
             // Recojo y muestro el valor la velocidad según se mueve 
             // la barra de desplazamiento
@@ -718,15 +729,15 @@ namespace SimpleExample
                 dron_selected = drons_list[Convert.ToInt32(desplegable.Text)-1];
                 if (dron_selected.GetFase() == 0) // en tierra
                 {
-                    EnTierra(null);
-                }
-                else if (dron_selected.GetFase() == 1) // despegando
-                {
                     EnTierra();
                 }
-                else if (dron_selected.GetFase() == 2) // en vuelo
+                else if (dron_selected.GetFase() == 1) // en vuelo
                 {
                     EnAire("Volando");
+                }
+                else if (dron_selected.GetFase() == 2) // aterrizado o ya ha acabado RTL
+                {
+                    EnTierra(null);
                 }
                 else if (dron_selected.GetFase() == 3) // aterrizando
                 {
@@ -739,11 +750,6 @@ namespace SimpleExample
             }
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void pedidos_Click(object sender, EventArgs e)
         {
             Pedidos_forms pedidos_f = new Pedidos_forms(f);
@@ -752,13 +758,44 @@ namespace SimpleExample
 
         private void cargar_pedidos_Click(object sender, EventArgs e)
         {
-            funcionesPedidos f = new funcionesPedidos();
-            List <Pedido> pedidos = f.GetPedidos();
+            pedidos = f.GetPedidos();
             foreach (Pedido pedido in pedidos)
             {
                 Dron d = pedido.asignar_pedido(drons_list);
-                d.asignarVertiport(pedido.getDireccion(), vertiports_list);
-                d.Ir_Vertiport_desde_Origen();
+                if (d != null) 
+                {
+                    PointLatLng destino = pedido.getDireccion();
+                    destinoIcon = new GMarkerGoogle(destino, GMarkerGoogleType.yellow_pushpin);
+                    overlay.Markers.Add(destinoIcon);
+                    d.asignarVertiport(pedido.getDireccion(), vertiports_list);
+                    d.crearMision();
+                    int inc = 0;
+                    float alt = 0;
+                    if (d.GetVertiport() == 1)
+                    {
+                        alt = 30 + 5*numDronsRuta1;
+                    }
+                    else if (d.GetVertiport() == 2)
+                    {
+                        alt = 30 + 5 * numDronsRuta2;
+
+                    }
+                    else if (d.GetVertiport() == 3)
+                    {
+                        alt = 30 + 5 * numDronsRuta3;
+                    }
+                    else if (d.GetVertiport() == 4)
+                    {
+                        alt = 30 + 5 * numDronsRuta4;
+                    }
+                    else if (d.GetVertiport() == 5)
+                    {
+                        alt = 30 + 5 * numDronsRuta5;
+                    }
+                    d.IrAlPunto(d.GetLat(), d.GetLon(), alt);
+                    d.SetAlt_det(alt);
+                    d.CargarMision();
+                }
             }
         }
 
@@ -766,9 +803,56 @@ namespace SimpleExample
         {
             foreach (Dron dron in drons_list)
             {
+                if ((dron.GetFase() == 0 || dron.GetFase() == 2) && dron.GetPedido_id() != 0)
+                {
+                    // Si el dron está disponible, empiezo el pedido
+                    dron.Despegar(30, bloquear: true);
+                    dron.EjecutarMision(bloquear: false, (id, param) => EnVertiport(dron));
+                }
             }
         }
+        private void EnVertiport(Dron d)
+        {
+            int ind_pedido = d.GetPedido_id();
+            PointLatLng dir = pedidos[d.GetPedido_id()-1].getDireccion();
+            d.IrAlPunto(Convert.ToInt16(dir.Lat), Convert.ToInt16(dir.Lng), d.GetAlt(), false, (id, param) => EnDestino(d));
+            textBox1.Text = "En vertiport";
+        }
+        
+        private void EnDestino(Dron d)
+        {
+            d.Aterrizar();
+            textBox1.Text = "En destino";
+            DialogResult resultado = MessageBox.Show(
+            "El dron " + d.GetID() + " ha entregado el pedido " + d.GetPedido_id() +". ¿Deseas que vuelva al Mercadrona?",
+            "Pedido entregado",                            // Título de la ventana
+            MessageBoxButtons.OKCancel,                    // Botones: Aceptar / Cancelar
+            MessageBoxIcon.Question                        // Icono
+            );
+
+            if (resultado == DialogResult.OK)
+            {
+                d.volverMision();
+                d.Despegar(40, bloquear: true);
+                
+                d.IrAlPunto(d.GetLat(), d.GetLon(), d.GetAlt_det());
+                d.CargarMision();
+                d.EjecutarMision(bloquear: false, (id, param) => EnBase(d));
+            }
+        }
+
+        private void EnBase(Dron d)
+        {
+            d.Aterrizar();
+            textBox1.Text = "En base";
+            d.SetEstado("disponible");
+            d.SetPedido_id(0); // El dron ya no tiene pedido asignado
+        }
     }
+
 }
+        
+
+
 
 

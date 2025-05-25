@@ -675,7 +675,7 @@ namespace SimpleExample
         {
             // En mision están los waypoints que se han ido recogiendo
             // cuando el usuario clicado sobre el mapa
-            dron.CargarMision(mision);
+            dron.CargarMision();
             button29.BackColor = Color.Green;
             button29.ForeColor = Color.White;
         }

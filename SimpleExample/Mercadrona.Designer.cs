@@ -77,6 +77,7 @@
             this.alturaBox = new System.Windows.Forms.TextBox();
             this.panelMapa = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBoxNumDrons = new System.Windows.Forms.TextBox();
             this.Connectar_button = new System.Windows.Forms.Button();
             this.desplegable = new System.Windows.Forms.ComboBox();
@@ -86,7 +87,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.parámetrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pedidos = new System.Windows.Forms.Button();
+            this.pedidos_btn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cargar_pedidos = new System.Windows.Forms.Button();
             this.ejecutar = new System.Windows.Forms.Button();
@@ -701,6 +702,7 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.textBoxNumDrons);
             this.groupBox1.Controls.Add(this.Connectar_button);
             this.groupBox1.Controls.Add(this.desplegable);
@@ -721,6 +723,14 @@
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Control";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(459, 108);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(118, 43);
+            this.textBox1.TabIndex = 45;
             // 
             // textBoxNumDrons
             // 
@@ -823,19 +833,19 @@
             this.parámetrosToolStripMenuItem.Text = "Parámetros";
             this.parámetrosToolStripMenuItem.Click += new System.EventHandler(this.parámetrosToolStripMenuItem_Click);
             // 
-            // pedidos
+            // pedidos_btn
             // 
-            this.pedidos.Location = new System.Drawing.Point(663, 87);
-            this.pedidos.Name = "pedidos";
-            this.pedidos.Size = new System.Drawing.Size(156, 49);
-            this.pedidos.TabIndex = 59;
-            this.pedidos.Text = "Pedidos";
-            this.pedidos.UseVisualStyleBackColor = true;
-            this.pedidos.Click += new System.EventHandler(this.pedidos_Click);
+            this.pedidos_btn.Location = new System.Drawing.Point(663, 87);
+            this.pedidos_btn.Name = "pedidos_btn";
+            this.pedidos_btn.Size = new System.Drawing.Size(156, 49);
+            this.pedidos_btn.TabIndex = 59;
+            this.pedidos_btn.Text = "Pedidos";
+            this.pedidos_btn.UseVisualStyleBackColor = true;
+            this.pedidos_btn.Click += new System.EventHandler(this.pedidos_Click);
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1022, 256);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(663, 257);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
             this.flowLayoutPanel1.TabIndex = 60;
@@ -868,7 +878,7 @@
             this.Controls.Add(this.ejecutar);
             this.Controls.Add(this.cargar_pedidos);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.pedidos);
+            this.Controls.Add(this.pedidos_btn);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pasoLbl);
@@ -963,9 +973,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem parámetrosToolStripMenuItem;
-        private System.Windows.Forms.Button pedidos;
+        private System.Windows.Forms.Button pedidos_btn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button cargar_pedidos;
         private System.Windows.Forms.Button ejecutar;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

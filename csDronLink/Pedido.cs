@@ -109,14 +109,53 @@ namespace csDronLink
             return distancia;
         }
 
+        public void setId(int id)
+        {
+            this.id = id;
+        }
+        public void setProductos(List<(string nombre, int cantidad, double peso, double precio)> productos)
+        {
+            this.productos = productos;
+        }
         public void setDireccion(PointLatLng direccion)
         {
             this.direccion_coord = direccion;
-      
+        }
+        public void setDestinatario(string destinatario)
+        {
+            this.destinatario = destinatario;
+        }
+        public void setPrecioTotal(double preciototal)
+        {
+            this.precio_total = preciototal;
+        }
+        public void setPesoTotal(double peso_total)
+        {
+            this.peso_total = peso_total;
+        }
+        public int getId()
+        {
+            return this.id;
+        }
+        public List<(string nombre, int cantidad, double peso, double precio)> getProductos()
+        {
+            return this.productos;
         }
         public PointLatLng getDireccion()
         {
             return this.direccion_coord;
+        }
+        public string getDestinatario()
+        {
+            return this.destinatario;
+        }
+        public double getPesoTotal()
+        {
+            return this.peso_total;
+        }
+        public double getPrecioTotal()
+        {
+            return this.precio_total;
         }
 
 
