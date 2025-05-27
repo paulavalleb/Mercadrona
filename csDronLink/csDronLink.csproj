@@ -103,6 +103,8 @@
     <Compile Include="MavlinkParse.cs" />
     <Compile Include="MavlinkUtil.cs" />
     <Compile Include="MessageHandler.cs" />
+    <Compile Include="Pedidolistener.cs" />
+    <Compile Include="PedidoWeb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

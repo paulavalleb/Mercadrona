@@ -11,6 +11,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using csDronLink;
 using static GMap.NET.Entity.OpenStreetMapGraphHopperGeocodeEntity;
+using System.Linq;
 
 namespace SimpleExample
 {
@@ -49,12 +50,16 @@ namespace SimpleExample
 
         funcionesPedidos f = new funcionesPedidos();
         GMarkerGoogle destinoIcon;
-        List<Pedido> pedidos;
+        List<Pedido> pedidos = new List<Pedido>();
         int numDronsRuta1 = 0; // número de drons que van a la ruta 1
         int numDronsRuta2 = 0; // número de drons que van a la ruta 2
         int numDronsRuta3 = 0; // número de drons que van a la ruta 3
         int numDronsRuta4 = 0; // número de drons que van a la ruta 4
         int numDronsRuta5 = 0; // número de drons que van a la ruta 5
+        int Webids = 1000; // ID de los pedidos que se reciben de la web
+
+
+        private PedidoListener listener;  // campo del formulario
 
         public Mercadrona()
         {
@@ -848,6 +853,72 @@ namespace SimpleExample
             d.SetEstado("disponible");
             d.SetPedido_id(0); // El dron ya no tiene pedido asignado
         }
+
+
+        private void online_Click(object sender, EventArgs e)
+        {
+
+            if (listener == null)
+            {
+                listener = new PedidoListener();
+                listener.OnPedidoRecibido = PedidoRecibido;  // Método que crearás abajo
+                listener.Start();
+
+                online.BackColor = Color.Red;
+                online.Text = "Escuchando...";
+            }
+            else
+            {
+                listener.Stop();
+                listener = null;
+
+                online.BackColor = SystemColors.Control;
+                online.Text = "Permitir pedidos online";
+            }
+        }
+
+    
+
+        private void PedidoRecibido(PedidoWeb pedidoWeb)
+        {
+            // Convertir PedidoWeb a Pedido
+            var pedido = ConvertirPedidoWeb(pedidoWeb);
+            pedidos.Add(pedido); // Añadir a la lista de pedidos
+
+        }
+
+        private void MostrarPedido(Pedido pedido)
+        {
+            string mensaje = $"Pedido recibido para {pedido.getDestinatario()}:\n";
+            foreach (var prod in pedido.getProductos())
+            {
+                mensaje += $"{prod.cantidad} x {prod.nombre} (Peso: {prod.peso}kg, Precio: {prod.precio}€)\n";
+            }
+            mensaje += $"Total peso: {pedido.getPesoTotal()} kg\nTotal precio: {pedido.getPrecioTotal()} €";
+
+            MessageBox.Show(mensaje, "Nuevo Pedido");
+        }
+
+        private Pedido ConvertirPedidoWeb(PedidoWeb pw)
+        {
+            var p = new Pedido();
+
+            var productos = pw.Productos.Select(x => (x.Nombre, x.Cantidad, x.Peso, x.Precio)).ToList();
+            
+            p.crear_pedido(
+               Webids,
+                productos,
+                new GMap.NET.PointLatLng(pw.Latitud, pw.Longitud),
+                pw.Destinatario,
+                pw.PrecioTotal,
+                pw.PesoTotal
+            );
+            Webids++;
+
+            return p;
+        }
+
+
     }
 
 }
