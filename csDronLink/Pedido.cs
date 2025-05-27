@@ -11,15 +11,15 @@ namespace csDronLink
     public partial class Pedido // partial?
     {
         // Atributos
-        int id;
-        List<(string nombre, int cantidad, double peso, double precio)> productos = new List<(string nombre, int cantidad, double peso, double precio)>();
-        PointLatLng direccion_coord = new PointLatLng();
-        string destinatario;
-        double precio_total;
-        double peso_total;
-        float lat_base = 0;
-        float lon_base = 0;
-        PointLatLng base_coords;
+        private int id;
+        private List<(string nombre, int cantidad, double peso, double precio)> productos = new List<(string nombre, int cantidad, double peso, double precio)>();
+        private PointLatLng direccion_coord = new PointLatLng();
+        private string destinatario;
+        private double precio_total;
+        private double peso_total;
+        private float lat_base = 0;
+        private float lon_base = 0;
+        private PointLatLng base_coords;
 
 
 
@@ -30,7 +30,7 @@ namespace csDronLink
         public void crear_pedido(int id, List<(string nombre, int cantidad, double peso, double precio)> productos, PointLatLng direccion_coord, string destinatario, double precio_total, double peso_total)
         {
             this.id = id;
-            this.productos = productos;
+            this.productos = new List<(string nombre, int cantidad, double peso, double precio)>(productos); // Copia
             this.direccion_coord = direccion_coord;
             this.destinatario = destinatario;
             this.precio_total = precio_total;
@@ -115,8 +115,9 @@ namespace csDronLink
         }
         public void setProductos(List<(string nombre, int cantidad, double peso, double precio)> productos)
         {
-            this.productos = productos;
+            this.productos = new List<(string nombre, int cantidad, double peso, double precio)>(productos); // Copia
         }
+
         public void setDireccion(PointLatLng direccion)
         {
             this.direccion_coord = direccion;

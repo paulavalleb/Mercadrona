@@ -56,6 +56,9 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.ejemplo_btn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cargar = new System.Windows.Forms.Button();
+            this.eliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -341,12 +344,45 @@
             this.ejemplo_btn.UseVisualStyleBackColor = true;
             this.ejemplo_btn.Click += new System.EventHandler(this.ejemplo_btn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(718, 134);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 30);
+            this.button1.TabIndex = 67;
+            this.button1.Text = "Modificar pedido";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cargar
+            // 
+            this.cargar.Location = new System.Drawing.Point(718, 183);
+            this.cargar.Name = "cargar";
+            this.cargar.Size = new System.Drawing.Size(133, 30);
+            this.cargar.TabIndex = 68;
+            this.cargar.Text = "Cargar";
+            this.cargar.UseVisualStyleBackColor = true;
+            this.cargar.Click += new System.EventHandler(this.cargar_Click);
+            // 
+            // eliminar
+            // 
+            this.eliminar.Location = new System.Drawing.Point(718, 235);
+            this.eliminar.Name = "eliminar";
+            this.eliminar.Size = new System.Drawing.Size(133, 30);
+            this.eliminar.TabIndex = 69;
+            this.eliminar.Text = "Eliminar pedidos";
+            this.eliminar.UseVisualStyleBackColor = true;
+            this.eliminar.Click += new System.EventHandler(this.eliminar_Click);
+            // 
             // Pedidos_forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1419, 875);
+            this.Controls.Add(this.eliminar);
+            this.Controls.Add(this.cargar);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ejemplo_btn);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox11);
@@ -401,5 +437,8 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Button ejemplo_btn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cargar;
+        private System.Windows.Forms.Button eliminar;
     }
 }

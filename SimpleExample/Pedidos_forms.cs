@@ -23,10 +23,10 @@ namespace SimpleExample
         PointLatLng home;
 
         // Pedidos
-        List<Pedido> pedidos = new List<Pedido>();
+        private List<Pedido> pedidos = new List<Pedido>();
         PointLatLng direccion;
         string lista_compra;
-        List<(string, int, double, double)> productos = new List<(string, int, double, double)>(); // nombre, cantidad, peso, precio
+        private List<(string, int, double, double)> productos_list = new List<(string, int, double, double)>(); // nombre, cantidad, peso, precio
         DataTable table = new DataTable();
         funcionesPedidos f = new funcionesPedidos(); // Para poder guardar pedidos y pasarlos a formulario principal.
         int indexCantidad; // Combobox cantidad
@@ -102,18 +102,19 @@ namespace SimpleExample
         }
         private void anadir_Click(object sender, EventArgs e)
         {
+
             string producto = comboBox1.SelectedItem.ToString();
             int cantidad = Convert.ToInt16(comboBox2.SelectedItem.ToString());
             double peso = calcular_peso(producto, cantidad);
             double precio = calcular_precio(producto, cantidad);
-            productos.Add((producto, cantidad, peso, precio));
+            productos_list.Add((producto, cantidad, peso, precio));
             lista_compra = lista_compra + producto + '(' + cantidad.ToString() + ") ";
             textBox_pedido.Text = lista_compra;
             comboBox1.SelectedIndex = -1; // Reinicia el comboBox
             comboBox2.SelectedIndex = -1; // Reinicia el comboBox
             indexCantidad = 4; // Reinicia el índice de cantidad para el comboBox2
             //comboBox2_SelectedIndexChanged(sender, e);
-            List<double> precio_peso= peso_precio_total(productos);
+            List<double> precio_peso= peso_precio_total(productos_list);
             textBox6.Text = Convert.ToString(precio_peso[0]);
             textBox9.Text = Convert.ToString(precio_peso[1]);
         }
@@ -143,7 +144,7 @@ namespace SimpleExample
                 // Crear un nuevo pedido
                 double precio = Convert.ToDouble(textBox6.Text);
                 double peso = Convert.ToDouble(textBox6.Text);
-                pedido.crear_pedido(table.Rows.Count, productos, direccion, textBox_destinatario.Text, precio, peso);
+                pedido.crear_pedido(table.Rows.Count, productos_list, direccion, textBox_destinatario.Text, precio, peso);
                 pedidos.Add(pedido);
 
                 DataRow nuevaFila = table.NewRow();
@@ -156,12 +157,22 @@ namespace SimpleExample
                 nuevaFila["Peso"] = pedido.getPesoTotal();
 
                 table.Rows.Add(nuevaFila);
+                foreach (Pedido p in pedidos)
+                {
+                    var productosList = p.getProductos();
+                    var sb = new StringBuilder();
+                    foreach (var prod in productosList)
+                    {
+                        sb.AppendLine($"{prod.nombre} ({prod.cantidad}) ");
+                    }
+                    table.Rows[p.getId() - 1]["Lista productos"] = sb.ToString();
+                }
 
                 dataGrid.DataSource = table;
                 dataGrid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
                 lista_compra = "";
-                productos.Clear(); // Limpiar la lista de productos
+                productos_list.Clear(); // Limpiar la lista de productos
                 textBox_destinatario.Clear();
                 textbox_direccion.Clear();
                 textBox_pedido.Clear();
@@ -249,22 +260,25 @@ namespace SimpleExample
         {
             // pedido 1:
             Pedido pedido = new Pedido();
-
             PointLatLng direccion = new PointLatLng(41.2842564942199, 1.97371959686279);
 
             string producto = ("Manzanas");
             int cantidad = 2;
             double peso = calcular_peso(producto, cantidad);
             double precio = calcular_precio(producto, cantidad);
-            productos.Add((producto, cantidad, peso, precio));
+            productos_list.Add((producto, cantidad, peso, precio));
             string producto2 = ("Jabón");
             int cantidad2 = 3;
             double peso2 = calcular_peso(producto2, cantidad2);
             double precio2 = calcular_precio(producto2, cantidad2);
-            productos.Add((producto2, cantidad2, peso2, precio2));
-            List<double> precio_peso = peso_precio_total(productos);
-            
-            pedido.crear_pedido(1, productos, direccion, "Pol Casals", precio_peso[0], precio_peso[1]);
+            productos_list.Add((producto2, cantidad2, peso2, precio2));
+            List<double> precio_peso = peso_precio_total(productos_list);
+            pedido.setId(1);
+            pedido.setProductos(productos_list);
+            pedido.setDireccion(direccion);
+            pedido.setDestinatario("Pol Casals");
+            pedido.setPrecioTotal(precio_peso[0]);
+            pedido.setPesoTotal(precio_peso[1]);
             pedidos.Add(pedido);
 
             DataRow nuevaFila = table.NewRow();
@@ -278,26 +292,32 @@ namespace SimpleExample
 
             table.Rows.Add(nuevaFila);
 
-            productos.Clear();
+            productos_list.Clear();
 
             // pedido 2:
             Pedido pedido2 = new Pedido();
-
+            
             PointLatLng direccion2 = new PointLatLng(41.2808380593931, 1.9700288772583);
 
             string producto_2 = ("Arroz");
             int cantidad_2 = 1;
             double peso_2 = calcular_peso(producto_2, cantidad_2);
             double precio_2 = calcular_precio(producto_2, cantidad_2);
-            productos.Add((producto_2, cantidad_2, peso_2, precio_2));
+            productos_list.Add((producto_2, cantidad_2, peso_2, precio_2));
             string producto_21 = ("Café");
             int cantidad_21 = 4;
             double peso_21 = calcular_peso(producto_21, cantidad_21);
             double precio_21 = calcular_precio(producto_21, cantidad_21);
-            productos.Add((producto_21, cantidad_21, peso_21, precio_21));
-            List<double> precio_peso_2 = peso_precio_total(productos);
-            
-            pedido2.crear_pedido(2, productos, direccion2, "Adrià Martos", precio_peso_2[0], precio_peso_2[1]);
+            productos_list.Add((producto_21, cantidad_21, peso_21, precio_21));
+            List<double> precio_peso_2 = peso_precio_total(productos_list);
+            pedido2.setId(2);
+            pedido2.setProductos(productos_list);
+            pedido2.setDireccion(direccion2);
+            pedido2.setDestinatario("Adrià Martos");
+            pedido2.setPrecioTotal(precio_peso_2[0]);
+            pedido2.setPesoTotal(precio_peso_2[1]);
+            pedidos.Add(pedido2);
+
             pedidos.Add(pedido2);
 
             DataRow nuevaFila2 = table.NewRow();
@@ -311,7 +331,7 @@ namespace SimpleExample
 
             table.Rows.Add(nuevaFila2);
 
-            productos.Clear();
+            productos_list.Clear(); // Limpiar la lista de productos para el siguiente pedido
 
             // pedido 3:
             Pedido pedido3 = new Pedido();
@@ -322,15 +342,21 @@ namespace SimpleExample
             int cantidad_3= 1;
             double peso_3 = calcular_peso(producto_3, cantidad_3);
             double precio_3 = calcular_precio(producto_3, cantidad_3);
-            productos.Add((producto_3, cantidad_3, peso_3, precio_3));
+            productos_list.Add((producto_3, cantidad_3, peso_3, precio_3));
             string producto_31 = ("Sal");
             int cantidad_31 = 2;
             double peso_31 = calcular_peso(producto_31, cantidad_31);
             double precio_31 = calcular_precio(producto_31, cantidad_31);
-            productos.Add((producto_31, cantidad_31, peso_31, precio_31));
-            List<double> precio_peso_3 = peso_precio_total(productos);
+            productos_list.Add((producto_31, cantidad_31, peso_31, precio_31));
+            List<double> precio_peso_3 = peso_precio_total(productos_list);
 
-            pedido3.crear_pedido(3, productos, direccion3, "Arnau Doménech", precio_peso_3[0], precio_peso_3[1]);
+            pedido3.setId(3);
+            pedido3.setProductos(productos_list);
+            productos_list.Clear(); // Limpiar la lista de productos para el siguiente pedido
+            pedido3.setDireccion(direccion3);
+            pedido3.setDestinatario("Arnau Doménech");
+            pedido3.setPrecioTotal(precio_peso_3[0]);
+            pedido3.setPesoTotal(precio_peso_3[1]); 
             pedidos.Add(pedido3);
 
             DataRow nuevaFila3 = table.NewRow();
@@ -344,14 +370,55 @@ namespace SimpleExample
 
             table.Rows.Add(nuevaFila3);
 
-            productos.Clear();
-
-
             dataGrid.DataSource = table;
+            foreach (Pedido p in pedidos)
+            {
+                var productosList = p.getProductos();
+                var sb = new StringBuilder();
+                foreach (var prod in productosList)
+                {
+                    sb.AppendLine($"{prod.nombre} ({prod.cantidad}) ");
+                }
+                table.Rows[p.getId() - 1]["Lista productos"] = sb.ToString();
+            }
             dataGrid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             f.setPedidos(pedidos);
+            f.setTable(table);
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            f.setTable(table);
+            editar_pedido edit_pedido = new editar_pedido(productos_diccionario, f);
+            edit_pedido.Show();
+        }
+
+        private void cargar_Click(object sender, EventArgs e)
+        {
+            table = f.GetTable();
+            pedidos = f.GetPedidos();
+            dataGrid.DataSource = table;
+            dataGrid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            foreach (Pedido p  in pedidos)
+            {
+                var productosList = p.getProductos();
+                var sb = new StringBuilder();
+                foreach (var prod in productosList)
+                {
+                    sb.AppendLine($"{prod.nombre} ({prod.cantidad}) ");
+                }
+                table.Rows[p.getId() - 1]["Lista productos"] = sb.ToString();
+            }
+        }
+
+        private void eliminar_Click(object sender, EventArgs e)
+        {
+            table.Clear();
+            f.setTable(table);
+            pedidos.Clear();
+            f.setPedidos(pedidos);
         }
     }
 
