@@ -19,7 +19,7 @@ namespace SimpleExample
     {
         // Dron:
         List<Dron> drons_list = new List<Dron> (); // lista de drons que se conectan al programa
-        Dron dron_selected = new Dron();
+        Dron dron_selected = null;
 
         // Diseño
         
@@ -621,19 +621,36 @@ namespace SimpleExample
         {
             // Click en boton para dspegar
             // Llamada no bloqueante para no bloquear el formulario
-            dron_selected.Despegar(int.Parse(alturaBox.Text), bloquear: false, (id, param) => EnAire(param), "Volando");
-            despegarBtn.BackColor = Color.Yellow;
-            RTLBtn.BackColor = Color.DarkOrange;
-            aterrizarBtn.BackColor = Color.DarkOrange;
+            if (dron_selected == null)
+            {
+                MessageBox.Show("Selecciona un dron porfavor.");
+            }
+            else if (dron_selected != null && int.TryParse(alturaBox.Text, out int altura))
+            {
+                dron_selected.Despegar(int.Parse(alturaBox.Text), bloquear: false, (id, param) => EnAire(param), "Volando");
+                despegarBtn.BackColor = Color.Yellow;
+                RTLBtn.BackColor = Color.DarkOrange;
+                aterrizarBtn.BackColor = Color.DarkOrange;
+            }
+            else 
+            {
+                MessageBox.Show("Introduce un número de altura correcto.");
+            }
         }
         
         private void RTLBtn_Click(object sender, EventArgs e)
         {
             // Click en el botón de RTL
-
-            dron_selected.RTL(bloquear: false, (id, param) => EnTierra(param), "RTL");
-            RTLBtn.BackColor = Color.Yellow;
-            despegarBtn.BackColor = Color.DarkOrange;
+            if (dron_selected == null)
+            {
+                MessageBox.Show("Selecciona un dron porfavor.");
+            }
+            else
+            {
+                dron_selected.RTL(bloquear: false, (id, param) => EnTierra(param), "RTL");
+                RTLBtn.BackColor = Color.Yellow;
+                despegarBtn.BackColor = Color.DarkOrange;
+            }
         }
 
         private void aterrizarBtn_Click(object sender, EventArgs e)
@@ -779,25 +796,29 @@ namespace SimpleExample
                     if (d.GetVertiport() == 1)
                     {
                         alt = 30 + 5*numDronsRuta1;
+                        numDronsRuta1 += 1;
                     }
                     else if (d.GetVertiport() == 2)
                     {
                         alt = 30 + 5 * numDronsRuta2;
+                        numDronsRuta2 += 1;
 
                     }
                     else if (d.GetVertiport() == 3)
                     {
                         alt = 30 + 5 * numDronsRuta3;
+                        numDronsRuta3 += 1;
                     }
                     else if (d.GetVertiport() == 4)
                     {
                         alt = 30 + 5 * numDronsRuta4;
+                        numDronsRuta4 += 1;
                     }
                     else if (d.GetVertiport() == 5)
                     {
                         alt = 30 + 5 * numDronsRuta5;
+                        numDronsRuta5 += 1;
                     }
-                    d.IrAlPunto(d.GetLat(), d.GetLon(), alt);
                     d.SetAlt_det(alt);
                     d.CargarMision();
                 }
@@ -806,7 +827,7 @@ namespace SimpleExample
                     not_assigned.Add(pedido.getId());
                 }
             }
-            if(not_assigned.Count == 0)
+            if(not_assigned.Count != 0)
             {
                 MessageBox.Show("Los siguientes pedidos no han podido ser asignados a ningún dron:\n" + string.Join(", ", not_assigned), "Pedidos no asignados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -834,7 +855,7 @@ namespace SimpleExample
         
         private void EnDestino(Dron d)
         {
-            d.Aterrizar();
+           
             textBox1.Text = "En destino";
             DialogResult resultado = MessageBox.Show(
             "El dron " + d.GetID() + " ha entregado el pedido " + d.GetPedido_id() +". ¿Deseas que vuelva al Mercadrona?",
@@ -846,9 +867,8 @@ namespace SimpleExample
             if (resultado == DialogResult.OK)
             {
                 d.volverMision();
-                d.Despegar(40, bloquear: true);
+                d.Despegar(Convert.ToInt16(d.GetAlt_det()), bloquear: true);
                 
-                d.IrAlPunto(d.GetLat(), d.GetLon(), d.GetAlt_det());
                 d.CargarMision();
                 d.EjecutarMision(bloquear: false, (id, param) => EnBase(d));
             }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace csDronLink
 {
-    public partial class Pedido // partial?
+    public partial class Pedido 
     {
         // Atributos
         private int id;

@@ -259,7 +259,6 @@ namespace SimpleExample
         // Dirección
         private void GMapControl_Combined_MouseDown(object sender, MouseEventArgs e)
         {
-            // 1. Comprobar si el clic fue en una zona prohibida (solo clic izquierdo)
             if (e.Button == MouseButtons.Left)
             {
                 PointLatLng clickedPoint = gmap.FromLocalToLatLng(e.X, e.Y);
@@ -273,11 +272,7 @@ namespace SimpleExample
                 }
             }
 
-            // 2. Si no está en zona prohibida, y es el clic deseado para la dirección, procesar.
-            // Asumimos que la selección de dirección también es con clic izquierdo.
-            // Si tu intención original era un DOBLE clic para la dirección, necesitarás manejar el evento gmap.MouseDoubleClick por separado.
-            // Por ahora, la lógica de dirección se ejecutará en cualquier clic izquierdo que NO esté en zona prohibida.
-            if (e.Button == MouseButtons.Left) // O el botón que corresponda para seleccionar dirección
+            if (e.Button == MouseButtons.Left)
             {
                 SelectAddressFromMapClick(e.X, e.Y);
             }
@@ -400,7 +395,7 @@ namespace SimpleExample
 
             // pedido 1:
             Pedido pedido1 = new Pedido(); // Renombrada variable local
-            PointLatLng direccion1 = new PointLatLng(41.2842564942199, 1.97371959686279); // Renombrada variable local
+            PointLatLng direccion1 = new PointLatLng(41.280128550480484, 1.9642782211303711); // Renombrada variable local
 
             string producto_p1_1 = ("Manzanas");
             int cantidad_p1_1 = 2;
@@ -432,7 +427,7 @@ namespace SimpleExample
 
             // pedido 2:
             Pedido pedido2_obj = new Pedido(); // Renombrada variable local
-            PointLatLng direccion2_val = new PointLatLng(41.2808380593931, 1.9700288772583); // Renombrada variable local
+            PointLatLng direccion2_val = new PointLatLng(41.274323187830078, 1.9704151153564453); // Renombrada variable local
 
             string producto_p2_1 = ("Arroz");
             int cantidad_p2_1 = 1;
@@ -463,7 +458,7 @@ namespace SimpleExample
 
             // pedido 3:
             Pedido pedido3_obj = new Pedido(); // Renombrada variable local
-            PointLatLng direccion3_val = new PointLatLng(41.280999310343, 1.96994304656982); // Renombrada variable local
+            PointLatLng direccion3_val = new PointLatLng(41.285997892170343, 1.9838476181030273); // Renombrada variable local
 
             string producto_p3_1 = ("Arroz"); // Corregido nombre de variable
             int cantidad_p3_1 = 1;    // Corregido nombre de variable

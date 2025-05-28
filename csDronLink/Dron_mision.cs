@@ -45,7 +45,7 @@ namespace csDronLink
                     //param1 = mision.Count,
                     x = (int)(wp.lat * 1e7),  // Latitud en formato entero
                     y = (int)(wp.lon * 1e7),  // Longitud en formato entero
-                    z = 20,               // Altitud en metros. VER COMO HACER PARA QUE ESTO PUEDA CAMBIARSE
+                    z = this.alt_det,               // Altitud en metros. VER COMO HACER PARA QUE ESTO PUEDA CAMBIARSE
                     mission_type = (byte)MAVLink.MAV_MISSION_TYPE.MISSION
                 });
                 seq++;
