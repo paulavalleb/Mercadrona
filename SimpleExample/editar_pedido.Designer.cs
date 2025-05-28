@@ -131,9 +131,9 @@
             // confirmar
             // 
             this.confirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.confirmar.Location = new System.Drawing.Point(486, 315);
+            this.confirmar.Location = new System.Drawing.Point(674, 376);
             this.confirmar.Name = "confirmar";
-            this.confirmar.Size = new System.Drawing.Size(102, 41);
+            this.confirmar.Size = new System.Drawing.Size(137, 41);
             this.confirmar.TabIndex = 65;
             this.confirmar.Text = "Confirmar";
             this.confirmar.UseVisualStyleBackColor = true;

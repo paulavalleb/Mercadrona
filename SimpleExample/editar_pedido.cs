@@ -24,6 +24,7 @@ namespace SimpleExample
         int selectedIndex;
         Pedido p;
         private GMapControl gmap;
+        PointLatLng home;
         PointLatLng direccion;
         List<(string, int, double, double)> productos = new List<(string, int, double, double)>(); // nombre, cantidad, peso, precio
         string lista_compra;
@@ -35,14 +36,33 @@ namespace SimpleExample
             this.f = f;
             this.table = f.GetTable();
             this.dictionary = dictionary;
-            
             pedidos = f.GetPedidos();
+            home = new PointLatLng(41.282654591229225, 1.9733365698308918); // Mercadona
+            gmap = new GMapControl
+            {
+                Dock = DockStyle.Fill,
+                Visible = false, // Inicialmente oculto
+                CanDragMap = true, // Permite arrastrar el mapa
+                DragButton = MouseButtons.Left, // Usa el clic izquierdo para arrastrar
+                MouseWheelZoomType = MouseWheelZoomType.MousePositionAndCenter, // Zoom con la rueda del mouse
+                IgnoreMarkerOnMouseWheel = true, // Evita interferencias con marcadores
+                MinZoom = 5,
+                MaxZoom = 20,
+                Zoom = 15,
+                ShowCenter = false
+            };
+            gmap.MouseDown += GMapControl_MouseDoubleClick; // capturo el evento de click en raton
+            this.Controls.Add(gmap);
+            gmap.MapProvider = GMapProviders.GoogleSatelliteMap;
+            GMaps.Instance.Mode = AccessMode.ServerOnly;
+            gmap.Position = home;
+            gmap.Visible = true; // Mostrar el mapa
         }
 
         private void editar_pedido_Load(object sender, EventArgs e)
         {
             panelMapa.Controls.Add(gmap);
-            // Fixed the issue by replacing Count() with Count property
+            
             for (int i = 0; i < pedidos.Count; i++)
             {
                 comboBox1.Items.Add(i+1);

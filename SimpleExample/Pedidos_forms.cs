@@ -318,8 +318,6 @@ namespace SimpleExample
             pedido2.setPesoTotal(precio_peso_2[1]);
             pedidos.Add(pedido2);
 
-            pedidos.Add(pedido2);
-
             DataRow nuevaFila2 = table.NewRow();
 
             nuevaFila2["Num."] = pedido2.getId();

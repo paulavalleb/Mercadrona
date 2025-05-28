@@ -58,7 +58,7 @@ namespace csDronLink
                         return d;
                     }
                 }
-                MessageBox.Show("No hay drones disponibles con suficiente carga");
+                MessageBox.Show("No hay drones disponibles con suficiente carga para " + this.peso_total);
                return null;
                 
             }

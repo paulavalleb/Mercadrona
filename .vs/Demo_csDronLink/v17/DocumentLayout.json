@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|c:\\users\\paula\\desktop\\4b\\pdd\\projecte 2\\mercadrona\\simpleexample\\editar_pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\simpleexample\\editar_pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\editar_pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,40 +11,52 @@
       "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\pedidos_forms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|c:\\users\\paula\\desktop\\4b\\pdd\\projecte 2\\mercadrona\\simpleexample\\mercadrona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\mercadrona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\simpleexample\\pedidos_forms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\pedidos_forms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\funcionespedidos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\funcionespedidos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|c:\\users\\paula\\desktop\\4b\\pdd\\projecte 2\\mercadrona\\simpleexample\\editar_pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\editar_pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\simpleexample\\pedidos_forms.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\pedidos_forms.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\simpleexample\\mercadrona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\mercadrona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\dron.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\dron.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\pedidolistener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\pedidolistener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\simpleexample\\editar_pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\editar_pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|c:\\users\\paula\\desktop\\4b\\pdd\\projecte 2\\mercadrona\\csdronlink\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\simpleexample\\mercadrona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\mercadrona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\dron_despegue_aterrizaje_rtl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\dron_despegue_aterrizaje_rtl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C75C26D4-003C-41EE-9F1C-FEDED475D6B0}|TestsConsola\\TestsConsola.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\testsconsola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C75C26D4-003C-41EE-9F1C-FEDED475D6B0}|TestsConsola\\TestsConsola.csproj|solutionrelative:testsconsola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\mavlinkparse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\mavlinkparse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\funcionespedidos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\funcionespedidos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\simpleexample\\pedidos_forms.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\pedidos_forms.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\pedidolistener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\pedidolistener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\pedidoweb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,24 +71,12 @@
       "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\dron_mision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C75C26D4-003C-41EE-9F1C-FEDED475D6B0}|TestsConsola\\TestsConsola.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\testsconsola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C75C26D4-003C-41EE-9F1C-FEDED475D6B0}|TestsConsola\\TestsConsola.csproj|solutionrelative:testsconsola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\simpleexample\\simpleexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\simpleexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\simpleexample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92360E56-A293-436C-8A29-0D0C37AF50A4}|SimpleExample\\SimpleExample.csproj|solutionrelative:simpleexample\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\dron_despegue_aterrizaje_rtl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\dron_despegue_aterrizaje_rtl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\mavlinkparse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|solutionrelative:csdronlink\\mavlinkparse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4943912-5FB7-4403-9F0C-489C59B15FC9}|csDronLink\\csDronLink.csproj|C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csdronlink\\dron_movimiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -149,17 +149,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 297,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Pedido.cs",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Pedido.cs",
               "RelativeDocumentMoniker": "csDronLink\\Pedido.cs",
               "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Pedido.cs",
               "RelativeToolTip": "csDronLink\\Pedido.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAArwHMAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAIAwwDoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-24T09:36:46.343Z",
               "IsPinned": true,
@@ -167,13 +167,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Mercadrona.cs",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Mercadrona.cs",
               "RelativeDocumentMoniker": "SimpleExample\\Mercadrona.cs",
               "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Mercadrona.cs",
               "RelativeToolTip": "SimpleExample\\Mercadrona.cs",
-              "ViewState": "AgIAAG4DAAAAAAAAAAAAAHUDAABAAAAAAAAAAA==",
+              "ViewState": "AgIAADcDAAAAAAAAAAApwEMDAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-24T09:30:31.807Z",
               "IsPinned": true,
@@ -181,11 +181,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Bookmark",
@@ -193,7 +193,20 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Pedidos_forms.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Pedidos_forms.cs",
+              "RelativeDocumentMoniker": "SimpleExample\\Pedidos_forms.cs",
+              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Pedidos_forms.cs",
+              "RelativeToolTip": "SimpleExample\\Pedidos_forms.cs",
+              "ViewState": "AgIAAHkBAAAAAAAAAAAtwIYBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T09:37:40.641Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -203,14 +216,14 @@
               "RelativeDocumentMoniker": "SimpleExample\\editar_pedido.cs",
               "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\editar_pedido.cs",
               "RelativeToolTip": "SimpleExample\\editar_pedido.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAArwEUAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAtwD4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T15:46:10.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Pedidos_forms.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Pedidos_forms.cs",
               "RelativeDocumentMoniker": "SimpleExample\\Pedidos_forms.cs",
@@ -222,33 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Pedidos_forms.cs",
-              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Pedidos_forms.cs",
-              "RelativeDocumentMoniker": "SimpleExample\\Pedidos_forms.cs",
-              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Pedidos_forms.cs",
-              "RelativeToolTip": "SimpleExample\\Pedidos_forms.cs",
-              "ViewState": "AgIAAHQBAAAAAAAAAADgv4gBAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T09:37:40.641Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "funcionesPedidos.cs",
-              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\funcionesPedidos.cs",
-              "RelativeDocumentMoniker": "csDronLink\\funcionesPedidos.cs",
-              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\funcionesPedidos.cs",
-              "RelativeToolTip": "csDronLink\\funcionesPedidos.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAkwBYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T15:45:27.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "editar_pedido.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\editar_pedido.cs",
               "RelativeDocumentMoniker": "SimpleExample\\editar_pedido.cs",
@@ -260,7 +247,82 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dron.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Dron.cs",
+              "RelativeDocumentMoniker": "csDronLink\\Dron.cs",
+              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Dron.cs",
+              "RelativeToolTip": "csDronLink\\Dron.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAIAwwIkAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T09:26:55.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "Mercadrona.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Mercadrona.cs",
+              "RelativeDocumentMoniker": "SimpleExample\\Mercadrona.cs",
+              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Mercadrona.cs [Dise\u00F1o]",
+              "RelativeToolTip": "SimpleExample\\Mercadrona.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T09:30:29.157Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dron_despegue_aterrizaje_RTL.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Dron_despegue_aterrizaje_RTL.cs",
+              "RelativeDocumentMoniker": "csDronLink\\Dron_despegue_aterrizaje_RTL.cs",
+              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Dron_despegue_aterrizaje_RTL.cs",
+              "RelativeToolTip": "csDronLink\\Dron_despegue_aterrizaje_RTL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:52:09.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\TestsConsola\\Program.cs",
+              "RelativeDocumentMoniker": "TestsConsola\\Program.cs",
+              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\TestsConsola\\Program.cs",
+              "RelativeToolTip": "TestsConsola\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAALMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T09:34:35.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MavlinkParse.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\MavlinkParse.cs",
+              "RelativeDocumentMoniker": "csDronLink\\MavlinkParse.cs",
+              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\MavlinkParse.cs",
+              "RelativeToolTip": "csDronLink\\MavlinkParse.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAIAwwGMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-08T08:12:18.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "funcionesPedidos.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\funcionesPedidos.cs",
+              "RelativeDocumentMoniker": "csDronLink\\funcionesPedidos.cs",
+              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\funcionesPedidos.cs",
+              "RelativeToolTip": "csDronLink\\funcionesPedidos.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAkwBYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T15:45:27.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Pedidos_forms.Designer.cs",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Pedidos_forms.Designer.cs",
               "RelativeDocumentMoniker": "SimpleExample\\Pedidos_forms.Designer.cs",
@@ -273,20 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Dron.cs",
-              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Dron.cs",
-              "RelativeDocumentMoniker": "csDronLink\\Dron.cs",
-              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Dron.cs",
-              "RelativeToolTip": "csDronLink\\Dron.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAwwIkAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T09:26:55.486Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Pedidolistener.cs",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Pedidolistener.cs",
               "RelativeDocumentMoniker": "csDronLink\\Pedidolistener.cs",
@@ -294,24 +343,11 @@
               "RelativeToolTip": "csDronLink\\Pedidolistener.cs",
               "ViewState": "AgIAADkAAAAAAAAAAAAAwEkAAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T09:08:20.902Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T09:08:20.902Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Mercadrona.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Mercadrona.cs",
-              "RelativeDocumentMoniker": "SimpleExample\\Mercadrona.cs",
-              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Mercadrona.cs [Dise\u00F1o]",
-              "RelativeToolTip": "SimpleExample\\Mercadrona.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T09:30:29.157Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "PedidoWeb.cs",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\PedidoWeb.cs",
               "RelativeDocumentMoniker": "csDronLink\\PedidoWeb.cs",
@@ -323,7 +359,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "Mercadrona.Designer.cs",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Mercadrona.Designer.cs",
               "RelativeDocumentMoniker": "SimpleExample\\Mercadrona.Designer.cs",
@@ -336,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "Dron_mision.cs",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Dron_mision.cs",
               "RelativeDocumentMoniker": "csDronLink\\Dron_mision.cs",
@@ -348,19 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\TestsConsola\\Program.cs",
-              "RelativeDocumentMoniker": "TestsConsola\\Program.cs",
-              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\TestsConsola\\Program.cs",
-              "RelativeToolTip": "TestsConsola\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAALMAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T09:34:35.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "simpleexample.cs",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\simpleexample.cs",
               "RelativeDocumentMoniker": "SimpleExample\\simpleexample.cs",
@@ -372,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\SimpleExample\\Program.cs",
               "RelativeDocumentMoniker": "SimpleExample\\Program.cs",
@@ -381,30 +405,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-24T09:41:18.372Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Dron_despegue_aterrizaje_RTL.cs",
-              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Dron_despegue_aterrizaje_RTL.cs",
-              "RelativeDocumentMoniker": "csDronLink\\Dron_despegue_aterrizaje_RTL.cs",
-              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\Dron_despegue_aterrizaje_RTL.cs",
-              "RelativeToolTip": "csDronLink\\Dron_despegue_aterrizaje_RTL.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwDAAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T11:52:09.049Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "MavlinkParse.cs",
-              "DocumentMoniker": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\MavlinkParse.cs",
-              "RelativeDocumentMoniker": "csDronLink\\MavlinkParse.cs",
-              "ToolTip": "C:\\Users\\paula\\Desktop\\4B\\PDD\\PROJECTE 2\\Mercadrona\\csDronLink\\MavlinkParse.cs",
-              "RelativeToolTip": "csDronLink\\MavlinkParse.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAwwGMAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T08:12:18.485Z"
             },
             {
               "$type": "Document",

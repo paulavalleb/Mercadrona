@@ -764,6 +764,7 @@ namespace SimpleExample
         private void cargar_pedidos_Click(object sender, EventArgs e)
         {
             pedidos = f.GetPedidos();
+            List<int> not_assigned = new List<int>(); 
             foreach (Pedido pedido in pedidos)
             {
                 Dron d = pedido.asignar_pedido(drons_list);
@@ -774,7 +775,6 @@ namespace SimpleExample
                     overlay.Markers.Add(destinoIcon);
                     d.asignarVertiport(pedido.getDireccion(), vertiports_list);
                     d.crearMision();
-                    int inc = 0;
                     float alt = 0;
                     if (d.GetVertiport() == 1)
                     {
@@ -801,6 +801,14 @@ namespace SimpleExample
                     d.SetAlt_det(alt);
                     d.CargarMision();
                 }
+                else
+                {
+                    not_assigned.Add(pedido.getId());
+                }
+            }
+            if(not_assigned.Count == 0)
+            {
+                MessageBox.Show("Los siguientes pedidos no han podido ser asignados a ningún dron:\n" + string.Join(", ", not_assigned), "Pedidos no asignados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
